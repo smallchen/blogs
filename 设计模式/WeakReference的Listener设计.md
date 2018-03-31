@@ -1,0 +1,18 @@
+WeakReference的Listener设计。
+
+问题：为什么会有将Listener设计为WeakReference的想法？
+
+Listener是观察者模式的设计，通常，外部会传入Listener，如果Listener是匿名类，Listener就会持有外部类本身的引用。这会导致，外部类不主动释放Listener（设置Listener为null），外部类就不能被释放，也就会造成内存泄漏。
+而外部类除了设置Listener外，还需要在不使用的时候设置Listener为null。这样强硬的操作Listener会很奇怪，虽然目的是为了防止内存泄漏。
+所以，有没有可能，将Listener设置为WeakReference，由系统自动回收。
+
+将Listener改为WeakReference的问题点
+问题1: 如果设置的Listener是匿名Listener，由于没有强引用，Listener的生命周期很短，系统GC时会被回收，回调失效。
+
+问题2：如果要回调不失效，需要外部持有匿名Listener的强引用，比如使用属性mListener持有，这样外部对象释放时，就可以引发WeakReference的Listener引用释放。
+
+问题3：Listener的自动释放得到解决，新的问题是，外部对象的释放如果交由系统GC，那么这个外部对象虽然已经没有被引用，但释放的时机不确定，这将导致Listener可能会延迟释放，意味着，外部对象已经没用了，但它注册的回调可能还会被触发，继而引发外部对象的一系列反应，最终可能会导致多请求／多回调／未知消息触发等等。（**这才是要显式反注册的根本原因**）
+
+引申1：大多人会觉得EventBus的反注册很繁琐，很大一部分人建议EventBus使用WeakReference来管理注册事件的对象。但EventBus说不会这样干，原因是使用WeakReference后，对象的生命周期会无法确定（某个时刻对象不为空，但无法确定对象是否逻辑上活着，有可能只是GC未到）。这种不确定性，是引发不稳定的因子。
+
+引申2：如果消息重入对逻辑没影响，使用弱引用还是可以的。
