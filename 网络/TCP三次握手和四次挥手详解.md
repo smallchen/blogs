@@ -30,7 +30,7 @@ C -> ACK -> S
 因为连接时，服务端可以将SYN和ACK合并一个包发到客户端。无需分两次。
 而关闭时，TCP是双通道，支持一端先关闭，另一端后关闭，两端时机不确定，没办法合并，所以需要共四次挥手。
 
-> Client调用shutdown时，只是Client到Server端关闭，表示Client已经没有数据发送了；Server端收到消息时，根据Server是否还需要发送数据来决定是否调用shutdown。
+> Client调用shutdown时，只是Client到Server端关闭，表示Client已经没有数据发送了；Server端收到消息时，根据Server是否还需要发送数据来决定是否调用shutdown。如果调用shutdown，则Server到Client端也关闭。
 
 > 在TCP协议层，一端收到关闭SYN时，会立刻应答ACK，因为是上层决定自己这端是否也需要关闭，这个过程等待应答会出现时延。而且也不保证应用层会关闭，所以这里等待可能得不偿失，应用层可能根本不需要合并。
 
@@ -50,7 +50,7 @@ C -> ACK(ACK=y+1) -> S
 
 **S端：**
 `LISTEN`： Server端准备好。
-`SYN_RECV`： Server收到了SYN。
+`SYN_RECV`： Server收到了SYN。（通常客户端的ACK很快就应答了，所以该状态比较少见）
 `ESTABLISHED`：Server收到Client的ACK。
 
 ```java
