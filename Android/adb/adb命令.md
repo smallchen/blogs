@@ -1,21 +1,24 @@
-adb -s 172.18.101.170:5555 shell am startservice -n com.cvte.maxhub.calendar/com.cvte.maxhub.calendar.CalendarService
+adb -s 172.18.101.170:5555 shell am startservice -n com.jokin.demo.calendar/com.jokin.demo.calendar.CalendarService
 
-adb -s 192.168.54.1:5555 shell am startservice -n com.cvte.maxhub.calendar/.CalendarService
+adb -s 192.168.54.1:5555 shell am startservice -n com.jokin.demo.calendar/.CalendarService
 
 adb -s 172.18.99.140:5555 shell am startservice -n com.seewo.osservice/.OSService
 
 安装包列表
-adb shell pm list packages 
+adb shell pm list packages
 
 AndroidStuido调试程序时的命令行
 07/27 09:41:14: Launching testpcfiletrans
-$ adb push /Users/jokinkuang/Documents/projects/510/510_maxhub_master/testpcfiletrans/build/outputs/apk/testpcfiletrans-debug.apk /data/local/tmp/com.cvte.maxhub.TestPCFileTrans
-$ adb shell pm install -r "/data/local/tmp/com.cvte.maxhub.TestPCFileTrans"
-	pkg: /data/local/tmp/com.cvte.maxhub.TestPCFileTrans
+$ adb push /Users/jokinkuang/Documents/projects/510/510_master/testpcfiletrans/build/outputs/apk/testpcfiletrans-debug.apk /data/local/tmp/com.jokin.demo.TestPCFileTrans
+$ adb shell pm install -r "/data/local/tmp/com.jokin.demo.TestPCFileTrans"
+	pkg: /data/local/tmp/com.jokin.demo.TestPCFileTrans
 Success
 
-$ adb shell am start -n "com.cvte.maxhub.TestPCFileTrans/com.cvte.maxhub.TestPCFileTrans.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+$ adb shell am start -n "com.jokin.demo.TestPCFileTrans/com.jokin.demo.TestPCFileTrans.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
 Connected to process 31294 on device 172.18.141.72:5555
+
+授权码 296495538
+adb shell setprop persist.sys.boardsn.value 42170517000009
 
 ## mount root
 adb xxx root
@@ -26,7 +29,7 @@ mount -o remount -w /system    // 3399
 mount -o remount w /system     // 5508
 
 分析GPU绘制
-adb shell dumpsys gfxinfo com.cvte.maxhub.welcome framestats
+adb shell dumpsys gfxinfo com.jokin.demo.welcome framestats
 adb shell dumpsys package com.examle.xx
 
 chown -R media_rw:media_rw mindlinker/       
@@ -44,4 +47,3 @@ dumpsys package co m .xx.xxx
 
 ## CPU架构
 cat /proc/cpuinfo   
-

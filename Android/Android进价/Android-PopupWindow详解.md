@@ -571,3 +571,31 @@ setOutsideTouchable(false);
 这样就可以实现，窗口外不关闭PopupWindow弹窗。
 
 但这里有个缺点，Focusable为false，意味着，软键盘输入可能会是问题。如果Focusable（这里不深入，具体可查看Touchable为false时如何打开软键盘这类）。
+
+
+2.4 如果启用了点击外部关闭弹窗，但发现窗口并没有关闭。如下。
+
+```java
+setTouchable(true);
+setFocusable(false);
+setOutsideTouchable(true);
+```
+
+原因：PopupWindow的父窗口，是WindowManager那层View。比如，如果使用WindowManager添加了一个小区域，那么PopupWindow的坐标是相对于这个小区域的坐标系，而不是相对于整个屏幕。所以，对于PopupWindow，所有事件的来源，先来源于这个WindowManager上的根View。
+
+这个例子，是因为WindowManager添加了一个小区域。如下。
+
+```java
+final WindowManager.LayoutParams paramsBottom = new WindowManager.LayoutParams(
+		WindowManager.LayoutParams.MATCH_PARENT,
+		10,
+		WindowManager.LayoutParams.TYPE_SEARCH_BAR,
+		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+		PixelFormat.TRANSPARENT
+);
+paramsBottom.gravity = Gravity.START|Gravity.BOTTOM;
+mWindowManager.addView(mBottomPanel, paramsBottom);
+```
+这个WindowManager添加的View中，并没有`WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH`标记。所以，它本身不能捕获`ACTION_OUTSIDE`，所以就无法将事件传递给PopupWindow，导致PopupWindow无法响应外部事件关闭窗口。
+
+本来以为是这样，结果打脸了。上面的代码并不能解决。需要将Type升级为`WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG 或 TYPE_SYSTEM_ALERT`才能捕获到`ACTION_OUTSIDE`。

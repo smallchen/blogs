@@ -53,7 +53,7 @@ platform3399DebugCompileClasspath - Resolved configuration for compilation for v
 compile - Compile dependencies for 'main' sources (deprecated: use 'implementation' instead).
 +--- :recordsdk-debug:
 +---:libcvtouchcontrol:R.0.2.4
-|    +---:libmaxhubappcontract:R.0.2+ -> R.0.2.9
+|    +---:libappcontract:R.0.2+ -> R.0.2.9
 |    |    \---:libsystemcontract:latest.release -> R.0.2.11
 |    \---:libcvtouchhelper:R.0.2+ -> R.0.2.26
 |         +--- com.tencent.bugly:crashreport:2.6.5
@@ -68,7 +68,7 @@ compile - Compile dependencies for 'main' sources (deprecated: use 'implementati
 platform3399DebugCompileClasspath - Resolved configuration for compilation for variant: platform3399Debug
 +--- :recordsdk-debug:
 +---:libcvtouchcontrol:R.0.2.4
-|    +---:libmaxhubappcontract:R.0.2+ -> R.0.2.9
+|    +---:libappcontract:R.0.2+ -> R.0.2.9
 |    |    \---:libsystemcontract:latest.release -> R.0.2.11
 |    \---:libcvtouchhelper:R.0.2+ -> R.0.2.26
 |         +--- com.tencent.bugly:crashreport:2.6.5

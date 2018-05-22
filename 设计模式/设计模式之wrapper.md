@@ -1,4 +1,8 @@
+
+wrapper在设计模式中叫`装饰器`模式。
+
 Android源码中的wrapper。
+
 ```java
 /*
  * Copyright (C) 2014 The Android Open Source Project
