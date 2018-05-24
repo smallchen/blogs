@@ -6,6 +6,24 @@
 新特性 [feature]
 Bug修复 [bugfix]
 
+## 问题
+
+1. git pull 或 git push 提示没有分支
+原因：当前分支没有关联远程分支，这个是需要设置的，使用了`git checkout origin/develop -b develop`是自动关联。但`git checkout develop -b new_develop`中，new_develop就不会自动关联。
+
+`git config -e` 查看
+
+```
+[branch "develop"]
+        remote = origin
+        merge = refs/heads/develop
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+```
+自己添加即可。
+
+
 ## 基本命令
 0. 帮助
 git xxx --help
@@ -15,8 +33,12 @@ git fetch origin 更新远程所有分支
 git pull origin
 
 2. 合并分支
-git rebase develop
+git rebase develop  // 合并，并重整当前分支
 git merge develop
+git merge develop --no-ff  // 合并但不会将合并作为提交。
+git merge develop --no-submit // 合并，然后产生cache，不会直接提交，需要用户自己提交
+git merget develop --squash  // 合并，将develop的多个差异作为一个提交。之前develop的提交信息会丢失。
+
 
 3. 仅合并某个提交
 git cherry-pick -x 6b8108
@@ -25,19 +47,25 @@ git cherry-pick <start-commit-id>^..<end-commit-id> 合并区间：[start end]
 
 3. 恢复
 git reset 6b8108/FETCH_HEAD  远程与本地的差异会进入cache
-git reset --hard FETCH_HEAD    直接舍弃本地，找不回来
+git reset --hard FETCH_HEAD  直接舍弃本地，找不回来
+git reset --hard origin/HEAD  同上
 
 4. 暂存和提取
-git stash           // 暂存
-git stash pop   // 提取
+git stash            // 暂存
+git stash pop        // 提取并出栈
+git stash save XXX   // 暂存
+git stash apply XXX  // 提取不出栈
+git stash list -v    // 列表
 
 6. 提交
+git commit --amend  // 修改上一个的commit的消息内容（如果觉得上一个提交信息不完善）
 git push origin master                   // 等同于 master:master
 git push origin master:master_1    // 提交本地master到远程master_1分支
 
 7. 添加远程仓库
 git remote add origin https://xxx.xxx.xxx
-git remote add origin_1  https://xxx.xxx.xxx
+git remote add origin_1  https://xxx.xxx.xxx   // 添加
+git remote set-url origin https://xxx.xxx.xxx  // 修改
 
 8. 分支
 git branch      //  查看本地分支
@@ -139,6 +167,3 @@ C点同样打包一个测试版release1.0.1_snapshot，测试通过，在C点打
 3. 拉取仓库A的最新代码。git fetch A
 4. 切换到要合并的分支。git checkout b-master B/master
 5. 将代码同步到仓库B。git cherry-pick -x <commit-id>
-
-
-
