@@ -52,10 +52,10 @@ platform3399DebugCompileClasspath - Resolved configuration for compilation for v
 ```java
 compile - Compile dependencies for 'main' sources (deprecated: use 'implementation' instead).
 +--- :recordsdk-debug:
-+---:libcvtouchcontrol:R.0.2.4
++---:libcontrol:R.0.2.4
 |    +---:libappcontract:R.0.2+ -> R.0.2.9
 |    |    \---:libsystemcontract:latest.release -> R.0.2.11
-|    \---:libcvtouchhelper:R.0.2+ -> R.0.2.26
+|    \---:libhelper:R.0.2+ -> R.0.2.26
 |         +--- com.tencent.bugly:crashreport:2.6.5
 |         +---:libvaidl:R.0.1.3
 |         +---:friday-sdk-android:0.1.9-SNAPSHOT
@@ -67,10 +67,10 @@ compile - Compile dependencies for 'main' sources (deprecated: use 'implementati
 ```java
 platform3399DebugCompileClasspath - Resolved configuration for compilation for variant: platform3399Debug
 +--- :recordsdk-debug:
-+---:libcvtouchcontrol:R.0.2.4
++---:libcontrol:R.0.2.4
 |    +---:libappcontract:R.0.2+ -> R.0.2.9
 |    |    \---:libsystemcontract:latest.release -> R.0.2.11
-|    \---:libcvtouchhelper:R.0.2+ -> R.0.2.26
+|    \---:libhelper:R.0.2+ -> R.0.2.26
 |         +--- com.tencent.bugly:crashreport:2.6.5
 |         +---:libvaidl:R.0.1.3
 |         +---:friday-sdk-android:0.1.9-SNAPSHOT

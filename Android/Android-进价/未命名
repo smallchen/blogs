@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Mark</string>
+
+    <!-- tool bar content description -->
+    <string name="prev_page">Prev</string>
+    <string name="next_page">Next</string>
+    <string name="exit_page">Finish</string>
+    <string name="mark">Mark</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
+    <string name="close_551">Close</string>
+    <string name="qr_code">QR Code</string>
+    <string name="share">Share</string>
+    <string name="eraser">Eraser</string>
+    <string name="eraser_551">Eraser</string>
+    <string name="pen">Pen</string>
+    <string name="color">Color</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+
+    <string name="mark_file">mark</string>
+
+
+
+    <!-- qr code layout -->
+    <string name="encrypt">Press to encrypt</string>
+    <string name="input_pwd_hint">Within 8 digits password</string>
+    <string name="pwd_format">Password：%1$s</string>
+    <string name="modify">Modify</string>
+    <string name="wait_qr_code">Please wait</string>
+    <string name="zoom">Zoom</string>
+    <string name="network_error_and_set">Network anomaly\nconfirm to set up?</string>
+    <string name="server_error_and_set">Fail to connect to server\nplease check your setting</string>
+    <string name="set_network">Network setting</string>
+    <string name="network_timeout_and_retry">Generate qrcode timeout\nplease retry</string>
+    <string name="record_error_and_retry">Generate record fail\nplease retry</string>
+    <string name="request_retry">Retry</string>
+    <string name="scan_qr_code">Scan QR to check meeting records</string>
+    <string name="time_format">yyyy-MM-dd HH:mm</string>
+    <string name="upload_title">Mark records</string>
+
+    <!-- status -->
+    <string name="mark_status_text">You are in mark mode</string>
+    <string name="mark_close_text">Switch pages after mark exited</string>
+
+    <!--print-->
+    <string name="no_local_space_for_share">No enough system storage space for cache sharing</string>
+    <string name="print">Print</string>
+    <string name="connect_printer_fail">Connect printer failed</string>
+    <string name="check_network_connection">No network connection, please check</string>
+    <string name="open_print_service_first">Please first open the print service in system settings</string>
+    <string name="cancel_print">Cancel</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="preparing_for_print">Preparing for print</string>
+    <string name="prepare_fail">Prepare fail</string>
+
+    <string name="print_send_to_printer">Successfully sent</string>
+    <string name="print_check_printer">Please check the printer</string>
+
+
+
+    <!--ppt toolbar desc-->
+    <string name="desc_toolbar_mark">Open Easy Mark</string>
+    <string name="desc_toolbar_ppt_next">Next slide</string>
+    <string name="desc_toolbar_ppt_prev">Previous slide</string>
+    <string name="desc_toolbar_ppt_exit">Exit play mode</string>
+
+    <string name="alert_dialog_ppt_exit">Do you want to save the current file?</string>
+    <string name="alert_dialog_ppt_exit_hint">If not saved, your comments will be lost.</string>
+    <string name="alert_dialog_mark_exit">Quit</string>
+    <string name="quite_immediately">Quite Immediately</string>
+    <string name="error_accessibility">An unknown error has been generated, please re-open recovery</string>
+    <string name="mark_close_text_551">Click it to exit</string>
+
+
+    <!-- file save -->
+    <string name="title_save">Save</string>
+    <string name="android_save_new_file_name_hint">New file name:</string>
+    <string name="android_save_file_name_can_not_empty">File name can not be empty</string>
+    <string name="android_save_file_name_error">Can not use special symbols in the file name</string>
+    <string name="android_save_insufficient_space">Storage space is insufficient, please clean up</string>
+    <string name="android_save_insufficient_space_and_change">Storage space is insufficient,\n please change the storage device</string>
+    <string name="android_save_device_not_exist">The storage device not exist,\n please change the storage device</string>
+    <string name="android_save_device_abnormal">The storage device is abnormal,\n please change the storage device</string>
+
+    <string name="android_save_keep_on">Continue</string>
+    <string name="android_save_app_yzj">YZJ</string>
+    <string name="android_save_next_step">Next</string>
+    <string name="android_save_previous_step">Previous</string>
+
+    <string name="android_save_record_success">Saved successfully</string>
+    <string name="android_save_mark_file">mark</string>
+    <string name="android_save_mark_record">record</string>
+    <string name="android_save_record_name">MeetingRecord</string>
+    <string name="android_save_mark_save_success">Saved successfully</string>
+    <string name="android_save_mark_close">Quit</string>
+    <string name="android_save_mark_saving">Saving mark record</string>
+
+    <!-- welcome -->
+    <string name="welcome_signature_quit_title">Close the signature</string>
+    <string name="welcome_signature_quit_tips">The signature has not been saved,\n whether to quit?</string>
+    <string name="welcome_signature_quit_yes">Cancel</string>
+    <string name="welcome_signature_quit_no">Quit</string>
+
+    <string name="welcome_signature_file">Signature</string>
+    <string name="welcome_signature_record">Signature</string>
+    <string name="welcome_signature_save_success">Save success,\n whether to close signature</string>
+    <string name="welcome_signature_close">Close signature</string>
+    <string name="welcome_signature_saving_progress_info">Saving signature</string>
+
+</resources>

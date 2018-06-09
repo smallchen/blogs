@@ -34,7 +34,9 @@ eg: '*:S <tag>' prints only <tag>, '<tag>:S' suppresses all <tag> log messages.
 
 `logcat jokin:D` 输出TAG为jokin的Debug等级日志
 `logcat jokin:E` 输出TAG为jokin的Error等级日志
-`logcat jokin1:E jokin2:D jokin3:E jokin4:E` 输出或关系的TAG日志。
+`logcat jokin1:E jokin2:D jokin3:E jokin4:E` 输出或关系的TAG日志。(失败)
+> 上面还是会输出所有log，所以要添加黑名单一起用
+`logcat *:S jokin1:D jokin2:D jokin3:D` 输出或关系的TAG！！！（成功！）
 
 3. 黑名单S
 

@@ -16,3 +16,7 @@ am startservice -n com.jokin.example.sidebar/.monitor.MonitorService
 
 停止服务：
 `adb shell am stopservice -n package/.path`
+
+发送广播：
+adb shell am broadcast -a android.intent.action.ACTION_SHUTDOWN -c android.intent.category.HOME
+-n com.andy.androidtest/.ShutdownBroadcastReceiver
