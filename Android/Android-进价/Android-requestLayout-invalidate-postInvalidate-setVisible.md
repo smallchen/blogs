@@ -1,1 +1,7 @@
+## requestLayout与invalidate区别
 
+requestLayout：当view确定自身已经不再适合现有的区域时，该view本身调用这个方法要求parent view重新调用他的onMeasure onLayout来对重新设置自己位置。
+
+特别的当view的layoutparameter发生改变，并且它的值还没能应用到view上，这时候适合调用这个方法。
+
+invalidate：View本身调用迫使view重画。

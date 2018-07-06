@@ -1,12 +1,12 @@
-[chrome-element]: chrome-element.png
-[chrome-sources]: chrome-sources.png
-[chrome-debug]: chrome-debug.png
-[chrome-network]: chrome-network.png
-[chrome-performance]: chrome-performance.png
-[chrome-application]: chrome-application.png
-[chrome-audits]: chrome-audits.png
-[chrome-search]: chrome-search.png
-[chrome-snippets]: chrome-snippets.png
+[chrome-element]: imgs/chrome-element.png
+[chrome-sources]: imgs/chrome-sources.png
+[chrome-debug]: imgs/chrome-debug.png
+[chrome-network]: imgs/chrome-network.png
+[chrome-performance]: imgs/chrome-performance.png
+[chrome-application]: imgs/chrome-application.png
+[chrome-audits]: imgs/chrome-audits.png
+[chrome-search]: imgs/chrome-search.png
+[chrome-snippets]: imgs/chrome-snippets.png
 
 #### Chrome开发者模式
 

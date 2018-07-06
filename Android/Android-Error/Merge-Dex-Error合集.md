@@ -154,3 +154,21 @@ myflavorCompile(project(path: ':share')) {
     exclude group: 'org.jetbrains'
 }
 ```
+
+#### D8: Program type already present
+
+> Task :app:transformDexArchiveWithExternalLibsDexMergerFordemoHisi510Debug FAILED
+D8: Program type already present: org.intellij.lang.annotations.JdkConstants$AdjustableOrientation
+
+
+FAILURE: Build failed with an exception.
+
+原因：引入了两个`JDKConstants`，command+o可以看到两个对象:
+
+```java
+compile 'org.jetbrains:annotations-java5:15.0'
+和
+compile 'org.jetbrains:annotations-java13'
+```
+删除一个即可。
+> 上面已经说过了 ～～～～

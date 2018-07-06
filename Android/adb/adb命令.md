@@ -2,7 +2,7 @@ adb -s 172.18.101.170:5555 shell am startservice -n com.jokin.demo.calendar/com.
 
 adb -s 192.168.54.1:5555 shell am startservice -n com.jokin.demo.calendar/.CalendarService
 
-adb -s 172.18.99.140:5555 shell am startservice -n com.seewo.osservice/.OSService
+adb -s 172.18.99.140:5555 shell am startservice -n com.jokin.osservice/.OSService
 
 安装包列表
 adb shell pm list packages

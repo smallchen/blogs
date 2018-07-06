@@ -46,9 +46,10 @@ git cherry-pick <start-commit-id>..<end-commit-id>  合并区间：(start end]
 git cherry-pick <start-commit-id>^..<end-commit-id> 合并区间：[start end]
 
 3. 恢复
-git reset 6b8108/FETCH_HEAD  远程与本地的差异会进入cache
-git reset --hard FETCH_HEAD  直接舍弃本地，找不回来
+git reset 6b8108/FETCH_HEAD  远程与本地的差异会进入cache（暂存区）
+git reset --hard FETCH_HEAD  直接舍弃本地，找不回来（危险操作）
 git reset --hard origin/HEAD  同上
+git reset commit-id          将commit-id到HEAD之前到提交都提取到暂存区。然后可以当一个commit一次性提交！！（非常有用），就是会丢失旧的提交信息。
 
 4. 暂存和提取
 git stash            // 暂存

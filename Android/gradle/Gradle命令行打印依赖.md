@@ -77,6 +77,8 @@ platform3399DebugCompileClasspath - Resolved configuration for compilation for v
 |         \---:libsystemcontract:latest.release -> R.0.2.11
 ```
 
+4. `-q`可以减少不必要的输出。
+
 总结：
 1. ./gradlew :app:dependencies 查看app模块下所有配置的依赖。
 `其中，app为模块`

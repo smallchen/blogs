@@ -50,6 +50,13 @@
 * startForeground(int id, Notification notification)
 * stopForeground(boolean removeNotification)
 
+onStartCommand() is always called on the main application thread in any service。
+
+onBind／onUnbind/onRebind 可能在不同的线程
+
+> onStartCommand是startService产生的。所以在主线程。
+> onBind...是bindService产生的。所以在多线程。
+
 ### BroadcastReceiver
 
 类型：

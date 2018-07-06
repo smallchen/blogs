@@ -1,13 +1,13 @@
-[qq-login-iframe]: qq-login-iframe.png
-[qq-login-network]: qq-login-network.png
-[qq-login-network2]: qq-login-network2.png
-[qq-login-check]: qq-login-check.png
-[qq-login-request]: qq-login-request.png
-[qq-login-request2]: qq-login-request2.png
-[qq-login-pt-verifysession]: qq-login-pt-verifysession.png
-[qq-login-call-tree]: qq-login-call-tree.png
-[qq-login-getsubmiturl]: qq-login-getsubmiturl.png
-[qq-login-h]: qq-login-h.png
+[qq-login-iframe]: imgs/qq-login-iframe.png
+[qq-login-network]: imgs/qq-login-network.png
+[qq-login-network2]: imgs/qq-login-network2.png
+[qq-login-check]: imgs/qq-login-check.png
+[qq-login-request]: imgs/qq-login-request.png
+[qq-login-request2]: imgs/qq-login-request2.png
+[qq-login-pt-verifysession]: imgs/qq-login-pt-verifysession.png
+[qq-login-call-tree]: imgs/qq-login-call-tree.png
+[qq-login-getsubmiturl]: imgs/qq-login-getsubmiturl.png
+[qq-login-h]: imgs/qq-login-h.png
 
 ### 突破QQ的登录验证
 
