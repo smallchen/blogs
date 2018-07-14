@@ -8,7 +8,10 @@
 * AIDL
 * SOCKET
 
-很容易忽略，Android四大组件天然支持跨进程通信！！
+以下的单进程，既包含`单个项目单进程`，也包含`多个项目单进程`（通过android:sharedUserId)。
+以下的跨进程，既包含`单个项目多进程`（通过android:process），也包含`多个项目多进程`。
+
+很容易忽略，**Android四大组件天然支持跨进程通信！！**，
 
 ### Bound Service的三种方式（跨Service）
 

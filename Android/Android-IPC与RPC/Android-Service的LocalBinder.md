@@ -108,10 +108,28 @@ findViewById(R.id.closeActionLocal).setOnClickListener(new View.OnClickListener(
 });
 ```
 
+### LocalBinder使用在单项目多进程的Service如何？
+
+上面例子，把`LocalService`放到子进程中，也就是有3中情况：
+
+1. 同一个项目，同一个进程
+2. 同一个项目，公共子进程(com.local)
+3. 同一个项目，私有子进程(:local)
+
+情况1为上面例子，LocalBinder工作正常。`onServiceConnected`中的`IBinder`是`com.jokin.demo.aidl.server.LocalService$LocalBinder`
+
+情况2，崩溃。因为`onServiceConnected`中的`IBinder`不再是LocalBinder对象，而是`android.os.BinderProxy`。
+
+情况3，崩溃，同上，对象不是`LocalBinder`，而是`BinderProxy`。
+
+凡是跨进程通信，IBinder得到的都是`BinderProxy`，是一个`remote`的`Binder`。不可能得到一个完整的`LocalBinder`对象，更不可能直接通过`LocalBinder`提供的公共方法访问到在另一个进程中的`Service`!!!
+
 ### 总结
 
 1. Binder对象只是起了桥梁的作用。通过Binder这个桥梁。客户端可以访问服务端，甚至可以拿到服务端整个实例。
 
 2. 本地Binder的线程问题，和本地调用一样。在UI线程调用则在UI线程执行。在多线程中调用，则在多线程环境下执行。
+
+3. **不能用于多进程Service**
 
 参考：<https://developer.android.com/guide/components/bound-services?hl=zh-cn#Binder>

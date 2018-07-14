@@ -253,3 +253,211 @@ Android每16ms的信号，是硬件产生的，不需要绘制时，不会产生
 
 ViewFlipper 滑动时页面不可见，只是页面的动画而已
 ViewPager 滑动时前后页面可见
+
+
+ViewPager的Adapter从大容量切换为小容量，会刷新两次
+
+
+06-08 20:17:36.562 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... ........ 0,0-714,798}#Click1
+06-08 20:17:36.634 4590-4590/com.jokin.demo.calendar E/Selected: 657118020#Refresh35||1
+06-08 20:17:36.713 4590-4590/com.jokin.demo.calendar E/Selected: 657118020#Refresh17||1
+06-08 20:17:36.713 4590-4590/com.jokin.demo.calendar E/Selected: 657118020#Real Refresh17||1
+06-08 20:17:36.722 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... ......ID 0,0-714,798}#1
+06-08 20:17:36.723 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... ......ID 0,0-714,798}#update
+
+而反过来，从小容量切换到大容量，仅会刷新一次
+
+
+06-08 20:17:26.959 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... .......D 0,0-714,798}#Click3
+06-08 20:17:27.247 4590-4590/com.jokin.demo.calendar E/Selected: 657118020#Refresh525||3
+06-08 20:17:27.248 4590-4590/com.jokin.demo.calendar E/Selected: 657118020#Real Refresh525||3
+06-08 20:17:27.250 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... ......ID 0,0-714,798}#3
+06-08 20:17:27.251 4590-4590/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{2432dc2d V.E..... ......ID 0,0-714,798}#update
+
+
+
+Bug的出现是，因为从大容量切换到小容量并不是一直触发两次，也即是说，触发两次不仅是因为Adapter的容量，而是还有其它条件控制，所以在特定的条件下，从大容量切到小容量并不会触发两次，于是导致了Bug。
+
+
+NotifyDataSetChanged并不会触发onItemSelected，仅会触发第一次初始化instantiateItem。初始化后使用setCurrentIndex才会导致onItemSelected触发。
+
+
+
+06-09 10:13:46.917 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:13:47.584 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:13:47.584 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:13:47.612 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:13:47.630 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:13:47.647 6068-6068/? E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:15:33.633 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... .......D 0,0-714,798}#Click2
+06-09 10:15:33.634 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:15:34.811 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:15:34.814 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:15:34.849 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:15:34.884 6068-6068/? E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:15:34.925 6068-6068/? E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:15:35.897 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:15:35.898 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:15:36.485 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:15:36.497 6068-6068/? E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:15:37.098 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:15:37.109 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:15:37.720 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click3
+06-09 10:15:37.721 6068-6068/? E/Selected: 1048842980#475378509onPageSelected526||3
+06-09 10:15:38.167 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:15:38.167 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:15:38.496 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:15:38.499 6068-6068/? E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:15:38.764 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:15:38.764 6068-6068/? E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:15:39.127 6068-6068/? E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click3
+06-09 10:15:39.128 6068-6068/? E/Selected: 1048842980#475378509onPageSelected526||3
+
+
+
+b.calendar E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:18:10.058 6222-6222/com.jokin.demo.calendar E/Selected: 33141131#132850280onPageSelected17||1
+06-09 10:18:10.180 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:18:10.196 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:18:10.208 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:18:10.671 6222-6222/com.jokin.demo.calendar E/Selected: 33141131#768018877#132850280#instantiateItem17||1
+06-09 10:18:10.691 6222-6222/com.jokin.demo.calendar E/Selected: 33141131#768018877#132850280#instantiateItem16||1
+06-09 10:18:10.710 6222-6222/com.jokin.demo.calendar E/Selected: 33141131#768018877#132850280#instantiateItem18||1
+06-09 10:18:13.588 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... .......D 0,0-714,798}#Click2
+06-09 10:18:13.625 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||2
+06-09 10:18:13.668 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||2
+06-09 10:18:13.695 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||2
+06-09 10:18:13.725 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:13.752 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:13.783 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:13.814 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:15.237 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:18:15.244 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem35||1
+06-09 10:18:15.294 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||1
+06-09 10:18:15.332 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected35||1
+06-09 10:18:15.332 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:18:15.364 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:18:15.393 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:18:15.426 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:18:17.527 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... .......D 0,0-714,798}#Click2
+06-09 10:18:17.544 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||2
+06-09 10:18:17.571 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||2
+06-09 10:18:17.602 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||2
+06-09 10:18:17.629 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:17.657 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:17.684 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:17.709 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:18.550 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:18:18.552 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem35||1
+06-09 10:18:18.580 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||1
+06-09 10:18:18.600 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected35||1
+06-09 10:18:18.600 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:18:18.622 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:18:18.642 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:18:18.664 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:18:20.799 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... .......D 0,0-714,798}#Click2
+06-09 10:18:20.808 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||2
+06-09 10:18:20.849 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||2
+06-09 10:18:20.878 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||2
+06-09 10:18:20.902 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:20.927 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:20.952 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:20.976 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:21.573 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click3
+06-09 10:18:21.580 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||3
+06-09 10:18:21.618 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||3
+06-09 10:18:21.642 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||3
+06-09 10:18:21.665 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem526||3
+06-09 10:18:21.685 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem525||3
+06-09 10:18:21.704 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem527||3
+06-09 10:18:21.725 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected526||3
+06-09 10:18:22.356 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:18:22.399 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem156||2
+06-09 10:18:22.421 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem155||2
+06-09 10:18:22.439 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected156||2
+06-09 10:18:22.439 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:22.453 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:22.468 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:22.482 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:23.039 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:18:23.050 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem35||1
+06-09 10:18:23.083 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||1
+06-09 10:18:23.101 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected35||1
+06-09 10:18:23.101 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:18:23.118 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:18:23.133 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:18:23.148 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected17||1
+06-09 10:18:24.229 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:18:24.232 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||2
+06-09 10:18:24.275 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||2
+06-09 10:18:24.322 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||2
+06-09 10:18:24.350 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:24.385 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:24.421 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:24.458 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:25.048 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click3
+06-09 10:18:25.049 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||3
+06-09 10:18:25.090 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||3
+06-09 10:18:25.115 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||3
+06-09 10:18:25.139 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem526||3
+06-09 10:18:25.168 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem525||3
+06-09 10:18:25.190 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem527||3
+06-09 10:18:25.216 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected526||3
+06-09 10:18:25.844 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 10:18:25.848 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem156||2
+06-09 10:18:25.899 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem155||2
+06-09 10:18:25.913 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected156||2
+06-09 10:18:25.913 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem76||2
+06-09 10:18:25.924 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem75||2
+06-09 10:18:25.938 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem77||2
+06-09 10:18:25.952 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected76||2
+06-09 10:18:26.616 6222-6222/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 10:18:26.620 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem35||1
+06-09 10:18:26.641 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||1
+06-09 10:18:26.664 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected35||1
+06-09 10:18:26.664 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||1
+06-09 10:18:26.684 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||1
+06-09 10:18:26.697 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||1
+06-09 10:18:26.708 6222-6222/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected17||1
+
+
+最多缓存5个。
+06-09 10:35:41.076 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem17||3
+06-09 10:35:41.126 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem16||3
+06-09 10:35:41.167 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem18||3
+06-09 10:35:41.211 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem14||3
+06-09 10:35:41.255 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem13||3
+06-09 10:35:41.298 6759-6759/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem15||3
+
+
+
+com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... .......D 0,0-714,798}#Click3
+06-09 11:02:34.134 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem33||3
+06-09 11:02:34.195 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem32||3
+06-09 11:02:34.239 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||3
+06-09 11:02:34.282 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem156||3
+06-09 11:02:34.332 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem155||3
+06-09 11:02:34.374 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem157||3
+06-09 11:02:34.414 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected156||3
+06-09 11:02:35.318 7582-7582/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click2
+06-09 11:02:35.326 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem156||2
+06-09 11:02:35.353 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem155||2
+06-09 11:02:35.373 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem40||2
+06-09 11:02:35.391 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem39||2
+06-09 11:02:35.407 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem41||2
+06-09 11:02:35.424 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected40||2
+06-09 11:02:37.063 7582-7582/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click3
+06-09 11:02:37.070 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem40||3
+06-09 11:02:37.130 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem39||3
+06-09 11:02:37.174 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem41||3
+06-09 11:02:37.225 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem156||3
+06-09 11:02:37.266 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem155||3
+06-09 11:02:37.304 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem157||3
+06-09 11:02:37.343 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected156||3
+06-09 11:02:38.244 7582-7582/com.jokin.demo.calendar E/Select: com.jokin.demo.calendar.view.CalendarWindowView{1c55b34d V.E..... ........ 0,0-714,798}#Click1
+06-09 11:02:38.251 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem35||1
+06-09 11:02:38.271 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem34||1
+06-09 11:02:38.295 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected35||1
+06-09 11:02:38.296 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem33||1
+06-09 11:02:38.315 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#466600742#475378509#instantiateItem32||1
+06-09 11:02:38.336 7582-7582/com.jokin.demo.calendar E/Selected: 1048842980#475378509onPageSelected33||1
