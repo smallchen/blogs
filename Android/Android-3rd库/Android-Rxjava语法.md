@@ -225,6 +225,10 @@ public interface Action3<T1, T2, T3> extends Action {
 回过头。由于`Subscriber`的回调中，`onCompleted`是无参的，`onNext`是一个参数，`onError`也是一个参数。所以可以分别用`Action0`和`Action1`表示。
 
 
+问题：如何做到，传入同一个参数类型，却可以分别调用`Action0`、`Action1`等等不同的参数个数的回调？？
+答案：取决于subscribe发起时，使用多少个参数。那么回调中就使用ActionN作为回调。任务的发起方决定了参数类型和个数。
+
+
 #### 异步线程控制
 
 从上面的`被观察者`，`观察者/订阅者`可以看到，有两个时机可以切换线程。
@@ -641,6 +645,11 @@ Observable.create(onSubscribe)
 默认情况下， doOnSubscribe() 执行在 subscribe() 发生的线程；而如果在 doOnSubscribe() 之后有 subscribeOn() 的话，它将执行在离它最近的 subscribeOn() 所指定的线程。
 
 > 注意，它只能影响doOnSubscribe的执行线程，仍旧不能影响订阅后，分发流程的执行线程。
+
+线程问题：默认，observer执行线程和subscribe线程一致。意味着：修改observers的线程的方式有两种：
+
+* subscribe时就切换线程。
+* observers时切换线程。
 
 
 #### 扩展，同步改异步

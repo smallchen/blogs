@@ -1,0 +1,2324 @@
+{"mr_index": [
+    {
+        "total_tx_count": "15054",
+        "avg_feet_rent": "18.34",
+        "avg_net_feet_price": "6088",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-01-01",
+        "avg_feet_price": "4866",
+        "avg_net_feet_rent": "23.72"
+    },
+    {
+        "total_tx_count": "11709",
+        "avg_feet_rent": "18.68",
+        "avg_net_feet_price": "6396",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-02-01",
+        "avg_feet_price": "5102",
+        "avg_net_feet_rent": "24.17"
+    },
+    {
+        "total_tx_count": "11267",
+        "avg_feet_rent": "19.12",
+        "avg_net_feet_price": "6939",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-03-01",
+        "avg_feet_price": "5522",
+        "avg_net_feet_rent": "24.73"
+    },
+    {
+        "total_tx_count": "19599",
+        "avg_feet_rent": "19.54",
+        "avg_net_feet_price": "6995",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-04-01",
+        "avg_feet_price": "5536",
+        "avg_net_feet_rent": "25.28"
+    },
+    {
+        "total_tx_count": "14560",
+        "avg_feet_rent": "19.96",
+        "avg_net_feet_price": "7447",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-05-01",
+        "avg_feet_price": "5969",
+        "avg_net_feet_rent": "25.82"
+    },
+    {
+        "total_tx_count": "13474",
+        "avg_feet_rent": "20.5",
+        "avg_net_feet_price": "7767",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-06-01",
+        "avg_feet_price": "6208",
+        "avg_net_feet_rent": "26.52"
+    },
+    {
+        "total_tx_count": "18329",
+        "avg_feet_rent": "20.76",
+        "avg_net_feet_price": "7661",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-07-01",
+        "avg_feet_price": "6074",
+        "avg_net_feet_rent": "26.85"
+    },
+    {
+        "total_tx_count": "10154",
+        "avg_feet_rent": "20.83",
+        "avg_net_feet_price": "7744",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-08-01",
+        "avg_feet_price": "6170",
+        "avg_net_feet_rent": "26.95"
+    },
+    {
+        "total_tx_count": "8899",
+        "avg_feet_rent": "20.85",
+        "avg_net_feet_price": "7672",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-09-01",
+        "avg_feet_price": "6109",
+        "avg_net_feet_rent": "26.97"
+    },
+    {
+        "total_tx_count": "9070",
+        "avg_feet_rent": "20.7",
+        "avg_net_feet_price": "7761",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-10-01",
+        "avg_feet_price": "6159",
+        "avg_net_feet_rent": "26.77"
+    },
+    {
+        "total_tx_count": "9546",
+        "avg_feet_rent": "19.26",
+        "avg_net_feet_price": "7299",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-11-01",
+        "avg_feet_price": "5821",
+        "avg_net_feet_rent": "24.91"
+    },
+    {
+        "total_tx_count": "4198",
+        "avg_feet_rent": "18.35",
+        "avg_net_feet_price": "6875",
+        "total_rent_tx_count": "0",
+        "index_date": "1997-12-01",
+        "avg_feet_price": "5466",
+        "avg_net_feet_rent": "23.73"
+    },
+    {
+        "total_tx_count": "4014",
+        "avg_feet_rent": "16.88",
+        "avg_net_feet_price": "6214",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-01-01",
+        "avg_feet_price": "4989",
+        "avg_net_feet_rent": "21.83"
+    },
+    {
+        "total_tx_count": "3210",
+        "avg_feet_rent": "16.84",
+        "avg_net_feet_price": "5806",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-02-01",
+        "avg_feet_price": "4641",
+        "avg_net_feet_rent": "21.78"
+    },
+    {
+        "total_tx_count": "6052",
+        "avg_feet_rent": "17.2",
+        "avg_net_feet_price": "5894",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-03-01",
+        "avg_feet_price": "4762",
+        "avg_net_feet_rent": "22.24"
+    },
+    {
+        "total_tx_count": "5089",
+        "avg_feet_rent": "17.13",
+        "avg_net_feet_price": "5678",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-04-01",
+        "avg_feet_price": "4567",
+        "avg_net_feet_rent": "22.16"
+    },
+    {
+        "total_tx_count": "4805",
+        "avg_feet_rent": "16.58",
+        "avg_net_feet_price": "5240",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-05-01",
+        "avg_feet_price": "4188",
+        "avg_net_feet_rent": "21.45"
+    },
+    {
+        "total_tx_count": "3730",
+        "avg_feet_rent": "15.47",
+        "avg_net_feet_price": "4565",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-06-01",
+        "avg_feet_price": "3675",
+        "avg_net_feet_rent": "20.01"
+    },
+    {
+        "total_tx_count": "3680",
+        "avg_feet_rent": "15.42",
+        "avg_net_feet_price": "4370",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-07-01",
+        "avg_feet_price": "3485",
+        "avg_net_feet_rent": "19.94"
+    },
+    {
+        "total_tx_count": "3847",
+        "avg_feet_rent": "15.42",
+        "avg_net_feet_price": "4199",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-08-01",
+        "avg_feet_price": "3354",
+        "avg_net_feet_rent": "19.94"
+    },
+    {
+        "total_tx_count": "3561",
+        "avg_feet_rent": "14.83",
+        "avg_net_feet_price": "4014",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-09-01",
+        "avg_feet_price": "3238",
+        "avg_net_feet_rent": "19.18"
+    },
+    {
+        "total_tx_count": "2981",
+        "avg_feet_rent": "14.56",
+        "avg_net_feet_price": "3941",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-10-01",
+        "avg_feet_price": "3169",
+        "avg_net_feet_rent": "18.83"
+    },
+    {
+        "total_tx_count": "5387",
+        "avg_feet_rent": "14.63",
+        "avg_net_feet_price": "4186",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-11-01",
+        "avg_feet_price": "3355",
+        "avg_net_feet_rent": "18.92"
+    },
+    {
+        "total_tx_count": "6685",
+        "avg_feet_rent": "15.2",
+        "avg_net_feet_price": "4246",
+        "total_rent_tx_count": "0",
+        "index_date": "1998-12-01",
+        "avg_feet_price": "3399",
+        "avg_net_feet_rent": "19.66"
+    },
+    {
+        "total_tx_count": "5894",
+        "avg_feet_rent": "15.5",
+        "avg_net_feet_price": "4327",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-01-01",
+        "avg_feet_price": "3461",
+        "avg_net_feet_rent": "20.04"
+    },
+    {
+        "total_tx_count": "4131",
+        "avg_feet_rent": "14.92",
+        "avg_net_feet_price": "4286",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-02-01",
+        "avg_feet_price": "3430",
+        "avg_net_feet_rent": "19.3"
+    },
+    {
+        "total_tx_count": "4678",
+        "avg_feet_rent": "15.63",
+        "avg_net_feet_price": "4464",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-03-01",
+        "avg_feet_price": "3583",
+        "avg_net_feet_rent": "20.21"
+    },
+    {
+        "total_tx_count": "5131",
+        "avg_feet_rent": "15.66",
+        "avg_net_feet_price": "4414",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-04-01",
+        "avg_feet_price": "3522",
+        "avg_net_feet_rent": "20.25"
+    },
+    {
+        "total_tx_count": "5972",
+        "avg_feet_rent": "15.21",
+        "avg_net_feet_price": "4509",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-05-01",
+        "avg_feet_price": "3597",
+        "avg_net_feet_rent": "19.67"
+    },
+    {
+        "total_tx_count": "5546",
+        "avg_feet_rent": "15.07",
+        "avg_net_feet_price": "4410",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-06-01",
+        "avg_feet_price": "3538",
+        "avg_net_feet_rent": "19.49"
+    },
+    {
+        "total_tx_count": "5561",
+        "avg_feet_rent": "15.21",
+        "avg_net_feet_price": "4445",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-07-01",
+        "avg_feet_price": "3559",
+        "avg_net_feet_rent": "19.67"
+    },
+    {
+        "total_tx_count": "5022",
+        "avg_feet_rent": "15.11",
+        "avg_net_feet_price": "4324",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-08-01",
+        "avg_feet_price": "3453",
+        "avg_net_feet_rent": "19.55"
+    },
+    {
+        "total_tx_count": "3999",
+        "avg_feet_rent": "15.57",
+        "avg_net_feet_price": "4211",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-09-01",
+        "avg_feet_price": "3376",
+        "avg_net_feet_rent": "20.13"
+    },
+    {
+        "total_tx_count": "3760",
+        "avg_feet_rent": "14.59",
+        "avg_net_feet_price": "4013",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-10-01",
+        "avg_feet_price": "3201",
+        "avg_net_feet_rent": "18.87"
+    },
+    {
+        "total_tx_count": "4293",
+        "avg_feet_rent": "14.64",
+        "avg_net_feet_price": "4007",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-11-01",
+        "avg_feet_price": "3215",
+        "avg_net_feet_rent": "18.94"
+    },
+    {
+        "total_tx_count": "4252",
+        "avg_feet_rent": "14.36",
+        "avg_net_feet_price": "4144",
+        "total_rent_tx_count": "0",
+        "index_date": "1999-12-01",
+        "avg_feet_price": "3331",
+        "avg_net_feet_rent": "18.58"
+    },
+    {
+        "total_tx_count": "4992",
+        "avg_feet_rent": "15.05",
+        "avg_net_feet_price": "4083",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-01-01",
+        "avg_feet_price": "3270",
+        "avg_net_feet_rent": "19.46"
+    },
+    {
+        "total_tx_count": "4370",
+        "avg_feet_rent": "14.8",
+        "avg_net_feet_price": "4028",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-02-01",
+        "avg_feet_price": "3223",
+        "avg_net_feet_rent": "19.14"
+    },
+    {
+        "total_tx_count": "4124",
+        "avg_feet_rent": "15.24",
+        "avg_net_feet_price": "4005",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-03-01",
+        "avg_feet_price": "3202",
+        "avg_net_feet_rent": "19.71"
+    },
+    {
+        "total_tx_count": "3914",
+        "avg_feet_rent": "14.33",
+        "avg_net_feet_price": "4023",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-04-01",
+        "avg_feet_price": "3232",
+        "avg_net_feet_rent": "18.53"
+    },
+    {
+        "total_tx_count": "4135",
+        "avg_feet_rent": "14.43",
+        "avg_net_feet_price": "3831",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-05-01",
+        "avg_feet_price": "3077",
+        "avg_net_feet_rent": "18.66"
+    },
+    {
+        "total_tx_count": "3646",
+        "avg_feet_rent": "13.87",
+        "avg_net_feet_price": "3662",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-06-01",
+        "avg_feet_price": "2928",
+        "avg_net_feet_rent": "17.94"
+    },
+    {
+        "total_tx_count": "3948",
+        "avg_feet_rent": "13.67",
+        "avg_net_feet_price": "3621",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-07-01",
+        "avg_feet_price": "2881",
+        "avg_net_feet_rent": "17.68"
+    },
+    {
+        "total_tx_count": "4425",
+        "avg_feet_rent": "13.79",
+        "avg_net_feet_price": "3643",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-08-01",
+        "avg_feet_price": "2892",
+        "avg_net_feet_rent": "17.83"
+    },
+    {
+        "total_tx_count": "4715",
+        "avg_feet_rent": "14.3",
+        "avg_net_feet_price": "3692",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-09-01",
+        "avg_feet_price": "2934",
+        "avg_net_feet_rent": "18.5"
+    },
+    {
+        "total_tx_count": "4901",
+        "avg_feet_rent": "14.09",
+        "avg_net_feet_price": "3618",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-10-01",
+        "avg_feet_price": "2889",
+        "avg_net_feet_rent": "18.23"
+    },
+    {
+        "total_tx_count": "4401",
+        "avg_feet_rent": "13.7",
+        "avg_net_feet_price": "3477",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-11-01",
+        "avg_feet_price": "2784",
+        "avg_net_feet_rent": "17.72"
+    },
+    {
+        "total_tx_count": "3196",
+        "avg_feet_rent": "13.63",
+        "avg_net_feet_price": "3372",
+        "total_rent_tx_count": "0",
+        "index_date": "2000-12-01",
+        "avg_feet_price": "2686",
+        "avg_net_feet_rent": "17.62"
+    },
+    {
+        "total_tx_count": "3114",
+        "avg_feet_rent": "14.24",
+        "avg_net_feet_price": "3398",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-01-01",
+        "avg_feet_price": "2711",
+        "avg_net_feet_rent": "18.41"
+    },
+    {
+        "total_tx_count": "2886",
+        "avg_feet_rent": "13.89",
+        "avg_net_feet_price": "3446",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-02-01",
+        "avg_feet_price": "2752",
+        "avg_net_feet_rent": "17.96"
+    },
+    {
+        "total_tx_count": "4807",
+        "avg_feet_rent": "13.76",
+        "avg_net_feet_price": "3461",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-03-01",
+        "avg_feet_price": "2770",
+        "avg_net_feet_rent": "17.79"
+    },
+    {
+        "total_tx_count": "3897",
+        "avg_feet_rent": "13.59",
+        "avg_net_feet_price": "3335",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-04-01",
+        "avg_feet_price": "2651",
+        "avg_net_feet_rent": "17.58"
+    },
+    {
+        "total_tx_count": "5024",
+        "avg_feet_rent": "14",
+        "avg_net_feet_price": "3382",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-05-01",
+        "avg_feet_price": "2698",
+        "avg_net_feet_rent": "18.1"
+    },
+    {
+        "total_tx_count": "4925",
+        "avg_feet_rent": "14",
+        "avg_net_feet_price": "3420",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-06-01",
+        "avg_feet_price": "2730",
+        "avg_net_feet_rent": "18.1"
+    },
+    {
+        "total_tx_count": "4662",
+        "avg_feet_rent": "13.4",
+        "avg_net_feet_price": "3306",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-07-01",
+        "avg_feet_price": "2631",
+        "avg_net_feet_rent": "17.33"
+    },
+    {
+        "total_tx_count": "5099",
+        "avg_feet_rent": "13.23",
+        "avg_net_feet_price": "3335",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-08-01",
+        "avg_feet_price": "2663",
+        "avg_net_feet_rent": "17.12"
+    },
+    {
+        "total_tx_count": "4217",
+        "avg_feet_rent": "13.2",
+        "avg_net_feet_price": "3174",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-09-01",
+        "avg_feet_price": "2532",
+        "avg_net_feet_rent": "17.08"
+    },
+    {
+        "total_tx_count": "3692",
+        "avg_feet_rent": "13",
+        "avg_net_feet_price": "3089",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-10-01",
+        "avg_feet_price": "2452",
+        "avg_net_feet_rent": "16.82"
+    },
+    {
+        "total_tx_count": "4534",
+        "avg_feet_rent": "12.66",
+        "avg_net_feet_price": "3067",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-11-01",
+        "avg_feet_price": "2447",
+        "avg_net_feet_rent": "16.37"
+    },
+    {
+        "total_tx_count": "4126",
+        "avg_feet_rent": "13.12",
+        "avg_net_feet_price": "3093",
+        "total_rent_tx_count": "0",
+        "index_date": "2001-12-01",
+        "avg_feet_price": "2461",
+        "avg_net_feet_rent": "16.96"
+    },
+    {
+        "total_tx_count": "5089",
+        "avg_feet_rent": "12.34",
+        "avg_net_feet_price": "3042",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-01-01",
+        "avg_feet_price": "2410",
+        "avg_net_feet_rent": "15.96"
+    },
+    {
+        "total_tx_count": "4039",
+        "avg_feet_rent": "12.48",
+        "avg_net_feet_price": "3038",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-02-01",
+        "avg_feet_price": "2419",
+        "avg_net_feet_rent": "16.14"
+    },
+    {
+        "total_tx_count": "3679",
+        "avg_feet_rent": "12.29",
+        "avg_net_feet_price": "3058",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-03-01",
+        "avg_feet_price": "2436",
+        "avg_net_feet_rent": "15.9"
+    },
+    {
+        "total_tx_count": "4655",
+        "avg_feet_rent": "12.62",
+        "avg_net_feet_price": "3100",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-04-01",
+        "avg_feet_price": "2472",
+        "avg_net_feet_rent": "16.33"
+    },
+    {
+        "total_tx_count": "4717",
+        "avg_feet_rent": "12.51",
+        "avg_net_feet_price": "3128",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-05-01",
+        "avg_feet_price": "2497",
+        "avg_net_feet_rent": "16.18"
+    },
+    {
+        "total_tx_count": "4384",
+        "avg_feet_rent": "12.07",
+        "avg_net_feet_price": "3119",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-06-01",
+        "avg_feet_price": "2489",
+        "avg_net_feet_rent": "15.62"
+    },
+    {
+        "total_tx_count": "4100",
+        "avg_feet_rent": "11.97",
+        "avg_net_feet_price": "3018",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-07-01",
+        "avg_feet_price": "2407",
+        "avg_net_feet_rent": "15.48"
+    },
+    {
+        "total_tx_count": "4064",
+        "avg_feet_rent": "12.45",
+        "avg_net_feet_price": "2962",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-08-01",
+        "avg_feet_price": "2364",
+        "avg_net_feet_rent": "16.1"
+    },
+    {
+        "total_tx_count": "3006",
+        "avg_feet_rent": "12.17",
+        "avg_net_feet_price": "2889",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-09-01",
+        "avg_feet_price": "2318",
+        "avg_net_feet_rent": "15.74"
+    },
+    {
+        "total_tx_count": "3423",
+        "avg_feet_rent": "11.33",
+        "avg_net_feet_price": "2873",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-10-01",
+        "avg_feet_price": "2296",
+        "avg_net_feet_rent": "14.65"
+    },
+    {
+        "total_tx_count": "3572",
+        "avg_feet_rent": "11.45",
+        "avg_net_feet_price": "2783",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-11-01",
+        "avg_feet_price": "2236",
+        "avg_net_feet_rent": "14.82"
+    },
+    {
+        "total_tx_count": "3367",
+        "avg_feet_rent": "11.25",
+        "avg_net_feet_price": "2744",
+        "total_rent_tx_count": "0",
+        "index_date": "2002-12-01",
+        "avg_feet_price": "2187",
+        "avg_net_feet_rent": "14.55"
+    },
+    {
+        "total_tx_count": "4052",
+        "avg_feet_rent": "11.35",
+        "avg_net_feet_price": "2688",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-01-01",
+        "avg_feet_price": "2167",
+        "avg_net_feet_rent": "14.68"
+    },
+    {
+        "total_tx_count": "2789",
+        "avg_feet_rent": "11.04",
+        "avg_net_feet_price": "2547",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-02-01",
+        "avg_feet_price": "2042",
+        "avg_net_feet_rent": "14.28"
+    },
+    {
+        "total_tx_count": "2859",
+        "avg_feet_rent": "10.88",
+        "avg_net_feet_price": "2419",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-03-01",
+        "avg_feet_price": "1934",
+        "avg_net_feet_rent": "14.08"
+    },
+    {
+        "total_tx_count": "2988",
+        "avg_feet_rent": "10.76",
+        "avg_net_feet_price": "2309",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-04-01",
+        "avg_feet_price": "1854",
+        "avg_net_feet_rent": "13.91"
+    },
+    {
+        "total_tx_count": "2977",
+        "avg_feet_rent": "10.6",
+        "avg_net_feet_price": "2368",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-05-01",
+        "avg_feet_price": "1894",
+        "avg_net_feet_rent": "13.71"
+    },
+    {
+        "total_tx_count": "3235",
+        "avg_feet_rent": "10.4",
+        "avg_net_feet_price": "2420",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-06-01",
+        "avg_feet_price": "1941",
+        "avg_net_feet_rent": "13.45"
+    },
+    {
+        "total_tx_count": "3853",
+        "avg_feet_rent": "10.49",
+        "avg_net_feet_price": "2393",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-07-01",
+        "avg_feet_price": "1950",
+        "avg_net_feet_rent": "13.56"
+    },
+    {
+        "total_tx_count": "3878",
+        "avg_feet_rent": "10.47",
+        "avg_net_feet_price": "2428",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-08-01",
+        "avg_feet_price": "1972",
+        "avg_net_feet_rent": "13.54"
+    },
+    {
+        "total_tx_count": "3825",
+        "avg_feet_rent": "10.4",
+        "avg_net_feet_price": "2567",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-09-01",
+        "avg_feet_price": "2083",
+        "avg_net_feet_rent": "13.45"
+    },
+    {
+        "total_tx_count": "5492",
+        "avg_feet_rent": "10.54",
+        "avg_net_feet_price": "2688",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-10-01",
+        "avg_feet_price": "2173",
+        "avg_net_feet_rent": "13.63"
+    },
+    {
+        "total_tx_count": "5335",
+        "avg_feet_rent": "10.7",
+        "avg_net_feet_price": "2793",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-11-01",
+        "avg_feet_price": "2242",
+        "avg_net_feet_rent": "13.84"
+    },
+    {
+        "total_tx_count": "4848",
+        "avg_feet_rent": "10.5",
+        "avg_net_feet_price": "2927",
+        "total_rent_tx_count": "0",
+        "index_date": "2003-12-01",
+        "avg_feet_price": "2337",
+        "avg_net_feet_rent": "13.58"
+    },
+    {
+        "total_tx_count": "4984",
+        "avg_feet_rent": "10.87",
+        "avg_net_feet_price": "3161",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-01-01",
+        "avg_feet_price": "2512",
+        "avg_net_feet_rent": "14.06"
+    },
+    {
+        "total_tx_count": "5819",
+        "avg_feet_rent": "10.77",
+        "avg_net_feet_price": "3365",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-02-01",
+        "avg_feet_price": "2670",
+        "avg_net_feet_rent": "13.93"
+    },
+    {
+        "total_tx_count": "7901",
+        "avg_feet_rent": "11.07",
+        "avg_net_feet_price": "3499",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-03-01",
+        "avg_feet_price": "2774",
+        "avg_net_feet_rent": "14.32"
+    },
+    {
+        "total_tx_count": "7737",
+        "avg_feet_rent": "11.02",
+        "avg_net_feet_price": "3494",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-04-01",
+        "avg_feet_price": "2764",
+        "avg_net_feet_rent": "14.25"
+    },
+    {
+        "total_tx_count": "6571",
+        "avg_feet_rent": "11.29",
+        "avg_net_feet_price": "3497",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-05-01",
+        "avg_feet_price": "2770",
+        "avg_net_feet_rent": "14.6"
+    },
+    {
+        "total_tx_count": "5471",
+        "avg_feet_rent": "11.47",
+        "avg_net_feet_price": "3515",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-06-01",
+        "avg_feet_price": "2792",
+        "avg_net_feet_rent": "14.84"
+    },
+    {
+        "total_tx_count": "4646",
+        "avg_feet_rent": "11.4",
+        "avg_net_feet_price": "3458",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-07-01",
+        "avg_feet_price": "2734",
+        "avg_net_feet_rent": "14.75"
+    },
+    {
+        "total_tx_count": "4757",
+        "avg_feet_rent": "11.47",
+        "avg_net_feet_price": "3475",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-08-01",
+        "avg_feet_price": "2744",
+        "avg_net_feet_rent": "14.83"
+    },
+    {
+        "total_tx_count": "5957",
+        "avg_feet_rent": "11.63",
+        "avg_net_feet_price": "3681",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-09-01",
+        "avg_feet_price": "2908",
+        "avg_net_feet_rent": "15.04"
+    },
+    {
+        "total_tx_count": "7153",
+        "avg_feet_rent": "11.83",
+        "avg_net_feet_price": "3750",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-10-01",
+        "avg_feet_price": "2969",
+        "avg_net_feet_rent": "15.31"
+    },
+    {
+        "total_tx_count": "8881",
+        "avg_feet_rent": "11.99",
+        "avg_net_feet_price": "3791",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-11-01",
+        "avg_feet_price": "3015",
+        "avg_net_feet_rent": "15.51"
+    },
+    {
+        "total_tx_count": "6791",
+        "avg_feet_rent": "12",
+        "avg_net_feet_price": "3766",
+        "total_rent_tx_count": "0",
+        "index_date": "2004-12-01",
+        "avg_feet_price": "3005",
+        "avg_net_feet_rent": "15.52"
+    },
+    {
+        "total_tx_count": "6743",
+        "avg_feet_rent": "12.3",
+        "avg_net_feet_price": "3793",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-01-01",
+        "avg_feet_price": "3020",
+        "avg_net_feet_rent": "15.91"
+    },
+    {
+        "total_tx_count": "6258",
+        "avg_feet_rent": "12.17",
+        "avg_net_feet_price": "3772",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-02-01",
+        "avg_feet_price": "3003",
+        "avg_net_feet_rent": "15.74"
+    },
+    {
+        "total_tx_count": "7750",
+        "avg_feet_rent": "12.5",
+        "avg_net_feet_price": "3952",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-03-01",
+        "avg_feet_price": "3134",
+        "avg_net_feet_rent": "16.17"
+    },
+    {
+        "total_tx_count": "13325",
+        "avg_feet_rent": "12.55",
+        "avg_net_feet_price": "4066",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-04-01",
+        "avg_feet_price": "3198",
+        "avg_net_feet_rent": "16.23"
+    },
+    {
+        "total_tx_count": "10123",
+        "avg_feet_rent": "12.5",
+        "avg_net_feet_price": "4183",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-05-01",
+        "avg_feet_price": "3308",
+        "avg_net_feet_rent": "16.17"
+    },
+    {
+        "total_tx_count": "8814",
+        "avg_feet_rent": "12.83",
+        "avg_net_feet_price": "4142",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-06-01",
+        "avg_feet_price": "3269",
+        "avg_net_feet_rent": "16.6"
+    },
+    {
+        "total_tx_count": "6448",
+        "avg_feet_rent": "12.95",
+        "avg_net_feet_price": "4145",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-07-01",
+        "avg_feet_price": "3285",
+        "avg_net_feet_rent": "16.75"
+    },
+    {
+        "total_tx_count": "6784",
+        "avg_feet_rent": "13.3",
+        "avg_net_feet_price": "4104",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-08-01",
+        "avg_feet_price": "3258",
+        "avg_net_feet_rent": "17.2"
+    },
+    {
+        "total_tx_count": "6662",
+        "avg_feet_rent": "13.29",
+        "avg_net_feet_price": "4158",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-09-01",
+        "avg_feet_price": "3301",
+        "avg_net_feet_rent": "17.19"
+    },
+    {
+        "total_tx_count": "5902",
+        "avg_feet_rent": "13.6",
+        "avg_net_feet_price": "3953",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-10-01",
+        "avg_feet_price": "3209",
+        "avg_net_feet_rent": "17.59"
+    },
+    {
+        "total_tx_count": "5206",
+        "avg_feet_rent": "13.5",
+        "avg_net_feet_price": "3828",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-11-01",
+        "avg_feet_price": "3089",
+        "avg_net_feet_rent": "17.46"
+    },
+    {
+        "total_tx_count": "4322",
+        "avg_feet_rent": "13.6",
+        "avg_net_feet_price": "3859",
+        "total_rent_tx_count": "0",
+        "index_date": "2005-12-01",
+        "avg_feet_price": "3078",
+        "avg_net_feet_rent": "17.59"
+    },
+    {
+        "total_tx_count": "4782",
+        "avg_feet_rent": "13.39",
+        "avg_net_feet_price": "4053",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-01-01",
+        "avg_feet_price": "3213",
+        "avg_net_feet_rent": "17.32"
+    },
+    {
+        "total_tx_count": "5194",
+        "avg_feet_rent": "13.33",
+        "avg_net_feet_price": "4062",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-02-01",
+        "avg_feet_price": "3241",
+        "avg_net_feet_rent": "17.25"
+    },
+    {
+        "total_tx_count": "6690",
+        "avg_feet_rent": "13.49",
+        "avg_net_feet_price": "4093",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-03-01",
+        "avg_feet_price": "3263",
+        "avg_net_feet_rent": "17.45"
+    },
+    {
+        "total_tx_count": "6175",
+        "avg_feet_rent": "13.42",
+        "avg_net_feet_price": "4138",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-04-01",
+        "avg_feet_price": "3293",
+        "avg_net_feet_rent": "17.36"
+    },
+    {
+        "total_tx_count": "6781",
+        "avg_feet_rent": "13.4",
+        "avg_net_feet_price": "4091",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-05-01",
+        "avg_feet_price": "3259",
+        "avg_net_feet_rent": "17.34"
+    },
+    {
+        "total_tx_count": "6219",
+        "avg_feet_rent": "13.43",
+        "avg_net_feet_price": "3971",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-06-01",
+        "avg_feet_price": "3157",
+        "avg_net_feet_rent": "17.38"
+    },
+    {
+        "total_tx_count": "5025",
+        "avg_feet_rent": "13.33",
+        "avg_net_feet_price": "3988",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-07-01",
+        "avg_feet_price": "3174",
+        "avg_net_feet_rent": "17.25"
+    },
+    {
+        "total_tx_count": "5864",
+        "avg_feet_rent": "13.62",
+        "avg_net_feet_price": "4040",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-08-01",
+        "avg_feet_price": "3223",
+        "avg_net_feet_rent": "17.62"
+    },
+    {
+        "total_tx_count": "6028",
+        "avg_feet_rent": "13.66",
+        "avg_net_feet_price": "3927",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-09-01",
+        "avg_feet_price": "3155",
+        "avg_net_feet_rent": "17.67"
+    },
+    {
+        "total_tx_count": "5325",
+        "avg_feet_rent": "13.62",
+        "avg_net_feet_price": "3999",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-10-01",
+        "avg_feet_price": "3217",
+        "avg_net_feet_rent": "17.62"
+    },
+    {
+        "total_tx_count": "6363",
+        "avg_feet_rent": "13.79",
+        "avg_net_feet_price": "3897",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-11-01",
+        "avg_feet_price": "3139",
+        "avg_net_feet_rent": "17.84"
+    },
+    {
+        "total_tx_count": "5763",
+        "avg_feet_rent": "13.99",
+        "avg_net_feet_price": "3973",
+        "total_rent_tx_count": "0",
+        "index_date": "2006-12-01",
+        "avg_feet_price": "3185",
+        "avg_net_feet_rent": "18.09"
+    },
+    {
+        "total_tx_count": "6621",
+        "avg_feet_rent": "14.28",
+        "avg_net_feet_price": "3973",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-01-01",
+        "avg_feet_price": "3194",
+        "avg_net_feet_rent": "18.48"
+    },
+    {
+        "total_tx_count": "6681",
+        "avg_feet_rent": "14.44",
+        "avg_net_feet_price": "4013",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-02-01",
+        "avg_feet_price": "3221",
+        "avg_net_feet_rent": "18.68"
+    },
+    {
+        "total_tx_count": "7289",
+        "avg_feet_rent": "14.47",
+        "avg_net_feet_price": "4046",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-03-01",
+        "avg_feet_price": "3245",
+        "avg_net_feet_rent": "18.71"
+    },
+    {
+        "total_tx_count": "7250",
+        "avg_feet_rent": "14.46",
+        "avg_net_feet_price": "4082",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-04-01",
+        "avg_feet_price": "3278",
+        "avg_net_feet_rent": "18.71"
+    },
+    {
+        "total_tx_count": "9151",
+        "avg_feet_rent": "14.57",
+        "avg_net_feet_price": "4120",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-05-01",
+        "avg_feet_price": "3310",
+        "avg_net_feet_rent": "18.84"
+    },
+    {
+        "total_tx_count": "8843",
+        "avg_feet_rent": "14.79",
+        "avg_net_feet_price": "4135",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-06-01",
+        "avg_feet_price": "3320",
+        "avg_net_feet_rent": "19.13"
+    },
+    {
+        "total_tx_count": "8183",
+        "avg_feet_rent": "15.29",
+        "avg_net_feet_price": "4187",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-07-01",
+        "avg_feet_price": "3363",
+        "avg_net_feet_rent": "19.77"
+    },
+    {
+        "total_tx_count": "10077",
+        "avg_feet_rent": "15.38",
+        "avg_net_feet_price": "4235",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-08-01",
+        "avg_feet_price": "3399",
+        "avg_net_feet_rent": "19.89"
+    },
+    {
+        "total_tx_count": "6639",
+        "avg_feet_rent": "15.5",
+        "avg_net_feet_price": "4269",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-09-01",
+        "avg_feet_price": "3428",
+        "avg_net_feet_rent": "20.04"
+    },
+    {
+        "total_tx_count": "9727",
+        "avg_feet_rent": "15.76",
+        "avg_net_feet_price": "4389",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-10-01",
+        "avg_feet_price": "3526",
+        "avg_net_feet_rent": "20.38"
+    },
+    {
+        "total_tx_count": "13569",
+        "avg_feet_rent": "16.24",
+        "avg_net_feet_price": "4622",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-11-01",
+        "avg_feet_price": "3711",
+        "avg_net_feet_rent": "21.01"
+    },
+    {
+        "total_tx_count": "12891",
+        "avg_feet_rent": "16.82",
+        "avg_net_feet_price": "4819",
+        "total_rent_tx_count": "0",
+        "index_date": "2007-12-01",
+        "avg_feet_price": "3866",
+        "avg_net_feet_rent": "21.75"
+    },
+    {
+        "total_tx_count": "13497",
+        "avg_feet_rent": "17.44",
+        "avg_net_feet_price": "5049",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-01-01",
+        "avg_feet_price": "4049",
+        "avg_net_feet_rent": "22.55"
+    },
+    {
+        "total_tx_count": "12209",
+        "avg_feet_rent": "17.98",
+        "avg_net_feet_price": "5212",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-02-01",
+        "avg_feet_price": "4183",
+        "avg_net_feet_rent": "23.26"
+    },
+    {
+        "total_tx_count": "7419",
+        "avg_feet_rent": "18.07",
+        "avg_net_feet_price": "5288",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-03-01",
+        "avg_feet_price": "4251",
+        "avg_net_feet_rent": "23.37"
+    },
+    {
+        "total_tx_count": "8775",
+        "avg_feet_rent": "18.1",
+        "avg_net_feet_price": "5180",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-04-01",
+        "avg_feet_price": "4166",
+        "avg_net_feet_rent": "23.41"
+    },
+    {
+        "total_tx_count": "7926",
+        "avg_feet_rent": "18.17",
+        "avg_net_feet_price": "5232",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-05-01",
+        "avg_feet_price": "4207",
+        "avg_net_feet_rent": "23.51"
+    },
+    {
+        "total_tx_count": "8366",
+        "avg_feet_rent": "18.02",
+        "avg_net_feet_price": "5236",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-06-01",
+        "avg_feet_price": "4213",
+        "avg_net_feet_rent": "23.31"
+    },
+    {
+        "total_tx_count": "7236",
+        "avg_feet_rent": "18.22",
+        "avg_net_feet_price": "5099",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-07-01",
+        "avg_feet_price": "4066",
+        "avg_net_feet_rent": "23.57"
+    },
+    {
+        "total_tx_count": "5353",
+        "avg_feet_rent": "17.85",
+        "avg_net_feet_price": "4954",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-08-01",
+        "avg_feet_price": "3980",
+        "avg_net_feet_rent": "23.09"
+    },
+    {
+        "total_tx_count": "5428",
+        "avg_feet_rent": "17.35",
+        "avg_net_feet_price": "4809",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-09-01",
+        "avg_feet_price": "3858",
+        "avg_net_feet_rent": "22.44"
+    },
+    {
+        "total_tx_count": "4526",
+        "avg_feet_rent": "15.89",
+        "avg_net_feet_price": "4326",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-10-01",
+        "avg_feet_price": "3471",
+        "avg_net_feet_rent": "20.56"
+    },
+    {
+        "total_tx_count": "3289",
+        "avg_feet_rent": "14.49",
+        "avg_net_feet_price": "4166",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-11-01",
+        "avg_feet_price": "3341",
+        "avg_net_feet_rent": "18.74"
+    },
+    {
+        "total_tx_count": "3969",
+        "avg_feet_rent": "14.13",
+        "avg_net_feet_price": "4241",
+        "total_rent_tx_count": "0",
+        "index_date": "2008-12-01",
+        "avg_feet_price": "3397",
+        "avg_net_feet_rent": "18.28"
+    },
+    {
+        "total_tx_count": "4522",
+        "avg_feet_rent": "14.24",
+        "avg_net_feet_price": "4279",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-01-01",
+        "avg_feet_price": "3435",
+        "avg_net_feet_rent": "18.42"
+    },
+    {
+        "total_tx_count": "4419",
+        "avg_feet_rent": "14.33",
+        "avg_net_feet_price": "4344",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-02-01",
+        "avg_feet_price": "3487",
+        "avg_net_feet_rent": "18.53"
+    },
+    {
+        "total_tx_count": "6425",
+        "avg_feet_rent": "14.31",
+        "avg_net_feet_price": "4464",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-03-01",
+        "avg_feet_price": "3584",
+        "avg_net_feet_rent": "18.47"
+    },
+    {
+        "total_tx_count": "8520",
+        "avg_feet_rent": "14.69",
+        "avg_net_feet_price": "4636",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-04-01",
+        "avg_feet_price": "3720",
+        "avg_net_feet_rent": "18.99"
+    },
+    {
+        "total_tx_count": "9575",
+        "avg_feet_rent": "15",
+        "avg_net_feet_price": "4804",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-05-01",
+        "avg_feet_price": "3855",
+        "avg_net_feet_rent": "19.4"
+    },
+    {
+        "total_tx_count": "11459",
+        "avg_feet_rent": "15.57",
+        "avg_net_feet_price": "4971",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-06-01",
+        "avg_feet_price": "3994",
+        "avg_net_feet_rent": "20.14"
+    },
+    {
+        "total_tx_count": "11082",
+        "avg_feet_rent": "16.26",
+        "avg_net_feet_price": "5068",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-07-01",
+        "avg_feet_price": "4069",
+        "avg_net_feet_rent": "21.03"
+    },
+    {
+        "total_tx_count": "9288",
+        "avg_feet_rent": "16.66",
+        "avg_net_feet_price": "5216",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-08-01",
+        "avg_feet_price": "4187",
+        "avg_net_feet_rent": "21.55"
+    },
+    {
+        "total_tx_count": "11133",
+        "avg_feet_rent": "17.01",
+        "avg_net_feet_price": "5318",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-09-01",
+        "avg_feet_price": "4269",
+        "avg_net_feet_rent": "22.01"
+    },
+    {
+        "total_tx_count": "8929",
+        "avg_feet_rent": "17.15",
+        "avg_net_feet_price": "5367",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-10-01",
+        "avg_feet_price": "4313",
+        "avg_net_feet_rent": "22.19"
+    },
+    {
+        "total_tx_count": "8743",
+        "avg_feet_rent": "17.32",
+        "avg_net_feet_price": "5345",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-11-01",
+        "avg_feet_price": "4290",
+        "avg_net_feet_rent": "22.4"
+    },
+    {
+        "total_tx_count": "8203",
+        "avg_feet_rent": "17.32",
+        "avg_net_feet_price": "5382",
+        "total_rent_tx_count": "0",
+        "index_date": "2009-12-01",
+        "avg_feet_price": "4321",
+        "avg_net_feet_rent": "22.41"
+    },
+    {
+        "total_tx_count": "9812",
+        "avg_feet_rent": "17.49",
+        "avg_net_feet_price": "5571",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-01-01",
+        "avg_feet_price": "4470",
+        "avg_net_feet_rent": "22.63"
+    },
+    {
+        "total_tx_count": "11266",
+        "avg_feet_rent": "17.93",
+        "avg_net_feet_price": "5636",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-02-01",
+        "avg_feet_price": "4532",
+        "avg_net_feet_rent": "23.19"
+    },
+    {
+        "total_tx_count": "8965",
+        "avg_feet_rent": "18.24",
+        "avg_net_feet_price": "5753",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-03-01",
+        "avg_feet_price": "4647",
+        "avg_net_feet_rent": "23.59"
+    },
+    {
+        "total_tx_count": "10355",
+        "avg_feet_rent": "18.36",
+        "avg_net_feet_price": "5832",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-04-01",
+        "avg_feet_price": "4689",
+        "avg_net_feet_rent": "23.74"
+    },
+    {
+        "total_tx_count": "10432",
+        "avg_feet_rent": "18.35",
+        "avg_net_feet_price": "5803",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-05-01",
+        "avg_feet_price": "4663",
+        "avg_net_feet_rent": "23.74"
+    },
+    {
+        "total_tx_count": "8006",
+        "avg_feet_rent": "18.39",
+        "avg_net_feet_price": "5907",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-06-01",
+        "avg_feet_price": "4745",
+        "avg_net_feet_rent": "23.79"
+    },
+    {
+        "total_tx_count": "11955",
+        "avg_feet_rent": "18.81",
+        "avg_net_feet_price": "6075",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-07-01",
+        "avg_feet_price": "4878",
+        "avg_net_feet_rent": "24.34"
+    },
+    {
+        "total_tx_count": "13322",
+        "avg_feet_rent": "19.15",
+        "avg_net_feet_price": "6168",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-08-01",
+        "avg_feet_price": "4958",
+        "avg_net_feet_rent": "24.77"
+    },
+    {
+        "total_tx_count": "10115",
+        "avg_feet_rent": "19.32",
+        "avg_net_feet_price": "6246",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-09-01",
+        "avg_feet_price": "5013",
+        "avg_net_feet_rent": "24.99"
+    },
+    {
+        "total_tx_count": "8095",
+        "avg_feet_rent": "19.58",
+        "avg_net_feet_price": "6439",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-10-01",
+        "avg_feet_price": "5164",
+        "avg_net_feet_rent": "25.33"
+    },
+    {
+        "total_tx_count": "12608",
+        "avg_feet_rent": "19.82",
+        "avg_net_feet_price": "6550",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-11-01",
+        "avg_feet_price": "5255",
+        "avg_net_feet_rent": "25.63"
+    },
+    {
+        "total_tx_count": "9064",
+        "avg_feet_rent": "19.48",
+        "avg_net_feet_price": "6577",
+        "total_rent_tx_count": "0",
+        "index_date": "2010-12-01",
+        "avg_feet_price": "5276",
+        "avg_net_feet_rent": "25.2"
+    },
+    {
+        "total_tx_count": "7816",
+        "avg_feet_rent": "19.5",
+        "avg_net_feet_price": "6802",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-01-01",
+        "avg_feet_price": "5472",
+        "avg_net_feet_rent": "25.22"
+    },
+    {
+        "total_tx_count": "10040",
+        "avg_feet_rent": "19.83",
+        "avg_net_feet_price": "7068",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-02-01",
+        "avg_feet_price": "5673",
+        "avg_net_feet_rent": "25.65"
+    },
+    {
+        "total_tx_count": "9496",
+        "avg_feet_rent": "20.03",
+        "avg_net_feet_price": "7212",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-03-01",
+        "avg_feet_price": "5800",
+        "avg_net_feet_rent": "25.91"
+    },
+    {
+        "total_tx_count": "7017",
+        "avg_feet_rent": "19.99",
+        "avg_net_feet_price": "7324",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-04-01",
+        "avg_feet_price": "5879",
+        "avg_net_feet_rent": "25.86"
+    },
+    {
+        "total_tx_count": "7804",
+        "avg_feet_rent": "20.41",
+        "avg_net_feet_price": "7437",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-05-01",
+        "avg_feet_price": "5972",
+        "avg_net_feet_rent": "26.4"
+    },
+    {
+        "total_tx_count": "8172",
+        "avg_feet_rent": "20.7",
+        "avg_net_feet_price": "7333",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-06-01",
+        "avg_feet_price": "5895",
+        "avg_net_feet_rent": "26.77"
+    },
+    {
+        "total_tx_count": "4788",
+        "avg_feet_rent": "20.68",
+        "avg_net_feet_price": "7303",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-07-01",
+        "avg_feet_price": "5853",
+        "avg_net_feet_rent": "26.75"
+    },
+    {
+        "total_tx_count": "4677",
+        "avg_feet_rent": "20.94",
+        "avg_net_feet_price": "7323",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-08-01",
+        "avg_feet_price": "5851",
+        "avg_net_feet_rent": "27.08"
+    },
+    {
+        "total_tx_count": "4700",
+        "avg_feet_rent": "20.92",
+        "avg_net_feet_price": "7261",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-09-01",
+        "avg_feet_price": "5839",
+        "avg_net_feet_rent": "27.06"
+    },
+    {
+        "total_tx_count": "3939",
+        "avg_feet_rent": "20.61",
+        "avg_net_feet_price": "7201",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-10-01",
+        "avg_feet_price": "5789",
+        "avg_net_feet_rent": "26.65"
+    },
+    {
+        "total_tx_count": "3727",
+        "avg_feet_rent": "20.32",
+        "avg_net_feet_price": "7181",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-11-01",
+        "avg_feet_price": "5759",
+        "avg_net_feet_rent": "26.28"
+    },
+    {
+        "total_tx_count": "3019",
+        "avg_feet_rent": "20.09",
+        "avg_net_feet_price": "7056",
+        "total_rent_tx_count": "0",
+        "index_date": "2011-12-01",
+        "avg_feet_price": "5665",
+        "avg_net_feet_rent": "25.99"
+    },
+    {
+        "total_tx_count": "2705",
+        "avg_feet_rent": "19.81",
+        "avg_net_feet_price": "7013",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-01-01",
+        "avg_feet_price": "5606",
+        "avg_net_feet_rent": "25.63"
+    },
+    {
+        "total_tx_count": "3406",
+        "avg_feet_rent": "19.73",
+        "avg_net_feet_price": "7278",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-02-01",
+        "avg_feet_price": "5857",
+        "avg_net_feet_rent": "25.52"
+    },
+    {
+        "total_tx_count": "10066",
+        "avg_feet_rent": "20.09",
+        "avg_net_feet_price": "7607",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-03-01",
+        "avg_feet_price": "6095",
+        "avg_net_feet_rent": "25.98"
+    },
+    {
+        "total_tx_count": "7531",
+        "avg_feet_rent": "20.67",
+        "avg_net_feet_price": "7749",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-04-01",
+        "avg_feet_price": "6205",
+        "avg_net_feet_rent": "26.74"
+    },
+    {
+        "total_tx_count": "7494",
+        "avg_feet_rent": "21.15",
+        "avg_net_feet_price": "7824",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-05-01",
+        "avg_feet_price": "6270",
+        "avg_net_feet_rent": "27.36"
+    },
+    {
+        "total_tx_count": "5274",
+        "avg_feet_rent": "21.46",
+        "avg_net_feet_price": "7829",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-06-01",
+        "avg_feet_price": "6278",
+        "avg_net_feet_rent": "27.75"
+    },
+    {
+        "total_tx_count": "4198",
+        "avg_feet_rent": "21.89",
+        "avg_net_feet_price": "7951",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-07-01",
+        "avg_feet_price": "6372",
+        "avg_net_feet_rent": "28.31"
+    },
+    {
+        "total_tx_count": "6846",
+        "avg_feet_rent": "22.49",
+        "avg_net_feet_price": "8144",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-08-01",
+        "avg_feet_price": "6527",
+        "avg_net_feet_rent": "29.09"
+    },
+    {
+        "total_tx_count": "6817",
+        "avg_feet_rent": "22.9",
+        "avg_net_feet_price": "8321",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-09-01",
+        "avg_feet_price": "6673",
+        "avg_net_feet_rent": "29.62"
+    },
+    {
+        "total_tx_count": "6616",
+        "avg_feet_rent": "23.29",
+        "avg_net_feet_price": "8539",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-10-01",
+        "avg_feet_price": "6837",
+        "avg_net_feet_rent": "30.12"
+    },
+    {
+        "total_tx_count": "6133",
+        "avg_feet_rent": "23.28",
+        "avg_net_feet_price": "8647",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-11-01",
+        "avg_feet_price": "6928",
+        "avg_net_feet_rent": "30.11"
+    },
+    {
+        "total_tx_count": "3097",
+        "avg_feet_rent": "23.26",
+        "avg_net_feet_price": "8668",
+        "total_rent_tx_count": "0",
+        "index_date": "2012-12-01",
+        "avg_feet_price": "6946",
+        "avg_net_feet_rent": "30.09"
+    },
+    {
+        "total_tx_count": "4964",
+        "avg_feet_rent": "23.55",
+        "avg_net_feet_price": "8980",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-01-01",
+        "avg_feet_price": "7178",
+        "avg_net_feet_rent": "30.46"
+    },
+    {
+        "total_tx_count": "5224",
+        "avg_feet_rent": "23.87",
+        "avg_net_feet_price": "9191",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-02-01",
+        "avg_feet_price": "7367",
+        "avg_net_feet_rent": "30.88"
+    },
+    {
+        "total_tx_count": "3564",
+        "avg_feet_rent": "23.93",
+        "avg_net_feet_price": "9162",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-03-01",
+        "avg_feet_price": "7339",
+        "avg_net_feet_rent": "30.95"
+    },
+    {
+        "total_tx_count": "2464",
+        "avg_feet_rent": "23.6",
+        "avg_net_feet_price": "8840",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-04-01",
+        "avg_feet_price": "7053",
+        "avg_net_feet_rent": "30.53"
+    },
+    {
+        "total_tx_count": "3078",
+        "avg_feet_rent": "23.35",
+        "avg_net_feet_price": "8999",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-05-01",
+        "avg_feet_price": "7202",
+        "avg_net_feet_rent": "30.2"
+    },
+    {
+        "total_tx_count": "3745",
+        "avg_feet_rent": "23.55",
+        "avg_net_feet_price": "9133",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-06-01",
+        "avg_feet_price": "7300",
+        "avg_net_feet_rent": "30.46"
+    },
+    {
+        "total_tx_count": "4236",
+        "avg_feet_rent": "23.71",
+        "avg_net_feet_price": "9027",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-07-01",
+        "avg_feet_price": "7212",
+        "avg_net_feet_rent": "30.67"
+    },
+    {
+        "total_tx_count": "3195",
+        "avg_feet_rent": "23.87",
+        "avg_net_feet_price": "9099",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-08-01",
+        "avg_feet_price": "7270",
+        "avg_net_feet_rent": "30.87"
+    },
+    {
+        "total_tx_count": "3018",
+        "avg_feet_rent": "23.82",
+        "avg_net_feet_price": "9033",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-09-01",
+        "avg_feet_price": "7227",
+        "avg_net_feet_rent": "30.82"
+    },
+    {
+        "total_tx_count": "2789",
+        "avg_feet_rent": "23.79",
+        "avg_net_feet_price": "8936",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-10-01",
+        "avg_feet_price": "7135",
+        "avg_net_feet_rent": "30.77"
+    },
+    {
+        "total_tx_count": "2788",
+        "avg_feet_rent": "23.73",
+        "avg_net_feet_price": "8895",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-11-01",
+        "avg_feet_price": "7094",
+        "avg_net_feet_rent": "30.69"
+    },
+    {
+        "total_tx_count": "2719",
+        "avg_feet_rent": "23.7",
+        "avg_net_feet_price": "8901",
+        "total_rent_tx_count": "0",
+        "index_date": "2013-12-01",
+        "avg_feet_price": "7094",
+        "avg_net_feet_rent": "30.65"
+    },
+    {
+        "total_tx_count": "2856",
+        "avg_feet_rent": "23.7",
+        "avg_net_feet_price": "8868",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-01-01",
+        "avg_feet_price": "7076",
+        "avg_net_feet_rent": "30.65"
+    },
+    {
+        "total_tx_count": "2227",
+        "avg_feet_rent": "23.69",
+        "avg_net_feet_price": "8857",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-02-01",
+        "avg_feet_price": "7059",
+        "avg_net_feet_rent": "30.65"
+    },
+    {
+        "total_tx_count": "2717",
+        "avg_feet_rent": "23.63",
+        "avg_net_feet_price": "8878",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-03-01",
+        "avg_feet_price": "7077",
+        "avg_net_feet_rent": "30.47"
+    },
+    {
+        "total_tx_count": "3904",
+        "avg_feet_rent": "23.59",
+        "avg_net_feet_price": "8879",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-04-01",
+        "avg_feet_price": "7093",
+        "avg_net_feet_rent": "30.42"
+    },
+    {
+        "total_tx_count": "4746",
+        "avg_feet_rent": "23.78",
+        "avg_net_feet_price": "8924",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-05-01",
+        "avg_feet_price": "7119",
+        "avg_net_feet_rent": "30.65"
+    },
+    {
+        "total_tx_count": "4874",
+        "avg_feet_rent": "24.01",
+        "avg_net_feet_price": "9014",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-06-01",
+        "avg_feet_price": "7185",
+        "avg_net_feet_rent": "30.94"
+    },
+    {
+        "total_tx_count": "5560",
+        "avg_feet_rent": "24.25",
+        "avg_net_feet_price": "9246",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-07-01",
+        "avg_feet_price": "7379",
+        "avg_net_feet_rent": "31.29"
+    },
+    {
+        "total_tx_count": "4800",
+        "avg_feet_rent": "24.68",
+        "avg_net_feet_price": "9414",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-08-01",
+        "avg_feet_price": "7521",
+        "avg_net_feet_rent": "31.82"
+    },
+    {
+        "total_tx_count": "4966",
+        "avg_feet_rent": "24.98",
+        "avg_net_feet_price": "9550",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-09-01",
+        "avg_feet_price": "7622",
+        "avg_net_feet_rent": "32.22"
+    },
+    {
+        "total_tx_count": "4640",
+        "avg_feet_rent": "25.21",
+        "avg_net_feet_price": "9671",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-10-01",
+        "avg_feet_price": "7701",
+        "avg_net_feet_rent": "32.52"
+    },
+    {
+        "total_tx_count": "3879",
+        "avg_feet_rent": "25.33",
+        "avg_net_feet_price": "9781",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-11-01",
+        "avg_feet_price": "7804",
+        "avg_net_feet_rent": "32.72"
+    },
+    {
+        "total_tx_count": "4369",
+        "avg_feet_rent": "25.35",
+        "avg_net_feet_price": "9984",
+        "total_rent_tx_count": "0",
+        "index_date": "2014-12-01",
+        "avg_feet_price": "7959",
+        "avg_net_feet_rent": "32.75"
+    },
+    {
+        "total_tx_count": "5162",
+        "avg_feet_rent": "25.41",
+        "avg_net_feet_price": "10191",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-01-01",
+        "avg_feet_price": "8142",
+        "avg_net_feet_rent": "32.83"
+    },
+    {
+        "total_tx_count": "4643",
+        "avg_feet_rent": "25.57",
+        "avg_net_feet_price": "10442",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-02-01",
+        "avg_feet_price": "8306",
+        "avg_net_feet_rent": "33.06"
+    },
+    {
+        "total_tx_count": "3739",
+        "avg_feet_rent": "25.47",
+        "avg_net_feet_price": "10497",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-03-01",
+        "avg_feet_price": "8340",
+        "avg_net_feet_rent": "32.92"
+    },
+    {
+        "total_tx_count": "3002",
+        "avg_feet_rent": "25.66",
+        "avg_net_feet_price": "10525",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-04-01",
+        "avg_feet_price": "8412",
+        "avg_net_feet_rent": "33.17"
+    },
+    {
+        "total_tx_count": "3490",
+        "avg_feet_rent": "25.94",
+        "avg_net_feet_price": "10615",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-05-01",
+        "avg_feet_price": "8428",
+        "avg_net_feet_rent": "33.52"
+    },
+    {
+        "total_tx_count": "4443",
+        "avg_feet_rent": "26.21",
+        "avg_net_feet_price": "10771",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-06-01",
+        "avg_feet_price": "8566",
+        "avg_net_feet_rent": "33.9"
+    },
+    {
+        "total_tx_count": "4472",
+        "avg_feet_rent": "26.34",
+        "avg_net_feet_price": "10855",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-07-01",
+        "avg_feet_price": "8643",
+        "avg_net_feet_rent": "34.1"
+    },
+    {
+        "total_tx_count": "3271",
+        "avg_feet_rent": "26.36",
+        "avg_net_feet_price": "10970",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-08-01",
+        "avg_feet_price": "8740",
+        "avg_net_feet_rent": "34.28"
+    },
+    {
+        "total_tx_count": "2811",
+        "avg_feet_rent": "26.47",
+        "avg_net_feet_price": "10830",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-09-01",
+        "avg_feet_price": "8619",
+        "avg_net_feet_rent": "34.3"
+    },
+    {
+        "total_tx_count": "2007",
+        "avg_feet_rent": "26.01",
+        "avg_net_feet_price": "10627",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-10-01",
+        "avg_feet_price": "8452",
+        "avg_net_feet_rent": "33.8"
+    },
+    {
+        "total_tx_count": "1854",
+        "avg_feet_rent": "25.57",
+        "avg_net_feet_price": "10465",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-11-01",
+        "avg_feet_price": "8331",
+        "avg_net_feet_rent": "33.17"
+    },
+    {
+        "total_tx_count": "1978",
+        "avg_feet_rent": "24.96",
+        "avg_net_feet_price": "10196",
+        "total_rent_tx_count": "0",
+        "index_date": "2015-12-01",
+        "avg_feet_price": "8124",
+        "avg_net_feet_rent": "32.53"
+    },
+    {
+        "total_tx_count": "1658",
+        "avg_feet_rent": "24.27",
+        "avg_net_feet_price": "10030",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-01-01",
+        "avg_feet_price": "7982",
+        "avg_net_feet_rent": "31.7"
+    },
+    {
+        "total_tx_count": "1743",
+        "avg_feet_rent": "24.13",
+        "avg_net_feet_price": "9850",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-02-01",
+        "avg_feet_price": "7859",
+        "avg_net_feet_rent": "31.53"
+    },
+    {
+        "total_tx_count": "1973",
+        "avg_feet_rent": "24.34",
+        "avg_net_feet_price": "9720",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-03-01",
+        "avg_feet_price": "7665",
+        "avg_net_feet_rent": "31.68"
+    },
+    {
+        "total_tx_count": "3498",
+        "avg_feet_rent": "24.53",
+        "avg_net_feet_price": "9732",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-04-01",
+        "avg_feet_price": "7711",
+        "avg_net_feet_rent": "31.97"
+    },
+    {
+        "total_tx_count": "3354",
+        "avg_feet_rent": "24.76",
+        "avg_net_feet_price": "9754",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-05-01",
+        "avg_feet_price": "7693",
+        "avg_net_feet_rent": "32.27"
+    },
+    {
+        "total_tx_count": "3349",
+        "avg_feet_rent": "24.96",
+        "avg_net_feet_price": "9884",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-06-01",
+        "avg_feet_price": "7821",
+        "avg_net_feet_rent": "32.49"
+    },
+    {
+        "total_tx_count": "3343",
+        "avg_feet_rent": "25.24",
+        "avg_net_feet_price": "9925",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-07-01",
+        "avg_feet_price": "7850",
+        "avg_net_feet_rent": "32.84"
+    },
+    {
+        "total_tx_count": "4457",
+        "avg_feet_rent": "25.56",
+        "avg_net_feet_price": "10141",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-08-01",
+        "avg_feet_price": "8074",
+        "avg_net_feet_rent": "33.33"
+    },
+    {
+        "total_tx_count": "4558",
+        "avg_feet_rent": "25.81",
+        "avg_net_feet_price": "10409",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-09-01",
+        "avg_feet_price": "8282",
+        "avg_net_feet_rent": "33.59"
+    },
+    {
+        "total_tx_count": "4525",
+        "avg_feet_rent": "25.6",
+        "avg_net_feet_price": "10620",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-10-01",
+        "avg_feet_price": "8476",
+        "avg_net_feet_rent": "33.83"
+    },
+    {
+        "total_tx_count": "4749",
+        "avg_feet_rent": "25.76",
+        "avg_net_feet_price": "10740",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-11-01",
+        "avg_feet_price": "8539",
+        "avg_net_feet_rent": "34.01"
+    },
+    {
+        "total_tx_count": "3259",
+        "avg_feet_rent": "25.64",
+        "avg_net_feet_price": "10780",
+        "total_rent_tx_count": "0",
+        "index_date": "2016-12-01",
+        "avg_feet_price": "8586",
+        "avg_net_feet_rent": "33.92"
+    },
+    {
+        "total_tx_count": "2804",
+        "avg_feet_rent": "25.93",
+        "avg_net_feet_price": "10770",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-01-01",
+        "avg_feet_price": "8572",
+        "avg_net_feet_rent": "34.15"
+    },
+    {
+        "total_tx_count": "2821",
+        "avg_feet_rent": "26.19",
+        "avg_net_feet_price": "10866",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-02-01",
+        "avg_feet_price": "8658",
+        "avg_net_feet_rent": "34.36"
+    },
+    {
+        "total_tx_count": "4636",
+        "avg_feet_rent": "26.49",
+        "avg_net_feet_price": "11155",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-03-01",
+        "avg_feet_price": "8874",
+        "avg_net_feet_rent": "34.51"
+    },
+    {
+        "total_tx_count": "4582",
+        "avg_feet_rent": "26.73",
+        "avg_net_feet_price": "11402",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-04-01",
+        "avg_feet_price": "9121",
+        "avg_net_feet_rent": "34.93"
+    },
+    {
+        "total_tx_count": "4658",
+        "avg_feet_rent": "27.05",
+        "avg_net_feet_price": "11524",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-05-01",
+        "avg_feet_price": "9199",
+        "avg_net_feet_rent": "35.39"
+    },
+    {
+        "total_tx_count": "3990",
+        "avg_feet_rent": "27.37",
+        "avg_net_feet_price": "11667",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-06-01",
+        "avg_feet_price": "9282",
+        "avg_net_feet_rent": "35.77"
+    },
+    {
+        "total_tx_count": "2702",
+        "avg_feet_rent": "27.57",
+        "avg_net_feet_price": "11768",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-07-01",
+        "avg_feet_price": "9365",
+        "avg_net_feet_rent": "36.07"
+    },
+    {
+        "total_tx_count": "2921",
+        "avg_feet_rent": "27.7",
+        "avg_net_feet_price": "11787",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-08-01",
+        "avg_feet_price": "9391",
+        "avg_net_feet_rent": "36.08"
+    },
+    {
+        "total_tx_count": "3422",
+        "avg_feet_rent": "27.42",
+        "avg_net_feet_price": "11775",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-09-01",
+        "avg_feet_price": "9388",
+        "avg_net_feet_rent": "35.83"
+    },
+    {
+        "total_tx_count": "3917",
+        "avg_feet_rent": "27.49",
+        "avg_net_feet_price": "11901",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-10-01",
+        "avg_feet_price": "9475",
+        "avg_net_feet_rent": "35.95"
+    },
+    {
+        "total_tx_count": "4465",
+        "avg_feet_rent": "27.46",
+        "avg_net_feet_price": "12039",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-11-01",
+        "avg_feet_price": "9576",
+        "avg_net_feet_rent": "36.08"
+    },
+    {
+        "total_tx_count": "4178",
+        "avg_feet_rent": "27.7",
+        "avg_net_feet_price": "12197",
+        "total_rent_tx_count": "0",
+        "index_date": "2017-12-01",
+        "avg_feet_price": "9695",
+        "avg_net_feet_rent": "36.36"
+    },
+    {
+        "total_tx_count": "4582",
+        "avg_feet_rent": "28.03",
+        "avg_net_feet_price": "12425",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-01-01",
+        "avg_feet_price": "9876",
+        "avg_net_feet_rent": "36.8"
+    },
+    {
+        "total_tx_count": "4451",
+        "avg_feet_rent": "28",
+        "avg_net_feet_price": "12651",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-02-01",
+        "avg_feet_price": "10055",
+        "avg_net_feet_rent": "36.75"
+    },
+    {
+        "total_tx_count": "3636",
+        "avg_feet_rent": "28.04",
+        "avg_net_feet_price": "12833",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-03-01",
+        "avg_feet_price": "10200",
+        "avg_net_feet_rent": "36.81"
+    },
+    {
+        "total_tx_count": "4657",
+        "avg_feet_rent": "28.04",
+        "avg_net_feet_price": "13059",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-04-01",
+        "avg_feet_price": "10380",
+        "avg_net_feet_rent": "36.8"
+    },
+    {
+        "total_tx_count": "4976",
+        "avg_feet_rent": "28.44",
+        "avg_net_feet_price": "13233",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-05-01",
+        "avg_feet_price": "10518",
+        "avg_net_feet_rent": "37.33"
+    },
+    {
+        "total_tx_count": "4823",
+        "avg_feet_rent": "",
+        "avg_net_feet_price": "13501",
+        "total_rent_tx_count": "0",
+        "index_date": "2018-06-01",
+        "avg_feet_price": "10731",
+        "avg_net_feet_rent": ""
+    }
+]}

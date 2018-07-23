@@ -8,7 +8,7 @@
 * View
 
 
-### Application
+### Application 生命周期
 
 > Application源码很少，可以直接阅读相关注释。
 
@@ -22,7 +22,7 @@
 * onLowMemory()
 * onTrimMemory(int level)
 
-### Service
+### Service 生命周期
 
 > Service源码很少，可以直接阅读相关注释。
 
@@ -56,6 +56,10 @@ onBind／onUnbind/onRebind 可能在不同的线程
 
 > onStartCommand是startService产生的。所以在主线程。
 > onBind...是bindService产生的。所以在多线程。
+
+注：Service有一个默认的空参数的构造器，在这个Service构造器中使用ServiceContext，会报Null错误。为啥？因为Service还没有Create，还没有初始化完毕！这就是Service的生命周期。一些Service资源访问，需要在合适的时候使用。
+
+请注意：Service运行在主线程中（A service runs in the main thread of its hosting process），Service并不是一个新的线程，也不是新的进程。也就是说，若您需要在Service中执行较为耗时的操作（如播放音乐、执行网络请求等），需要在Service中创建一个新的线程。这可以防止ANR的发生，同时主线程可以执行正常的UI操作。
 
 ### BroadcastReceiver
 
@@ -97,7 +101,7 @@ onBind／onUnbind/onRebind 可能在不同的线程
 1. A的`onPause()`一定先于B的`onCreate()`.
 > B will not be created until A's {@link #onPause} returns,so be sure to not do anything lengthy here. (javadoc of onPause())
 
-2.
+2. startActivity是异步的。只是发送一个启动Activity的请求。至于判断新的Activity是否已启动，可以通过当前Activity的`onStop()／onPause()`来判断。或者两个Activity之间添加通信协议！
 
 
 ### Service
