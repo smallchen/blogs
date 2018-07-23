@@ -108,7 +108,7 @@ __createList: () ->
       ... ...
 ```
 
-直接`clone`<https://github.com/jokinkuang/markdown-toc>到`~/.atom/packages/`下面，重启atom即可完成atom插件的安装和更新。
+直接`clone`<https://github.com/jokinkuang/markdown-toc.git>到`~/.atom/packages/`下面，重启atom即可完成atom插件的安装和更新。
 
 这个仓库在最新版本基础上，修复了H1标题的问题。
 
