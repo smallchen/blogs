@@ -1,4 +1,6 @@
-## Android Context 
+## Android Context
+
+基于Android 8.1.0源码。
 
 基类源码
 /frameworks/base/core/java/android/content/Context.java
@@ -13,7 +15,7 @@ public abstract class Context {
 	public abstract ClassLoader getClassLoader();
 	public abstract ApplicationInfo getApplicationInfo();
 	public IBinder getActivityToken() {};
-	
+
 	// APP四大组件接口
 	public abstract void startActivity(@RequiresPermission Intent intent);
 	public abstract ComponentName startService(Intent service);
@@ -70,7 +72,7 @@ public class ContextWrapper extends Context {
 ContextWrapper很简单，就提供了一个mBase属性。可以通过构造器ContextWrapper(Context base)和attachBaseContext(Context base)来设置或修改mBase这个属性。剩下的所有方法和接口，都是直接调用mBase这个context实例来提供的。名称中Wrapper已经说明了一切，只是对mBase进行了包装，ContextWrapper真正调用的是mBase这个Context实例。
 
 有两点：
-1. mBase是核心； 
+1. mBase是核心；
 2. mBase可以有两个设置入口，一是构造方法，二是attach。
 
 ```java
@@ -245,7 +247,7 @@ Context <- ContextWrapper <- ContextThemeWrapper <- DecorContext
 ```java
 public class Application extends ContextWrapper {
 	public LoadedApk mLoadedApk;
-	
+
 	public Application() {
         super(null);
     }
@@ -285,7 +287,7 @@ public class Activity extends ContextThemeWrapper {
             NonConfigurationInstances lastNonConfigurationInstances,
             Configuration config, String referrer, IVoiceInteractor voiceInteractor,
             Window window, ActivityConfigCallback activityConfigCallback) {
-     
+
         attachBaseContext(context);
     }
 }
@@ -308,7 +310,7 @@ Context <- ContextWrapper <- ContextThemeWrapper <- DecorContext
 ```
 
 1. 对比下扩展的属性。
-	
+
 ```java
 Context 			{ 接口而已 }
 
@@ -368,7 +370,7 @@ public final class ActivityThread {
                 this, r.packageInfo, r.activityInfo, r.token, displayId, r.overrideConfig);
 
         final DisplayManagerGlobal dm = DisplayManagerGlobal.getInstance();
-        
+
         return appContext;
     }
 }
@@ -482,13 +484,13 @@ Instrumentation源码
 
 public class Instrumentation {
     public Application newApplication(ClassLoader cl, String className, Context context)
-            throws InstantiationException, IllegalAccessException, 
+            throws InstantiationException, IllegalAccessException,
             ClassNotFoundException {
         return newApplication(cl.loadClass(className), context);
     }
 
     static public Application newApplication(Class<?> clazz, Context context)
-            throws InstantiationException, IllegalAccessException, 
+            throws InstantiationException, IllegalAccessException,
             ClassNotFoundException {
         /// 使用反射创建Application
         Application app = (Application)clazz.newInstance();
@@ -524,7 +526,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     public PhoneWindow(Context context, Window preservedWindow,
             ActivityConfigCallback activityConfigCallback) {
         this(context);
-        
+
         // Only main activity windows use decor context, all the other windows depend on whatever context that was given to them.
         mUseDecorContext = true;      
     }
@@ -571,7 +573,7 @@ DecorView源码
 /frameworks/base/core/java/com/android/internal/policy/DecorView.java
 
 public class DecorView extends FrameLayout {
-	
+
 }
 ```
 DecorContext在PhoneWindow中创建，主要用于创建DecorView。DecorView是一个FrameLayout。
@@ -654,7 +656,3 @@ Context <- ContextWrapper <- ContextThemeWrapper <- DecorContext
                       - mBase : WrapperContext
                                  - mBase : Context
 ```
-
-
-
-
