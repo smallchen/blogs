@@ -2,13 +2,13 @@
 
 ## 目录(TOC)
 - [Android AssetManager源码详解](#android-assetmanager源码详解)
-	- [AssetManager的构建](#assetmanager的构建)
-	- [AssetManager内部源码](#assetmanager内部源码)
-		- [Native接口的查找与定位](#native接口的查找与定位)
-		- [AssetManager的初始化过程](#assetmanager的初始化过程)
-		- [应用资源的加载时机](#应用资源的加载时机)
-		- [盒子模型](#盒子模型)
-		- [AssetManager与resources.arsc](#assetmanager与resourcesarsc)
+    - [AssetManager的构建](#assetmanager的构建)
+    - [AssetManager内部源码](#assetmanager内部源码)
+        - [Native接口的查找与定位](#native接口的查找与定位)
+        - [AssetManager的初始化过程](#assetmanager的初始化过程)
+        - [应用资源的加载时机](#应用资源的加载时机)
+        - [盒子模型](#盒子模型)
+        - [AssetManager与resources.arsc](#assetmanager与resourcesarsc)
 
 <!-- /TOC -->
 
@@ -72,15 +72,15 @@ assets.addAssetPathAsSharedLibrary(libDir);
  Applications will not generally use this method, instead retrieving the appropriate asset manager with {@link Resources#getAssets}.
  */
 public AssetManager() {
-	synchronized (this) {
-		if (DEBUG_REFS) {
-			mNumRefs = 0;
-			incRefsLocked(this.hashCode());
-		}
-		init(false);
-		if (localLOGV) Log.v(TAG, "New asset manager: " + this);
-		ensureSystemAssets();
-	}
+    synchronized (this) {
+        if (DEBUG_REFS) {
+            mNumRefs = 0;
+            incRefsLocked(this.hashCode());
+        }
+        init(false);
+        if (localLOGV) Log.v(TAG, "New asset manager: " + this);
+        ensureSystemAssets();
+    }
 }
 ```
 
@@ -147,10 +147,10 @@ static const JNINativeMethod gAssetManagerMethods[] = {
 // android_util_AssetManager.cpp
 int register_android_content_AssetManager(JNIEnv* env)
 {
-	jclass typedValue = FindClassOrDie(env, "android/util/TypedValue");
-	jclass assetManager = FindClassOrDie(env, "android/content/res/AssetManager");
-	jclass stringClass = FindClassOrDie(env, "java/lang/String");
-	return RegisterMethodsOrDie(env, "android/content/res/AssetManager", gAssetManagerMethods,
+    jclass typedValue = FindClassOrDie(env, "android/util/TypedValue");
+    jclass assetManager = FindClassOrDie(env, "android/content/res/AssetManager");
+    jclass stringClass = FindClassOrDie(env, "java/lang/String");
+    return RegisterMethodsOrDie(env, "android/content/res/AssetManager", gAssetManagerMethods,
                                 NELEM(gAssetManagerMethods));
 }
 ```
@@ -160,21 +160,21 @@ int register_android_content_AssetManager(JNIEnv* env)
 ```java
 // AndroidRuntime.cpp
 namespace android {
-	/*
-	 * JNI-based registration functions.  Note these are properly contained in
-	 * namespace android.
-	 */
-	extern int register_android_app_admin_SecurityLog(JNIEnv* env);
+    /*
+     * JNI-based registration functions.  Note these are properly contained in
+     * namespace android.
+     */
+    extern int register_android_app_admin_SecurityLog(JNIEnv* env);
 
-	extern int register_android_content_AssetManager(JNIEnv* env);
+    extern int register_android_content_AssetManager(JNIEnv* env);
 
-	extern int register_android_util_Log(JNIEnv* env);
-	extern int register_android_graphics_Canvas(JNIEnv* env);
-	extern int register_android_view_Surface(JNIEnv* env);
-	extern int register_android_database_SQLiteConnection(JNIEnv* env);
-	extern int register_android_os_SystemProperties(JNIEnv *env);
-	extern int register_android_net_NetworkUtils(JNIEnv* env);
-	extern int register_android_text_AndroidCharacter(JNIEnv *env);
+    extern int register_android_util_Log(JNIEnv* env);
+    extern int register_android_graphics_Canvas(JNIEnv* env);
+    extern int register_android_view_Surface(JNIEnv* env);
+    extern int register_android_database_SQLiteConnection(JNIEnv* env);
+    extern int register_android_os_SystemProperties(JNIEnv *env);
+    extern int register_android_net_NetworkUtils(JNIEnv* env);
+    extern int register_android_text_AndroidCharacter(JNIEnv *env);
 }
 ```
 
@@ -200,7 +200,7 @@ static void android_content_AssetManager_init(JNIEnv* env, jobject clazz, jboole
     if (isSystem) {
         verifySystemIdmaps();
     }
-	// A.
+    // A.
     AssetManager* am = new AssetManager();
     if (am == NULL) {
         jniThrowException(env, "java/lang/OutOfMemoryError", "");
@@ -212,7 +212,7 @@ static void android_content_AssetManager_init(JNIEnv* env, jobject clazz, jboole
 
     ALOGV("Created AssetManager %p for Java object %p\n", am, clazz);
 
-	// C.
+    // C.
     env->SetLongField(clazz, gAssetManagerOffsets.mObject, reinterpret_cast<jlong>(am));
 }
 ```
@@ -235,7 +235,7 @@ private long mObject;
 AssetManager* assetManagerForJavaObject(JNIEnv* env, jobject obj)
 {
     jlong amHandle = env->GetLongField(obj, gAssetManagerOffsets.mObject);
-	// 将long型转化为C++对象指针。
+    // 将long型转化为C++对象指针。
     AssetManager* am = reinterpret_cast<AssetManager*>(amHandle);
     if (am != NULL) {
         return am;
@@ -288,10 +288,10 @@ bool AssetManager::addDefaultAssets()
 
 // B.
 bool AssetManager::addAssetPath() {
-	if (mResources != NULL) {
-		appendPathToResTable(ap, appAsLib);
-	}
-	return true;
+    if (mResources != NULL) {
+        appendPathToResTable(ap, appAsLib);
+    }
+    return true;
 }
 
 ```
@@ -318,8 +318,8 @@ const ResTable* AssetManager::getResTable(bool required) const
     if (rt) {
         return rt;
     }
-	mResources = new ResTable();
-	return mResources;
+    mResources = new ResTable();
+    return mResources;
 }
 ```
 
@@ -339,15 +339,15 @@ const ResTable& AssetManager::getResources(bool required) const
 ```java
 static jstring android_content_AssetManager_getResourcePackageName()
 {
-	AssetManager* am = assetManagerForJavaObject(env, clazz);
-	if (am == NULL) {
-		return NULL;
-	}
-	ResTable::resource_name name;
-	if (!am->getResources().getResourceName(resid, true, &name)) {
-		return NULL;
-	}
-	return NULL;
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return NULL;
+    }
+    ResTable::resource_name name;
+    if (!am->getResources().getResourceName(resid, true, &name)) {
+        return NULL;
+    }
+    return NULL;
 }
 ```
 
@@ -404,19 +404,19 @@ AssetManager的构造过程。
 ```java
 // ResourcesManager.java
 private @Nullable ResourcesImpl createResourcesImpl(@NonNull ResourcesKey key) {
-	final DisplayAdjustments daj = new DisplayAdjustments(key.mOverrideConfiguration);
-	daj.setCompatibilityInfo(key.mCompatInfo);
+    final DisplayAdjustments daj = new DisplayAdjustments(key.mOverrideConfiguration);
+    daj.setCompatibilityInfo(key.mCompatInfo);
 
-	final AssetManager assets = createAssetManager(key);
-	if (assets == null) {
-		return null;
-	}
+    final AssetManager assets = createAssetManager(key);
+    if (assets == null) {
+        return null;
+    }
 
-	final DisplayMetrics dm = getDisplayMetrics(key.mDisplayId, daj);
-	final Configuration config = generateConfig(key, dm);
+    final DisplayMetrics dm = getDisplayMetrics(key.mDisplayId, daj);
+    final Configuration config = generateConfig(key, dm);
 
-	final ResourcesImpl impl = new ResourcesImpl(assets, dm, config, daj);
-	return impl;
+    final ResourcesImpl impl = new ResourcesImpl(assets, dm, config, daj);
+    return impl;
 }
 ```
 
@@ -426,16 +426,16 @@ private @Nullable ResourcesImpl createResourcesImpl(@NonNull ResourcesKey key) {
 - new AssetManager()
   - android_util_AssetManager:init()
      - am = new C++ AssetManager()
-	     - 空构造，空操作
-	 - am.addDefaultAssets();
-	     - root = getenv("ANDROID_ROOT")
-		 - path = path(root).appendPath("framework/framework-res.apk")
-		 - addAssetPath(path)
-		     - mAssetPaths.add(asset_path)
-			 // 注：这里只是修改了mAssetPaths数组，并没有进行加载！！因为初始化时
-			 // mResources为空，不需要执行appendPathToResTable。
-	 - AssetManager:mObject = am;
-	 - 完成初始化。
+         - 空构造，空操作
+     - am.addDefaultAssets();
+         - root = getenv("ANDROID_ROOT")
+         - path = path(root).appendPath("framework/framework-res.apk")
+         - addAssetPath(path)
+             - mAssetPaths.add(asset_path)
+             // 注：这里只是修改了mAssetPaths数组，并没有进行加载！！因为初始化时
+             // mResources为空，不需要执行appendPathToResTable。
+     - AssetManager:mObject = am;
+     - 完成初始化。
 ```
 
 上面已经分析过了，
@@ -455,22 +455,22 @@ C++ AssetManager中，`mResources`不为空，只出现在`getResTable(bool requ
    - mAssets = assets;
    - mAssets.ensureStringBlocks();
         - makeStringBlocks()
-		     // 初始化字符串Block数组，对应AssetManager.mStringBlocks[]属性。
-		     - mStringBlocks = new StringBlock[num];
-			 - mStringBlocks[i] = new StringBlock(getNativeStringBlock(i), true);
-			       - native getNativeStringBlock(i)
-				   - 执行到android_util_AssetManager.cpp:getNativeStringBlock
-				        - am->getResources().getTableStringBlock(block)
-						- getResTable(true)
-						    - 第一次初始化c++层的mResources资源表。
-						    - mResources = new ResTable();
-							- empty如果为true，则表示初始化出错了，resources.arsc找不到。
-							- 或者表示，是系统资源。
-						    - empty为true，会设置mResources = NULL
-							- bool empty = appendPathToResTable()
-							      - 如果isSystemOverlay为true，则直接返回true，不进行加载。
-							- 由于第一次是系统资源，所以为emtpy，所以会重新设置mResources = NULL。
-							- 其实没有进行初始化！空欢喜一场。
+             // 初始化字符串Block数组，对应AssetManager.mStringBlocks[]属性。
+             - mStringBlocks = new StringBlock[num];
+             - mStringBlocks[i] = new StringBlock(getNativeStringBlock(i), true);
+                   - native getNativeStringBlock(i)
+                   - 执行到android_util_AssetManager.cpp:getNativeStringBlock
+                        - am->getResources().getTableStringBlock(block)
+                        - getResTable(true)
+                            - 第一次初始化c++层的mResources资源表。
+                            - mResources = new ResTable();
+                            - empty如果为true，则表示初始化出错了，resources.arsc找不到。
+                            - 或者表示，是系统资源。
+                            - empty为true，会设置mResources = NULL
+                            - bool empty = appendPathToResTable()
+                                  - 如果isSystemOverlay为true，则直接返回true，不进行加载。
+                            - 由于第一次是系统资源，所以为emtpy，所以会重新设置mResources = NULL。
+                            - 其实没有进行初始化！空欢喜一场。
 
 ```
 
@@ -495,48 +495,48 @@ C++ AssetManager中，`mResources`不为空，只出现在`getResTable(bool requ
 ```java
 // ResourcesManager.java
 protected @Nullable AssetManager createAssetManager(@NonNull final ResourcesKey key) {
-	AssetManager assets = new AssetManager();
+    AssetManager assets = new AssetManager();
 
     // A.
-	// resDir can be null if the 'android' package is creating a new Resources object.
-	// This is fine, since each AssetManager automatically loads the 'android' package
-	// already.
-	if (key.mResDir != null) {
-		// B.
-		if (assets.addAssetPath(key.mResDir) == 0) {
-			Log.e(TAG, "failed to add asset path " + key.mResDir);
-			return null;
-		}
-	}
+    // resDir can be null if the 'android' package is creating a new Resources object.
+    // This is fine, since each AssetManager automatically loads the 'android' package
+    // already.
+    if (key.mResDir != null) {
+        // B.
+        if (assets.addAssetPath(key.mResDir) == 0) {
+            Log.e(TAG, "failed to add asset path " + key.mResDir);
+            return null;
+        }
+    }
 
-	if (key.mSplitResDirs != null) {
-		for (final String splitResDir : key.mSplitResDirs) {
-			if (assets.addAssetPath(splitResDir) == 0) {
-				Log.e(TAG, "failed to add split asset path " + splitResDir);
-				return null;
-			}
-		}
-	}
+    if (key.mSplitResDirs != null) {
+        for (final String splitResDir : key.mSplitResDirs) {
+            if (assets.addAssetPath(splitResDir) == 0) {
+                Log.e(TAG, "failed to add split asset path " + splitResDir);
+                return null;
+            }
+        }
+    }
 
-	if (key.mOverlayDirs != null) {
-		for (final String idmapPath : key.mOverlayDirs) {
-			assets.addOverlayPath(idmapPath);
-		}
-	}
+    if (key.mOverlayDirs != null) {
+        for (final String idmapPath : key.mOverlayDirs) {
+            assets.addOverlayPath(idmapPath);
+        }
+    }
 
-	if (key.mLibDirs != null) {
-		for (final String libDir : key.mLibDirs) {
-			if (libDir.endsWith(".apk")) {
-				// Avoid opening files we know do not have resources,
-				// like code-only .jar files.
-				if (assets.addAssetPathAsSharedLibrary(libDir) == 0) {
-					Log.w(TAG, "Asset path '" + libDir +
-							"' does not exist or contains no resources.");
-				}
-			}
-		}
-	}
-	return assets;
+    if (key.mLibDirs != null) {
+        for (final String libDir : key.mLibDirs) {
+            if (libDir.endsWith(".apk")) {
+                // Avoid opening files we know do not have resources,
+                // like code-only .jar files.
+                if (assets.addAssetPathAsSharedLibrary(libDir) == 0) {
+                    Log.w(TAG, "Asset path '" + libDir +
+                            "' does not exist or contains no resources.");
+                }
+            }
+        }
+    }
+    return assets;
 }
 ```
 
@@ -549,41 +549,41 @@ B. 调用`assets.addAssetPath(key.mResDir)`等添加应用的资源目录。以�
    - addAssetPathInternal(path, false)
    - native final int addAssetPathNative(String path, boolean appAsLib)
        - android_util_AssetManager.addAssetPath(jstring path, jboolean appAsLib)
-	   - am->addAssetPath(String8(path8.c_str()), &cookie, appAsLib)
-	   - AssetManager::addAssetPath(path, int32_t* cookie, appAsLib, isSystemAsset)
-	   // 原型是addAssetPath(path, int32_t* cookie, bool appAsLib=false, bool isSystemAsset=false)
-	   // 默认是isSystemAsset=false！！！这次可以进行初始化了！！！！
-	        - Skip if we have it already. 如果路径已经存在于mAssetPaths，则直接返回true，否则添加到列表。
-			- mAssetPaths.add(ap)
-			- if (mResources != NULL) appendPathToResTable()
-			// 非常遗憾，虽然添加成功，但由于mResources还没初始化，所以没有进行加载！！！
+       - am->addAssetPath(String8(path8.c_str()), &cookie, appAsLib)
+       - AssetManager::addAssetPath(path, int32_t* cookie, appAsLib, isSystemAsset)
+       // 原型是addAssetPath(path, int32_t* cookie, bool appAsLib=false, bool isSystemAsset=false)
+       // 默认是isSystemAsset=false！！！这次可以进行初始化了！！！！
+            - Skip if we have it already. 如果路径已经存在于mAssetPaths，则直接返回true，否则添加到列表。
+            - mAssetPaths.add(ap)
+            - if (mResources != NULL) appendPathToResTable()
+            // 非常遗憾，虽然添加成功，但由于mResources还没初始化，所以没有进行加载！！！
 - AssetManager.addOverlayPath(idmapPath)
    - addOverlayPathNative(idmapPath)
    - native final int addOverlayPathNative(String idmapPath)
         - android_util_AssetManager.addOverlayPath(jstring idmapPath)
-		- am->addOverlayPath(String8(idmapPath8.c_str()), &cookie);
-		- AssetManager::addOverlayPath(const String8& packagePath, int32_t* cookie)
-		     - 这里和上面大同小异。如果已经存在，则直接返回true，否则添加到列表中。
-			 - 同样，如果mResources为NULL，仍旧不进行加载！！！
+        - am->addOverlayPath(String8(idmapPath8.c_str()), &cookie);
+        - AssetManager::addOverlayPath(const String8& packagePath, int32_t* cookie)
+             - 这里和上面大同小异。如果已经存在，则直接返回true，否则添加到列表中。
+             - 同样，如果mResources为NULL，仍旧不进行加载！！！
    - makeStringBlocks(mStringBlocks);
    - 这里不知道为何调用了makeStringBlocks，但得益于这个调用，mResources终于要初始化了！！！
-	   - native getNativeStringBlock(i)
-	   - android_util_AssetManager.cpp:getNativeStringBlock
-	   	 - am->getResources().getTableStringBlock(block)
-	   	 - getResTable(true)
-	   		 - 第一次初始化c++层的mResources资源表。
-			 - mResources = new ResTable();
-			 - 遍历mAssetPaths，逐一添加到 appendPathToResTable(mAssetPaths.itemAt(i));
-			 - bool empty = appendPathToResTable(asset_path)
-			 	  - 由于，这次存在isSystemOverlay=false，所以可以真正初始化！
-				  - 创建一个共享资源表`ResTable* sharedRes`
-				  - 读取`resources.arsc`的资源，添加到`sharedRes`
-				  - 将`sharedRes`添加到`mResources`
-				  - mResources包含应用的各种资源了。
-			 - onlyEmptyResources = onlyEmptyResources && empty;
-			 - 讲解一下这个属性，只要有一个empty=false，那么onlyEmptyResources就一定为false。
-			 - 也就是说，只要有一个empty=false，那么mResources就不会被设置为NULL。
-			 - mResources初始化完毕！！
+       - native getNativeStringBlock(i)
+       - android_util_AssetManager.cpp:getNativeStringBlock
+            - am->getResources().getTableStringBlock(block)
+            - getResTable(true)
+                - 第一次初始化c++层的mResources资源表。
+             - mResources = new ResTable();
+             - 遍历mAssetPaths，逐一添加到 appendPathToResTable(mAssetPaths.itemAt(i));
+             - bool empty = appendPathToResTable(asset_path)
+                   - 由于，这次存在isSystemOverlay=false，所以可以真正初始化！
+                  - 创建一个共享资源表`ResTable* sharedRes`
+                  - 读取`resources.arsc`的资源，添加到`sharedRes`
+                  - 将`sharedRes`添加到`mResources`
+                  - mResources包含应用的各种资源了。
+             - onlyEmptyResources = onlyEmptyResources && empty;
+             - 讲解一下这个属性，只要有一个empty=false，那么onlyEmptyResources就一定为false。
+             - 也就是说，只要有一个empty=false，那么mResources就不会被设置为NULL。
+             - mResources初始化完毕！！
 - 由于mResources已经初始化完毕，所以，接下来的所有添加，
   就不会因为if (mResources != NULL)而不进行真正的加载了。
 
@@ -600,35 +600,35 @@ B. 调用`assets.addAssetPath(key.mResDir)`等添加应用的资源目录。以�
 // ApplicationPackageManager.java extends PackageManager.java
 @Override
 public Resources getResourcesForActivity(ComponentName activityName)
-		throws NameNotFoundException {
-	return getResourcesForApplication(
-		getActivityInfo(activityName, sDefaultFlags).applicationInfo);
+        throws NameNotFoundException {
+    return getResourcesForApplication(
+        getActivityInfo(activityName, sDefaultFlags).applicationInfo);
 }
 
 @Override
 public Resources getResourcesForApplication(@NonNull ApplicationInfo app)
-		throws NameNotFoundException {
-	if (app.packageName.equals("system")) {
-		return mContext.mMainThread.getSystemUiContext().getResources();
-	}
-	final boolean sameUid = (app.uid == Process.myUid());
-	final Resources r = mContext.mMainThread.getTopLevelResources(
-				sameUid ? app.sourceDir : app.publicSourceDir,
-				sameUid ? app.splitSourceDirs : app.splitPublicSourceDirs,
-				app.resourceDirs, app.sharedLibraryFiles, Display.DEFAULT_DISPLAY,
-				mContext.mPackageInfo);
-	if (r != null) {
-		return r;
-	}
-	throw new NameNotFoundException("Unable to open " + app.publicSourceDir);
+        throws NameNotFoundException {
+    if (app.packageName.equals("system")) {
+        return mContext.mMainThread.getSystemUiContext().getResources();
+    }
+    final boolean sameUid = (app.uid == Process.myUid());
+    final Resources r = mContext.mMainThread.getTopLevelResources(
+                sameUid ? app.sourceDir : app.publicSourceDir,
+                sameUid ? app.splitSourceDirs : app.splitPublicSourceDirs,
+                app.resourceDirs, app.sharedLibraryFiles, Display.DEFAULT_DISPLAY,
+                mContext.mPackageInfo);
+    if (r != null) {
+        return r;
+    }
+    throw new NameNotFoundException("Unable to open " + app.publicSourceDir);
 
 }
 
 @Override
 public Resources getResourcesForApplication(String appPackageName)
-		throws NameNotFoundException {
-	return getResourcesForApplication(
-		getApplicationInfo(appPackageName, sDefaultFlags));
+        throws NameNotFoundException {
+    return getResourcesForApplication(
+        getApplicationInfo(appPackageName, sDefaultFlags));
 }
 ```
 
@@ -638,9 +638,9 @@ public Resources getResourcesForApplication(String appPackageName)
  * Resources if one has already been created.
  */
 Resources getTopLevelResources(String resDir, String[] splitResDirs, String[] overlayDirs,
-		String[] libDirs, int displayId, LoadedApk pkgInfo) {
-	return mResourcesManager.getResources(null, resDir, splitResDirs, overlayDirs, libDirs,
-			displayId, null, pkgInfo.getCompatibilityInfo(), pkgInfo.getClassLoader());
+        String[] libDirs, int displayId, LoadedApk pkgInfo) {
+    return mResourcesManager.getResources(null, resDir, splitResDirs, overlayDirs, libDirs,
+            displayId, null, pkgInfo.getCompatibilityInfo(), pkgInfo.getClassLoader());
 }
 ```
 
