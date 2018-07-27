@@ -11,7 +11,7 @@ AndroidStuido调试程序时的命令行
 07/27 09:41:14: Launching testpcfiletrans
 $ adb push /Users/jokinkuang/Documents/projects/510/510_master/testpcfiletrans/build/outputs/apk/testpcfiletrans-debug.apk /data/local/tmp/com.jokin.demo.TestPCFileTrans
 $ adb shell pm install -r "/data/local/tmp/com.jokin.demo.TestPCFileTrans"
-	pkg: /data/local/tmp/com.jokin.demo.TestPCFileTrans
+    pkg: /data/local/tmp/com.jokin.demo.TestPCFileTrans
 Success
 
 $ adb shell am start -n "com.jokin.demo.TestPCFileTrans/com.jokin.demo.TestPCFileTrans.MainActivity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER

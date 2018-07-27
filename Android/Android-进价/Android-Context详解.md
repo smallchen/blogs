@@ -9,21 +9,21 @@
 
 ```java
 public abstract class Context {
-	// APP基本信息接口
-	public abstract Display getDisplay();
-	public abstract Context getApplicationContext();
-	public abstract ClassLoader getClassLoader();
-	public abstract ApplicationInfo getApplicationInfo();
-	public IBinder getActivityToken() {};
+    // APP基本信息接口
+    public abstract Display getDisplay();
+    public abstract Context getApplicationContext();
+    public abstract ClassLoader getClassLoader();
+    public abstract ApplicationInfo getApplicationInfo();
+    public IBinder getActivityToken() {};
 
-	// APP四大组件接口
-	public abstract void startActivity(@RequiresPermission Intent intent);
-	public abstract ComponentName startService(Intent service);
-	public abstract boolean bindService(@RequiresPermission Intent service, @NonNull ServiceConnection conn, @BindServiceFlags int flags);
+    // APP四大组件接口
+    public abstract void startActivity(@RequiresPermission Intent intent);
+    public abstract ComponentName startService(Intent service);
+    public abstract boolean bindService(@RequiresPermission Intent service, @NonNull ServiceConnection conn, @BindServiceFlags int flags);
     public abstract Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter);
     public abstract void sendBroadcast(Intent intent, String receiverPermission, int appOp);
 
-	// APP基本信息创建接口
+    // APP基本信息创建接口
     public abstract Context createApplicationContext(ApplicationInfo application,
             @CreatePackageOptions int flags) throws PackageManager.NameNotFoundException;
     public abstract Context createDisplayContext(@NonNull Display display);
@@ -77,7 +77,7 @@ ContextWrapper很简单，就提供了一个mBase属性。可以通过构造器C
 
 ```java
 public class ContextThemeWrapper extends ContextWrapper {
-	private int mThemeResource;
+    private int mThemeResource;
     private Resources.Theme mTheme;
     private LayoutInflater mInflater;
     private Configuration mOverrideConfiguration;
@@ -246,9 +246,9 @@ Context <- ContextWrapper <- ContextThemeWrapper <- DecorContext
 
 ```java
 public class Application extends ContextWrapper {
-	public LoadedApk mLoadedApk;
+    public LoadedApk mLoadedApk;
 
-	public Application() {
+    public Application() {
         super(null);
     }
 
@@ -278,9 +278,9 @@ Application的构造方法，调用了super(null)，也就是ContextWrapper(Cont
 
 ```java
 public class Activity extends ContextThemeWrapper {
-	// Activity没有提供构造器！
+    // Activity没有提供构造器！
 
-	final void attach(Context context, ActivityThread aThread,
+    final void attach(Context context, ActivityThread aThread,
             Instrumentation instr, IBinder token, int ident,
             Application application, Intent intent, ActivityInfo info,
             CharSequence title, Activity parent, String id,
@@ -312,7 +312,7 @@ Context <- ContextWrapper <- ContextThemeWrapper <- DecorContext
 1. 对比下扩展的属性。
 
 ```java
-Context 			{ 接口而已 }
+Context             { 接口而已 }
 
 ContextWrapper      { Context mBase; }
 
@@ -352,8 +352,8 @@ ActivityThread源码
 
 ```java
 public final class ActivityThread {
-	/// 打开App
-	private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
+    /// 打开App
+    private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
                 ContextImpl appContext = createBaseContextForActivity(r);
                 Activity activity = mInstrumentation.newActivity(
                     cl, component.getClassName(), r.intent);
@@ -362,10 +362,10 @@ public final class ActivityThread {
                         r.ident, app, r.intent, r.activityInfo, title, r.parent,
                         r.embeddedID, r.lastNonConfigurationInstances, config,
                         r.referrer, r.voiceInteractor, window, r.configCallback);
-	}
+    }
 
-	private ContextImpl createBaseContextForActivity(ActivityClientRecord r) {       
-		/// 创建的时候，把PackageInfo（即LoadedApk）传递到ContextImpl
+    private ContextImpl createBaseContextForActivity(ActivityClientRecord r) {       
+        /// 创建的时候，把PackageInfo（即LoadedApk）传递到ContextImpl
         ContextImpl appContext = ContextImpl.createActivityContext(
                 this, r.packageInfo, r.activityInfo, r.token, displayId, r.overrideConfig);
 
@@ -392,8 +392,8 @@ ActivityThread源码
 
 ```java
 public final class ActivityThread {
-	/// 打开APP
-   	private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
+    /// 打开APP
+       private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
         /// 通过Instrumentation的newActivity创建Activity实例。
         ContextImpl appContext = createBaseContextForActivity(r);
         Activity activity = mInstrumentation.newActivity(
@@ -404,7 +404,7 @@ public final class ActivityThread {
                 r.embeddedID, r.lastNonConfigurationInstances, config,
                 r.referrer, r.voiceInteractor, window, r.configCallback);
         try {
-        	/// 重点。 通过Instrumentation的makeApplication创建Application实例。这里的packageInfo.makeApplication只是简单封装。
+            /// 重点。 通过Instrumentation的makeApplication创建Application实例。这里的packageInfo.makeApplication只是简单封装。
             Application app = r.packageInfo.makeApplication(false, mInstrumentation);
 
             /// 不知为何再绑定一次Activity
@@ -428,7 +428,7 @@ public final class ActivityThread {
                         r.embeddedID, r.lastNonConfigurationInstances, config,
                         r.referrer, r.voiceInteractor, window, r.configCallback);
             }
-	}
+    }
 }
 ```
 
@@ -437,7 +437,7 @@ PackageInfo其实是LoadedApk，源码
 
 ```java
 public final class LoadedApk {
-	public Application makeApplication(boolean forceDefaultAppClass,
+    public Application makeApplication(boolean forceDefaultAppClass,
             Instrumentation instrumentation) {
         if (mApplication != null) {
             return mApplication;

@@ -25,11 +25,11 @@
 
 ```java
 synchronized (this) {
-	// 同步代码块
+    // 同步代码块
 }
 
 synchronized (obj) {
-	// 同步代码块
+    // 同步代码块
 }
 ```
 

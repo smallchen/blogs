@@ -5,16 +5,16 @@
 ```java
 @Override
  public IBinder onBind(Intent intent) {
-	 // Select the interface to return.  If your service only implements
-	 // a single interface, you can just return it here without checking
-	 // the Intent.
-	 if (IRemoteService.class.getName().equals(intent.getAction())) {
-		 return mBinder;
-	 }
-	 if (ISecondary.class.getName().equals(intent.getAction())) {
-		 return mSecondaryBinder;
-	 }
-	 return null;
+     // Select the interface to return.  If your service only implements
+     // a single interface, you can just return it here without checking
+     // the Intent.
+     if (IRemoteService.class.getName().equals(intent.getAction())) {
+         return mBinder;
+     }
+     if (ISecondary.class.getName().equals(intent.getAction())) {
+         return mSecondaryBinder;
+     }
+     return null;
  }
 
  bindService(new Intent(IRemoteService.class.getName()),

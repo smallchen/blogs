@@ -34,8 +34,8 @@ public class LocalService extends Service {
 ```java
 @Override
 public IBinder onBind(Intent intent) {
-	// TODO: Return the communication channel to the service.
-	return new LocalBinder();
+    // TODO: Return the communication channel to the service.
+    return new LocalBinder();
 }
 ```
 
@@ -63,16 +63,16 @@ bindService(intentService, mLocalServiceConnection, BIND_AUTO_CREATE);
 ```java
 private LocalService mLocalService;
 private ServiceConnection mLocalServiceConnection = new ServiceConnection() {
-	@Override
-	public void onServiceConnected(ComponentName name, IBinder service) {
-		LocalService.LocalBinder localBinder = (LocalService.LocalBinder) service;
-		mLocalService = localBinder.getLocalService();
-	}
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        LocalService.LocalBinder localBinder = (LocalService.LocalBinder) service;
+        mLocalService = localBinder.getLocalService();
+    }
 
-	@Override
-	public void onServiceDisconnected(ComponentName name) {
-		mLocalService = null;
-	}
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        mLocalService = null;
+    }
 };
 ```
 
@@ -98,13 +98,13 @@ public class LocalService extends Service {
 
 ```java
 findViewById(R.id.closeActionLocal).setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View v) {
-		if (mLocalService == null) {
-			return;
-		}
-		mLocalService.close("本地要关闭拉！");
-	}
+    @Override
+    public void onClick(View v) {
+        if (mLocalService == null) {
+            return;
+        }
+        mLocalService.close("本地要关闭拉！");
+    }
 });
 ```
 

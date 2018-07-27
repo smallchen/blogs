@@ -1,6 +1,6 @@
 ##
 
-* jgrep			java文件
+* jgrep            java文件
 * resgrep
 * godir         查找文件所在目录
 

@@ -82,17 +82,17 @@ mGroupFlags在这里可能相当于Windows下的窗口样式，可以改变控�
 以上操作，大致是指启用`自定义子View的绘制顺序`和`绘制前调用TRANSFORMATIONS`的特性。应该是分别对应以下的重写方法：
 
 ```java
-	@Override
-	protected int getChildDrawingOrder(int childCount, int i)
-	
-	@Override
-	protected boolean getChildStaticTransformation(View child, Transformation t)
+    @Override
+    protected int getChildDrawingOrder(int childCount, int i)
+    
+    @Override
+    protected boolean getChildStaticTransformation(View child, Transformation t)
 ```
 
 mGroupFlags是ViewGroup里面的属性，新的SDK中，通过继承是可以直接访问到的。
 
 ```java
-	 /**
+     /**
      * Internal flags.
      *
      * This field should be made private, so it is hidden from the SDK.
@@ -104,44 +104,44 @@ mGroupFlags是ViewGroup里面的属性，新的SDK中，通过继承是可以直
 可能旧的SDK这个属性是private的，所以EcoGallery里是使用反射来访问和设置私有属性mGroupFlags的值。但反过来想觉得不是。因为原生Gallery里都可以直接访问mGroupFlags，说明它没有限制访问权限。所以，EcoGallery里这样操作，可能是防范于未然。
 
 ```java
-		// We draw the selected item last (because otherwise the item to the
-		// right overlaps it)
-		int FLAG_USE_CHILD_DRAWING_ORDER = 0x400;
-		int FLAG_SUPPORT_STATIC_TRANSFORMATIONS = 0x800;
-		Class<ViewGroup> vgClass = ViewGroup.class;
+        // We draw the selected item last (because otherwise the item to the
+        // right overlaps it)
+        int FLAG_USE_CHILD_DRAWING_ORDER = 0x400;
+        int FLAG_SUPPORT_STATIC_TRANSFORMATIONS = 0x800;
+        Class<ViewGroup> vgClass = ViewGroup.class;
 
-		try {
-			Field childDrawingOrder = vgClass.getDeclaredField("FLAG_USE_CHILD_DRAWING_ORDER");
-			Field supportStaticTrans = vgClass.getDeclaredField("FLAG_SUPPORT_STATIC_TRANSFORMATIONS");
+        try {
+            Field childDrawingOrder = vgClass.getDeclaredField("FLAG_USE_CHILD_DRAWING_ORDER");
+            Field supportStaticTrans = vgClass.getDeclaredField("FLAG_SUPPORT_STATIC_TRANSFORMATIONS");
 
-			childDrawingOrder.setAccessible(true);
-			supportStaticTrans.setAccessible(true);
+            childDrawingOrder.setAccessible(true);
+            supportStaticTrans.setAccessible(true);
 
-			FLAG_USE_CHILD_DRAWING_ORDER = childDrawingOrder.getInt(this);
-			FLAG_SUPPORT_STATIC_TRANSFORMATIONS = supportStaticTrans.getInt(this);
-		} catch (NoSuchFieldException e) {
-			Log.e(LOG_TAG, e.getMessage(), e);
-		} catch (IllegalAccessException e) {
-			Log.e(LOG_TAG, e.getMessage(), e);
-		}
-		try {
-			// set new group flags
-			Field groupFlags = vgClass.getDeclaredField("mGroupFlags");
-			groupFlags.setAccessible(true);
-			int groupFlagsValue = groupFlags.getInt(this);
+            FLAG_USE_CHILD_DRAWING_ORDER = childDrawingOrder.getInt(this);
+            FLAG_SUPPORT_STATIC_TRANSFORMATIONS = supportStaticTrans.getInt(this);
+        } catch (NoSuchFieldException e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+        } catch (IllegalAccessException e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+        }
+        try {
+            // set new group flags
+            Field groupFlags = vgClass.getDeclaredField("mGroupFlags");
+            groupFlags.setAccessible(true);
+            int groupFlagsValue = groupFlags.getInt(this);
 
-			groupFlagsValue |= FLAG_USE_CHILD_DRAWING_ORDER;
-			groupFlagsValue |= FLAG_SUPPORT_STATIC_TRANSFORMATIONS;
+            groupFlagsValue |= FLAG_USE_CHILD_DRAWING_ORDER;
+            groupFlagsValue |= FLAG_SUPPORT_STATIC_TRANSFORMATIONS;
 
-			groupFlags.set(this, groupFlagsValue);
+            groupFlags.set(this, groupFlagsValue);
 
-			// working!
-			mBroken = false;
-		} catch (NoSuchFieldException e) {
-			Log.e(LOG_TAG, e.getMessage(), e);
-		} catch (IllegalAccessException e) {
-			Log.e(LOG_TAG, e.getMessage(), e);
-		}
+            // working!
+            mBroken = false;
+        } catch (NoSuchFieldException e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+        } catch (IllegalAccessException e) {
+            Log.e(LOG_TAG, e.getMessage(), e);
+        }
 ```
 
 具体如何使用反射来访问和设置私有属性，可以google。

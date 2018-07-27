@@ -26,18 +26,18 @@ public void wirte() {
 
 ```java
 public void read() {
-	Book book = null;
-	try {
-	    // 创建序列化读取字节流
-	    ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
-	            MainActivity.PATH));
-	    // 反序列化（读取）对象
-	    book = (Book) ois.readObject();
-	    // 关闭流
-	    ois.close();
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
-	System.out.println(book);
+    Book book = null;
+    try {
+        // 创建序列化读取字节流
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
+                MainActivity.PATH));
+        // 反序列化（读取）对象
+        book = (Book) ois.readObject();
+        // 关闭流
+        ois.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    System.out.println(book);
 }
 ```

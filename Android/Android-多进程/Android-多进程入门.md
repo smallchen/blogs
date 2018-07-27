@@ -18,7 +18,7 @@
 
 <activity
     android:name="com.example.ipc.ThirdActivity"
-    android:process=".remote" />			
+    android:process=".remote" />            
 ```
 
 对MainActivity不进行指定，则默认为当前进程。

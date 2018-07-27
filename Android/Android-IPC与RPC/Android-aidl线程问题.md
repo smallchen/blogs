@@ -66,21 +66,21 @@ AIDL在跨进程中调用。调用方的线程不管。服务端的执行是分�
 
 ```java
 findViewById(R.id.closeAction).setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View v) {
-		for (int i = 0; i < 20; ++i) {
-			Thread thread = new Thread(closeRunnable, "thread-"+i);
-			thread.start();
-		}
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		synchronized (lock) {
-			lock.notifyAll();
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        for (int i = 0; i < 20; ++i) {
+            Thread thread = new Thread(closeRunnable, "thread-"+i);
+            thread.start();
+        }
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        synchronized (lock) {
+            lock.notifyAll();
+        }
+    }
 });
 
 private Object lock = new Object();

@@ -60,26 +60,26 @@ NDK还提供平台库（`platform library`）！支持访问native层的Activity
 
 ```java
 android {
-	defaultConfig {
-		externalNativeBuild {
-			cmake {
-				cppFlags "-frtti -fexceptions"
-			}
-		}
-	}
+    defaultConfig {
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+    }
 }
 ```
 
 ```java
 defaultConfig {
-	externalNativeBuild {
-			ndkBuild {
-				arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
-				cFlags "-DTEST_C_FLAG1", "-DTEST_C_FLAG2"
-				cppFlags "-DTEST_CPP_FLAG2", "-DTEST_CPP_FLAG2"
-				abiFilters "armeabi-v7a", "armeabi"
-			}
-		}
+    externalNativeBuild {
+            ndkBuild {
+                arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
+                cFlags "-DTEST_C_FLAG1", "-DTEST_C_FLAG2"
+                cppFlags "-DTEST_CPP_FLAG2", "-DTEST_CPP_FLAG2"
+                abiFilters "armeabi-v7a", "armeabi"
+            }
+        }
 }
 ```
 

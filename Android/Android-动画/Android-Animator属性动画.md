@@ -112,16 +112,16 @@ animatorSet.start();
 
 ```java
 private void startAnimator(View view) {
-	final ValueAnimator animator = ValueAnimator.ofInt(0, 100);
-	animator.setDuration(5000);
-	animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-	   @Override
-	   public void onAnimationUpdate(ValueAnimator animation) {
-		   Integer value = (Integer) animation.getAnimatedValue();
-		   view.setText(value + "");
-	   }
-	});
-	animator.start();
+    final ValueAnimator animator = ValueAnimator.ofInt(0, 100);
+    animator.setDuration(5000);
+    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+       @Override
+       public void onAnimationUpdate(ValueAnimator animation) {
+           Integer value = (Integer) animation.getAnimatedValue();
+           view.setText(value + "");
+       }
+    });
+    animator.start();
 }
 ```
 见另一篇，此处不再累赘。
@@ -140,9 +140,9 @@ private void startAnimator(View view) {
 
 ```java
 public void start(View view){
-	ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 1,0,1);
-	animator.setDuration(2000);
-	animator.start();
+    ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 1,0,1);
+    animator.setDuration(2000);
+    animator.start();
 }
 ```
 
@@ -150,9 +150,9 @@ public void start(View view){
 
 ```java
 public void start(View view){
-	ObjectAnimator animator = ObjectAnimator.ofFloat(textView, "rotation", 0,180,0);
-	animator.setDuration(2000);
-	animator.start();
+    ObjectAnimator animator = ObjectAnimator.ofFloat(textView, "rotation", 0,180,0);
+    animator.setDuration(2000);
+    animator.start();
 }
 ```
 
@@ -255,7 +255,7 @@ public static class ArgbEvaluator implements TypeEvaluator {
 }
 
 public void start(view) {
-	ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor", 0xffff00ff, 0xffffff00, 0xffff00ff);
+    ObjectAnimator animator = ObjectAnimator.ofInt(view, "backgroundColor", 0xffff00ff, 0xffffff00, 0xffff00ff);
         animator.setDuration(2000);
         animator.setEvaluator(new ArgbEvaluator());
         animator.start();
@@ -308,51 +308,51 @@ public static void startStarAnimator(View view, int duration, boolean isShow ,An
 ```java
 /**PropertyValuesHolder这个类可以先将动画属性和值暂时的存储起来，后一起执行，在有些时候可以使用替换掉AnimatorSet，减少代码量*/
 private void showPropertyValuesHolderAnim() {
-	 //keyframe
-	 Keyframe keyframe1 = Keyframe.ofFloat(0.0f,0);
-	 Keyframe keyframe2 = Keyframe.ofFloat(0.25f,-30);
-	 Keyframe keyframe3 = Keyframe.ofFloat(0.5f,0);
-	 Keyframe keyframe4 = Keyframe.ofFloat(0.75f, 30);
-	 Keyframe keyframe5 = Keyframe.ofFloat(1.0f,0);
-	 PropertyValuesHolder rotation = PropertyValuesHolder.ofKeyframe("rotation", keyframe1, keyframe2, keyframe3, keyframe4,keyframe5);
+     //keyframe
+     Keyframe keyframe1 = Keyframe.ofFloat(0.0f,0);
+     Keyframe keyframe2 = Keyframe.ofFloat(0.25f,-30);
+     Keyframe keyframe3 = Keyframe.ofFloat(0.5f,0);
+     Keyframe keyframe4 = Keyframe.ofFloat(0.75f, 30);
+     Keyframe keyframe5 = Keyframe.ofFloat(1.0f,0);
+     PropertyValuesHolder rotation = PropertyValuesHolder.ofKeyframe("rotation", keyframe1, keyframe2, keyframe3, keyframe4,keyframe5);
 
-	 PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha",1.0f,0.2f,1.0f);
-	 PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX",1.0f,0.2f,1.0f);
-	 PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY",1.0f,0.2f,1.0f);
-	 PropertyValuesHolder color = PropertyValuesHolder.ofInt("BackgroundColor", 0XFFFFFF00, 0XFF0000FF);
+     PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha",1.0f,0.2f,1.0f);
+     PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX",1.0f,0.2f,1.0f);
+     PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY",1.0f,0.2f,1.0f);
+     PropertyValuesHolder color = PropertyValuesHolder.ofInt("BackgroundColor", 0XFFFFFF00, 0XFF0000FF);
 
-	 ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mButton, alpha, scaleX, scaleY,color,rotation);
-	 animator.setInterpolator(new OvershootInterpolator());
-	 animator.setDuration(5000).start();
+     ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mButton, alpha, scaleX, scaleY,color,rotation);
+     animator.setInterpolator(new OvershootInterpolator());
+     animator.setDuration(5000).start();
 }
 ```
 
 ```java
 public void transAnimRun(final View view, final float width, int distance)
 {
-	int left = view.getLeft();
-	PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("x", left, left+distance);
-	PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("alpha", 1f, 0);
-	ObjectAnimator anim = ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhZ);
+    int left = view.getLeft();
+    PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("x", left, left+distance);
+    PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("alpha", 1f, 0);
+    ObjectAnimator anim = ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhZ);
 
-	anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
-	{
-		@Override
-		public void onAnimationUpdate(ValueAnimator animation)
-		{
-			view.setScaleX(width);
-			view.setScaleY(width);
-		}
-	});
+    anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
+    {
+        @Override
+        public void onAnimationUpdate(ValueAnimator animation)
+        {
+            view.setScaleX(width);
+            view.setScaleY(width);
+        }
+    });
     anim.setDuration(CollapseAnimationDuration);
     anim.start();
 }
 
 public void scaleAnimRun(final View view, final float scale) {
-	PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("scaleX", 1f, scale);
-	PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleY", 1f, scale);
-	PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("alpha", 1f, 0f);
-	ObjectAnimator anim = ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhY, pvhZ);
+    PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat("scaleX", 1f, scale);
+    PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("scaleY", 1f, scale);
+    PropertyValuesHolder pvhZ = PropertyValuesHolder.ofFloat("alpha", 1f, 0f);
+    ObjectAnimator anim = ObjectAnimator.ofPropertyValuesHolder(view, pvhX, pvhY, pvhZ);
 
     anim.addListener(new Animator.AnimatorListener() {
         @Override

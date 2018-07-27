@@ -15,7 +15,7 @@
 <activity
      android:name=".MainActivity"
      android:label="@string/app_name"
-	 android:process=”:process.main”>
+     android:process=”:process.main”>
      <intent-filter>
          <actionandroid:name="android.intent.action.MAIN"/>
          <categoryandroid:name="android.intent.category.LAUNCHER"/>
@@ -24,10 +24,10 @@
 
 <activity
     android:name=".MainActivityB"
-	android:label="@string/app_nameB"
-	android:process=”:process.sub”
-	android:icon=”@drawable/icon1”
-	android:launchMode = “singleInstance”>
+    android:label="@string/app_nameB"
+    android:process=”:process.sub”
+    android:icon=”@drawable/icon1”
+    android:launchMode = “singleInstance”>
     <intent-filter>
        <actionandroid:name="android.intent.action.MAIN"/>
        <categoryandroid:name="android.intent.category.LAUNCHER"/>

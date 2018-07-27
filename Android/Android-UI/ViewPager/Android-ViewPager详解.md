@@ -37,7 +37,7 @@ public class EmptyPageAdapter extends PagerAdapter {
         ItemInfo ii = new ItemInfo();
         ii.position = position;
         ii.object = mAdapter.instantiateItem(this, position);
-        ii.widthFactor = mAdapter.getPageWidth(position);	// 还没有重写
+        ii.widthFactor = mAdapter.getPageWidth(position);    // 还没有重写
         if (index < 0 || index >= mItems.size()) {
             mItems.add(ii);
         } else {
@@ -214,7 +214,7 @@ D/Main LogViewPager: LogViewPager
 D/Main LogViewPager: setAdapter
 D/StaticPageAdapter: getCount
 D/Main LogViewPager: addOnPageChangeListener
-D/MainActivity: init finished!		# onCreate结束
+D/MainActivity: init finished!        # onCreate结束
 D/Main LogViewPager: onAttachedToWindow  # View的onAttachedToWindow要比Activity的onCreate晚。
 D/Main LogViewPager: drawableStateChanged
 D/Main LogViewPager: onMeasure        # 第一次初始化是在这里调用populate方法

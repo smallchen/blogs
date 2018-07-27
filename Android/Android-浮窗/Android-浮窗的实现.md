@@ -13,31 +13,31 @@
 ```java
 private List<Integer> mWindowTypes = new ArrayList<>();
 {
-	mWindowTypes.add(LayoutParams.FIRST_APPLICATION_WINDOW); // 1
-	mWindowTypes.add(LayoutParams.TYPE_BASE_APPLICATION); // 1
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION); // 2
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION_STARTING); // 3
-	mWindowTypes.add(LayoutParams.TYPE_DRAWN_APPLICATION); // 4
-	mWindowTypes.add(LayoutParams.LAST_APPLICATION_WINDOW); // 99
+    mWindowTypes.add(LayoutParams.FIRST_APPLICATION_WINDOW); // 1
+    mWindowTypes.add(LayoutParams.TYPE_BASE_APPLICATION); // 1
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION); // 2
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION_STARTING); // 3
+    mWindowTypes.add(LayoutParams.TYPE_DRAWN_APPLICATION); // 4
+    mWindowTypes.add(LayoutParams.LAST_APPLICATION_WINDOW); // 99
 
-	mWindowTypes.add(LayoutParams.FIRST_SUB_WINDOW); // 1000
-	mWindowTypes.add(LayoutParams.LAST_SUB_WINDOW); // 1999
+    mWindowTypes.add(LayoutParams.FIRST_SUB_WINDOW); // 1000
+    mWindowTypes.add(LayoutParams.LAST_SUB_WINDOW); // 1999
 
-	mWindowTypes.add(LayoutParams.FIRST_SYSTEM_WINDOW); // 2000
+    mWindowTypes.add(LayoutParams.FIRST_SYSTEM_WINDOW); // 2000
 
-	mWindowTypes.add(LayoutParams.TYPE_STATUS_BAR); // 2000
-	mWindowTypes.add(LayoutParams.TYPE_SEARCH_BAR); // 2001
-	mWindowTypes.add(LayoutParams.TYPE_PHONE); // 2002
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ALERT); // 2003
-	mWindowTypes.add(LayoutParams.TYPE_TOAST); // 2005
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_OVERLAY); // 2006
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_DIALOG); // 2008
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ERROR); // 2010
-	mWindowTypes.add(LayoutParams.TYPE_INPUT_METHOD); // 2011
-	mWindowTypes.add(LayoutParams.TYPE_DISPLAY_OVERLAY); // 2026
+    mWindowTypes.add(LayoutParams.TYPE_STATUS_BAR); // 2000
+    mWindowTypes.add(LayoutParams.TYPE_SEARCH_BAR); // 2001
+    mWindowTypes.add(LayoutParams.TYPE_PHONE); // 2002
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ALERT); // 2003
+    mWindowTypes.add(LayoutParams.TYPE_TOAST); // 2005
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_OVERLAY); // 2006
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_DIALOG); // 2008
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ERROR); // 2010
+    mWindowTypes.add(LayoutParams.TYPE_INPUT_METHOD); // 2011
+    mWindowTypes.add(LayoutParams.TYPE_DISPLAY_OVERLAY); // 2026
 
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION_OVERLAY); // 2038
-	mWindowTypes.add(LayoutParams.LAST_SYSTEM_WINDOW); // 2999
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION_OVERLAY); // 2038
+    mWindowTypes.add(LayoutParams.LAST_SYSTEM_WINDOW); // 2999
 }
 ```
 
@@ -221,34 +221,34 @@ param.y=0;
 ```java
 private static int index = -1;
 private int getWindowType() {
-	index += 1;
-	switch (index) {
-		case 0:return LayoutParams.FIRST_SUB_WINDOW;
-		case 1:return LayoutParams.TYPE_APPLICATION_PANEL;
-		case 2:return LayoutParams.TYPE_APPLICATION_MEDIA;
-		case 3:return LayoutParams.TYPE_APPLICATION_SUB_PANEL;
-		case 4:return LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
-		case 5:return LayoutParams.LAST_SUB_WINDOW;
-		case 6:return LayoutParams.TYPE_STATUS_BAR;
-		case 7:return LayoutParams.TYPE_SEARCH_BAR;
-		case 8:return LayoutParams.TYPE_PHONE;
-		default:
-			return LayoutParams.FIRST_SUB_WINDOW;
-	}
+    index += 1;
+    switch (index) {
+        case 0:return LayoutParams.FIRST_SUB_WINDOW;
+        case 1:return LayoutParams.TYPE_APPLICATION_PANEL;
+        case 2:return LayoutParams.TYPE_APPLICATION_MEDIA;
+        case 3:return LayoutParams.TYPE_APPLICATION_SUB_PANEL;
+        case 4:return LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
+        case 5:return LayoutParams.LAST_SUB_WINDOW;
+        case 6:return LayoutParams.TYPE_STATUS_BAR;
+        case 7:return LayoutParams.TYPE_SEARCH_BAR;
+        case 8:return LayoutParams.TYPE_PHONE;
+        default:
+            return LayoutParams.FIRST_SUB_WINDOW;
+    }
 }
 public void show() {
-	int LAYOUT_FLAG = getWindowType();
-	if (mContentView != null) {
-		wmParams.type = LAYOUT_FLAG;
-		wmParams.format = PixelFormat.RGBA_8888;
-		wmParams.flags = LayoutParams.FLAG_NOT_FOCUSABLE;
-		wmParams.alpha = 1.0f;
-		wmParams.gravity = Gravity.LEFT | Gravity.TOP;
-		wmParams.x = 0;
-		wmParams.y = 0;
-		wmParams.width = 200;
-		wmParams.height = 200;
-		wm.addView(mContentView, wmParams);
-	}
+    int LAYOUT_FLAG = getWindowType();
+    if (mContentView != null) {
+        wmParams.type = LAYOUT_FLAG;
+        wmParams.format = PixelFormat.RGBA_8888;
+        wmParams.flags = LayoutParams.FLAG_NOT_FOCUSABLE;
+        wmParams.alpha = 1.0f;
+        wmParams.gravity = Gravity.LEFT | Gravity.TOP;
+        wmParams.x = 0;
+        wmParams.y = 0;
+        wmParams.width = 200;
+        wmParams.height = 200;
+        wm.addView(mContentView, wmParams);
+    }
 }
 ```

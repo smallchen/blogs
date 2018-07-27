@@ -2,26 +2,26 @@
 
 ## 目录(TOC)
 - [Android 浮窗测试](#android-浮窗测试)
-	- [表格标题说明](#表格标题说明)
+    - [表格标题说明](#表格标题说明)
 - [不添加任何权限声明测试](#不添加任何权限声明测试)
-	- [不添加任何权限声明 + ActivityContext](#不添加任何权限声明-activitycontext)
-		- [模拟器 API 27（8.1）](#模拟器-api-2781)
-		- [模拟器 API 25（7.1）](#模拟器-api-2571)
-		- [锤子真机 API 25（7.1）](#锤子真机-api-2571)
-	- [WindowTypes的顺序问题](#windowtypes的顺序问题)
-		- [模拟器 API 27（8.1）](#模拟器-api-2781)
-		- [模拟器 API 25（7.1）](#模拟器-api-2571)
-		- [锤子真机 API 25（7.1）](#锤子真机-api-2571)
-	- [不添加任何权限声明 + ApplicationContext](#不添加任何权限声明-applicationcontext)
-		- [模拟器 API 27（8.1）](#模拟器-api-2781)
-	- [总结（不添加权限声明）](#总结不添加权限声明)
+    - [不添加任何权限声明 + ActivityContext](#不添加任何权限声明-activitycontext)
+        - [模拟器 API 27（8.1）](#模拟器-api-2781)
+        - [模拟器 API 25（7.1）](#模拟器-api-2571)
+        - [锤子真机 API 25（7.1）](#锤子真机-api-2571)
+    - [WindowTypes的顺序问题](#windowtypes的顺序问题)
+        - [模拟器 API 27（8.1）](#模拟器-api-2781)
+        - [模拟器 API 25（7.1）](#模拟器-api-2571)
+        - [锤子真机 API 25（7.1）](#锤子真机-api-2571)
+    - [不添加任何权限声明 + ApplicationContext](#不添加任何权限声明-applicationcontext)
+        - [模拟器 API 27（8.1）](#模拟器-api-2781)
+    - [总结（不添加权限声明）](#总结不添加权限声明)
 - [添加权限声明测试](#添加权限声明测试)
-	- [添加权限声明 + ActivityContext](#添加权限声明-activitycontext)
-		- [模拟器 API 27（8.1）](#模拟器-api-2781)
-		- [模拟器 API 25（7.1）](#模拟器-api-2571)
-		- [锤子真机 API 25（7.1）](#锤子真机-api-2571)
-	- [添加权限声明 + ApplicationContext](#添加权限声明-applicationcontext)
-	- [总结（添加权限声明）](#总结添加权限声明)
+    - [添加权限声明 + ActivityContext](#添加权限声明-activitycontext)
+        - [模拟器 API 27（8.1）](#模拟器-api-2781)
+        - [模拟器 API 25（7.1）](#模拟器-api-2571)
+        - [锤子真机 API 25（7.1）](#锤子真机-api-2571)
+    - [添加权限声明 + ApplicationContext](#添加权限声明-applicationcontext)
+    - [总结（添加权限声明）](#总结添加权限声明)
 - [总结](#总结)
 
 <!-- /TOC -->
@@ -39,30 +39,30 @@
 ```java
 private List<Integer> mWindowTypes = new ArrayList<>();
 {
-	mWindowTypes.add(LayoutParams.FIRST_APPLICATION_WINDOW); // 1
-	mWindowTypes.add(LayoutParams.TYPE_BASE_APPLICATION); // 1
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION); // 2
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION_STARTING); // 3
-	mWindowTypes.add(LayoutParams.TYPE_DRAWN_APPLICATION); // 4
-	mWindowTypes.add(LayoutParams.LAST_APPLICATION_WINDOW); // 99
+    mWindowTypes.add(LayoutParams.FIRST_APPLICATION_WINDOW); // 1
+    mWindowTypes.add(LayoutParams.TYPE_BASE_APPLICATION); // 1
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION); // 2
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION_STARTING); // 3
+    mWindowTypes.add(LayoutParams.TYPE_DRAWN_APPLICATION); // 4
+    mWindowTypes.add(LayoutParams.LAST_APPLICATION_WINDOW); // 99
 
-	mWindowTypes.add(LayoutParams.FIRST_SUB_WINDOW); // 1000
-	mWindowTypes.add(LayoutParams.LAST_SUB_WINDOW); // 1999
+    mWindowTypes.add(LayoutParams.FIRST_SUB_WINDOW); // 1000
+    mWindowTypes.add(LayoutParams.LAST_SUB_WINDOW); // 1999
 
-	mWindowTypes.add(LayoutParams.FIRST_SYSTEM_WINDOW); // 2000
+    mWindowTypes.add(LayoutParams.FIRST_SYSTEM_WINDOW); // 2000
 
-	mWindowTypes.add(LayoutParams.TYPE_STATUS_BAR); // 2000
-	mWindowTypes.add(LayoutParams.TYPE_SEARCH_BAR); // 2001
-	mWindowTypes.add(LayoutParams.TYPE_PHONE); // 2002
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ALERT); // 2003
-	mWindowTypes.add(LayoutParams.TYPE_TOAST); // 2005
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_OVERLAY); // 2006
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_DIALOG); // 2008
-	mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ERROR); // 2010
-	mWindowTypes.add(LayoutParams.TYPE_INPUT_METHOD); // 2011
+    mWindowTypes.add(LayoutParams.TYPE_STATUS_BAR); // 2000
+    mWindowTypes.add(LayoutParams.TYPE_SEARCH_BAR); // 2001
+    mWindowTypes.add(LayoutParams.TYPE_PHONE); // 2002
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ALERT); // 2003
+    mWindowTypes.add(LayoutParams.TYPE_TOAST); // 2005
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_OVERLAY); // 2006
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_DIALOG); // 2008
+    mWindowTypes.add(LayoutParams.TYPE_SYSTEM_ERROR); // 2010
+    mWindowTypes.add(LayoutParams.TYPE_INPUT_METHOD); // 2011
 
-	mWindowTypes.add(LayoutParams.TYPE_APPLICATION_OVERLAY); // 2038
-	mWindowTypes.add(LayoutParams.LAST_SYSTEM_WINDOW); // 2999
+    mWindowTypes.add(LayoutParams.TYPE_APPLICATION_OVERLAY); // 2038
+    mWindowTypes.add(LayoutParams.LAST_SYSTEM_WINDOW); // 2999
 }
 ```
 
@@ -277,23 +277,23 @@ API 24以后，即Android 7.0以后，权限管理变成了用时申请的方式
 
 ```java
 if (Build.VERSION.SDK_INT >= 23) {
-	// 判断悬浮窗权限是否开启
-	if (Settings.canDrawOverlays(this)) {
-		// 悬浮窗权限已开启，可以直接使用
-		showOverlayWindow();
-	} else {
-		// 没有悬浮窗权限，去设置开启悬浮窗权限
-		try {
-			Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-			// 在Activity::onActivityResult里启动悬浮窗
-			startActivityForResult(intent, 9999);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    // 判断悬浮窗权限是否开启
+    if (Settings.canDrawOverlays(this)) {
+        // 悬浮窗权限已开启，可以直接使用
+        showOverlayWindow();
+    } else {
+        // 没有悬浮窗权限，去设置开启悬浮窗权限
+        try {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+            // 在Activity::onActivityResult里启动悬浮窗
+            startActivityForResult(intent, 9999);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 } else {
-	// Android6.0以下，声明默认有悬浮窗权限，但是 华为, 小米,oppo等手机会有自己的一套Android6.0以下的悬浮窗权限管理，也需要考虑做适配！！！
-	showOverlayWindow();
+    // Android6.0以下，声明默认有悬浮窗权限，但是 华为, 小米,oppo等手机会有自己的一套Android6.0以下的悬浮窗权限管理，也需要考虑做适配！！！
+    showOverlayWindow();
 }
 ```
 

@@ -240,14 +240,14 @@ python环境下，pyv8库封装了Google V8 javascript引擎。可以在python�
 
 ```python
 def encrypt_qq_pwd(self, pwd, salt, verifycode):
-	with PyV8.JSContext() as ctxt:
-		with open("c_login_2.js") as jsfile:
-			ctxt.eval(jsfile.read())
-			str = u"Encryption.getEncryption('%s', '%s', '%s', undefined)" % (pwd.encode('utf-8'), salt.encode('utf-8'),
-					  verifycode.encode('utf-8'))
-			encrypt_pwd = ctxt.eval(str.encode("utf-8"))
-			print encrypt_pwd
-			return encrypt_pwd
+    with PyV8.JSContext() as ctxt:
+        with open("c_login_2.js") as jsfile:
+            ctxt.eval(jsfile.read())
+            str = u"Encryption.getEncryption('%s', '%s', '%s', undefined)" % (pwd.encode('utf-8'), salt.encode('utf-8'),
+                      verifycode.encode('utf-8'))
+            encrypt_pwd = ctxt.eval(str.encode("utf-8"))
+            print encrypt_pwd
+            return encrypt_pwd
 ```
 
 由于V8引擎只是纯`javascript`引擎，所以不支持`window`，`document`这两个`javascript`对象。所以，原始下载的`c_login_2.js`会报错，需要进行修改。
@@ -270,7 +270,7 @@ def encrypt_qq_pwd(self, pwd, salt, verifycode):
 
 ```javascript
 Encryption = function() {
-	// 省略
+    // 省略
     function h(e, i, n, o) {
         n = n || "",
         e = e || "";
@@ -342,17 +342,17 @@ eval(CContext {lvalue},std::string [,std::string='' [,int=-1 [,int=-1 [,boost::p
 ctxt.eval('Encryption("","","", undefine)')
 
 Encryption = function() {
-	function h(e, i, n, o) {
-		return xxxx.
-	}
-	var _ = 1
-	  , m = 8
-	  , v = 32;
-	return {
-		getEncryption: h,
-		getRSAEncryption: f,
-		md5: t
-	}
+    function h(e, i, n, o) {
+        return xxxx.
+    }
+    var _ = 1
+      , m = 8
+      , v = 32;
+    return {
+        getEncryption: h,
+        getRSAEncryption: f,
+        md5: t
+    }
 }()
 ```
 如上，Encryption是一个匿名函数的调用返回值。（Encrypt = function(){}())。匿名函数return的是一个object{}。其中，getEncryption属性是h函数，md5属性是t函数。

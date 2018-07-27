@@ -10,16 +10,16 @@ private static final byte[] LOCK = new byte[0];
 
 // 异步加载mPrintData。
 synchronized (LOCK) {
-	try {
-		LOCK.wait();
-	} catch (InterruptedException e) {
-		e.printStackTrace();
-	}
+    try {
+        LOCK.wait();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 }
 
 synchronized (LOCK) {
-	mPrintData = new Pair<>(path, colorful);
-	// mPrintData加载完后，通知主线程继续
-	LOCK.notifyAll();
+    mPrintData = new Pair<>(path, colorful);
+    // mPrintData加载完后，通知主线程继续
+    LOCK.notifyAll();
 }
 ```

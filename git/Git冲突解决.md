@@ -10,28 +10,28 @@ public void closeMarkIfMulti() {
 =======
 private void closeMarkIfMulti() {
 >>>>>>> gitlab/master
-	CommonUtil.disposeDisposable(mCloseMultiMarkDisposable);
-	mCloseMultiMarkDisposable = Observable.empty()
-			.observeOn(AndroidSchedulers.mainThread())
-			.doOnComplete(new io.reactivex.functions.Action() {
-				@Override
-				public void run() throws Exception {
-					closeMark();
+    CommonUtil.disposeDisposable(mCloseMultiMarkDisposable);
+    mCloseMultiMarkDisposable = Observable.empty()
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnComplete(new io.reactivex.functions.Action() {
+                @Override
+                public void run() throws Exception {
+                    closeMark();
 <<<<<<< HEAD
-					NLog.e(TAG, "--关闭批注--" + mMultiMark);
-					if (mMultiMark != null) {
-						mMultiMark.realClose();
-						mMultiMark = null;
-						NLog.e(TAG, "--多页批注已经关闭--");
+                    NLog.e(TAG, "--关闭批注--" + mMultiMark);
+                    if (mMultiMark != null) {
+                        mMultiMark.realClose();
+                        mMultiMark = null;
+                        NLog.e(TAG, "--多页批注已经关闭--");
 =======
-					if (mMultiMark != null) {
-						mMultiMark.realClose();
-						mMultiMark = null;
-						Log.d(TAG, "--多页批注已经关闭--");
+                    if (mMultiMark != null) {
+                        mMultiMark.realClose();
+                        mMultiMark = null;
+                        Log.d(TAG, "--多页批注已经关闭--");
 >>>>>>> gitlab/master
-					}
-				}
-			}).subscribe();
+                    }
+                }
+            }).subscribe();
 }
 ```
 
@@ -85,32 +85,32 @@ HEAD是最新的，如果本地走在前面，则本地是HEAD；如果远程走
 
 ```java
 <<<<<<< HEAD
-		@Override
-		public void onReceiveNotify(String notifyType, @Nullable SystemInput systemInput, int priority) {
-			NLog.e(TAG, " notifyType: " + notifyType);
-			//when input source change, close mark!!!
-			closeMarkIfMulti();
-		}
-	};
+        @Override
+        public void onReceiveNotify(String notifyType, @Nullable SystemInput systemInput, int priority) {
+            NLog.e(TAG, " notifyType: " + notifyType);
+            //when input source change, close mark!!!
+            closeMarkIfMulti();
+        }
+    };
 
-	private Mark.StatusCallback mMarkStatusCallback = new Mark.StatusCallback() {
-		@Override
-		public void onVisible() {
-			mMarkStatusCallbackHandler.onVisible();
+    private Mark.StatusCallback mMarkStatusCallback = new Mark.StatusCallback() {
+        @Override
+        public void onVisible() {
+            mMarkStatusCallbackHandler.onVisible();
 =======
-		@Override
-		public void onReceiveNotify(String notifyType, @Nullable SystemInput systemInput, int priority) {
-			Log.e(TAG, " notifyType: " + notifyType);
-			//when input source change, close mark!!!
-			closeMarkIfMulti();
+        @Override
+        public void onReceiveNotify(String notifyType, @Nullable SystemInput systemInput, int priority) {
+            Log.e(TAG, " notifyType: " + notifyType);
+            //when input source change, close mark!!!
+            closeMarkIfMulti();
 >>>>>>> gitlab/master
-	}
+    }
 
 ／／ 下一块冲突
 @Override
 <<<<<<< HEAD
 public void onInvisible() {
-	mMarkStatusCallbackHandler.onInvisible();
+    mMarkStatusCallbackHandler.onInvisible();
 }
 ```
 

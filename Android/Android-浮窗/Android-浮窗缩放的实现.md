@@ -4,26 +4,26 @@
 
 ```java
 public void handleEvent(MotionEvent event) {
-	int x = (int) event.getRawX();
-	int y = (int) event.getRawY();
-	switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			mTouchLastX = x;
-			mTouchLastY = y;
-			onStart(x, y);
-			break;
-		case MotionEvent.ACTION_MOVE:
-			int offsetX = x - mTouchLastX;
-			int offsetY = y - mTouchLastY;
-			onContinue(offsetX, offsetY);
-			// a new move with new width.
-			mTouchLastX = x;
-			mTouchLastY = y;
-			break;
-		case MotionEvent.ACTION_UP:
-		default:
-			break;
-	}
+    int x = (int) event.getRawX();
+    int y = (int) event.getRawY();
+    switch (event.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            mTouchLastX = x;
+            mTouchLastY = y;
+            onStart(x, y);
+            break;
+        case MotionEvent.ACTION_MOVE:
+            int offsetX = x - mTouchLastX;
+            int offsetY = y - mTouchLastY;
+            onContinue(offsetX, offsetY);
+            // a new move with new width.
+            mTouchLastX = x;
+            mTouchLastY = y;
+            break;
+        case MotionEvent.ACTION_UP:
+        default:
+            break;
+    }
 }
 ```
 

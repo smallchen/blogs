@@ -2,16 +2,16 @@
 Rxrpc.create(new Call<String>() {
    @Override
    public String do(Subscriber<? super String> subscriber) {
-	   String mDeviceName = mDeviceManagerProxy.getDeviceName();
-	   return deviceName;
+       String mDeviceName = mDeviceManagerProxy.getDeviceName();
+       return deviceName;
    }
 }).subsribeOn(Schedulers.newThread())
   .observeOn(AndroidSchedulers.mainThread())
   .doOnComplete(new Action<String>() {
-		@Override
-		public void call(String deviceName) throws Exception {
+        @Override
+        public void call(String deviceName) throws Exception {
             mDeviceName = deviceName;
-		}
+        }
   }).doOnTimeout(new Action() {
       @Override
       public void call(String deviceName) throws Exception {
@@ -27,14 +27,14 @@ Rxrpc.create(new Call<String>() {
    @Override
    public void run() {
        // default in new thread
-	   mDeviceName = mDeviceManagerProxy.getDeviceName();
+       mDeviceName = mDeviceManagerProxy.getDeviceName();
    }
 }).doOnComplete(new Action<String>() {
-		@Override
-		public void call(String deviceName) throws Exception {
+        @Override
+        public void call(String deviceName) throws Exception {
             // default in main thread
             mDeviceName = deviceName;
-		}
+        }
   }).doOnTimeout(new Action() {
       @Override
       public void call(String deviceName) throws Exception {

@@ -83,12 +83,12 @@ sources/bar/Android.mk
 | 指令集 | 值     |
 | :------------- | :------------- |
 | 基于 ARMv7 的设备上的硬件 FPU 指令 | APP_ABI := armeabi-v7a       |
-| ARMv8 AArch64	| APP_ABI := arm64-v8a
-| IA-32	| APP_ABI := x86
-| Intel64	| APP_ABI := x86_64
-| MIPS32	| APP_ABI := mips
-| MIPS64 (r6)	| APP_ABI := mips64
-| 所有支持的指令集	| APP_ABI := all
+| ARMv8 AArch64    | APP_ABI := arm64-v8a
+| IA-32    | APP_ABI := x86
+| Intel64    | APP_ABI := x86_64
+| MIPS32    | APP_ABI := mips
+| MIPS64 (r6)    | APP_ABI := mips64
+| 所有支持的指令集    | APP_ABI := all
 > 注：all 从 NDKr7 开始可用。
 
 您也可以指定多个值，将它们放在同一行上，中间用空格分隔。例如：

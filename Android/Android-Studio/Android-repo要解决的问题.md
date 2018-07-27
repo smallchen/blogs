@@ -1,14 +1,14 @@
 ## 分析
 要解决的问题：
 1. 项目有清晰的依赖：子项目的分支／版本号／提交ID等等。
-	大到整个整机，小到某一个Lib。
-	以及Release版项目（Tag）／Master版本（trunk）／Develop版本（branch）。
-	以及不同厂商定制版本的Release版／Master版／Develop版。
-	以及不同尺寸版本的Release版／Master版／Develop版。
+    大到整个整机，小到某一个Lib。
+    以及Release版项目（Tag）／Master版本（trunk）／Develop版本（branch）。
+    以及不同厂商定制版本的Release版／Master版／Develop版。
+    以及不同尺寸版本的Release版／Master版／Develop版。
 2. 分支切换跟随。
-	A项目切换到Develop分支，A项目依赖的子项目都应该切换到Develop分支。好处：
-	2.1 验证A项目在Develop过程的完整性，比如：A在Developing时，依赖的子项目B也在Developing，可以保证A／B在开发中能够保证功能完整性。反之，如果依赖的子项目B没有进行Develop，那么子项目B的Develop分支应该和Master和Release分支一致，也不影响A开发。
-	2.2 假如A项目仅仅基于当前整机环境进行开发，但A依赖的子项目B也正在开发。所以此时把A所有的依赖都切换到Develop是不合理的，因为A是基于Release下进行升级开发。这种属于特殊情况？
+    A项目切换到Develop分支，A项目依赖的子项目都应该切换到Develop分支。好处：
+    2.1 验证A项目在Develop过程的完整性，比如：A在Developing时，依赖的子项目B也在Developing，可以保证A／B在开发中能够保证功能完整性。反之，如果依赖的子项目B没有进行Develop，那么子项目B的Develop分支应该和Master和Release分支一致，也不影响A开发。
+    2.2 假如A项目仅仅基于当前整机环境进行开发，但A依赖的子项目B也正在开发。所以此时把A所有的依赖都切换到Develop是不合理的，因为A是基于Release下进行升级开发。这种属于特殊情况？
 3. 批量脚本支持j
 
 
@@ -30,7 +30,7 @@ SDK同时支持多个版本。
 6. 如果依赖的B项目是多实例项目，那么可以分别使用不同的版本，像各自独立的APP依赖的support-v4版本不一样也可以。
 
 单实例：CommonLibrary／LibConstants等基础库
-	   demoOSService／demoControlForPC等提供IPC服务。
+       demoOSService／demoControlForPC等提供IPC服务。
 多实例：Calendar／放大镜／投票器等APP
 
 Calendar V1.0 -》 CommonLibrary V1.0

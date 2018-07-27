@@ -8,11 +8,11 @@
 
 ```java
 synchronized (LOCK) {
-	try {
-		LOCK.wait();
-	} catch (InterruptedException e) {
-		Log.e(TAG, "InterruptedException!", e);
-	}
+    try {
+        LOCK.wait();
+    } catch (InterruptedException e) {
+        Log.e(TAG, "InterruptedException!", e);
+    }
 }
 
 ```
@@ -23,14 +23,14 @@ synchronized (LOCK) {
 private boolean mWaiting;
 mWaiting = true;
 synchronized (LOCK) {
-	while (mWaiting) {
-		try {
-			LOCK.wait();
-		} catch (InterruptedException e) {
-			NLog.e(TAG, "InterruptedException!", e);
-			// 看需求，是否需要 break。
-		}
-	}
+    while (mWaiting) {
+        try {
+            LOCK.wait();
+        } catch (InterruptedException e) {
+            NLog.e(TAG, "InterruptedException!", e);
+            // 看需求，是否需要 break。
+        }
+    }
 }
 ```
 
@@ -38,7 +38,7 @@ synchronized (LOCK) {
 
 ```java
 synchronized (LOCK) {
-	LOCK.notifyAll();
+    LOCK.notifyAll();
 }
 ```
 
@@ -46,10 +46,10 @@ synchronized (LOCK) {
 
 ```java
 synchronized (LOCK) {
-	if (mWaiting) {
-		mWaiting = false;
-		LOCK.notifyAll();
-	}
+    if (mWaiting) {
+        mWaiting = false;
+        LOCK.notifyAll();
+    }
 }
 ```
 
@@ -131,7 +131,7 @@ return ;
 
 catch (SQLException e){
 
-		e.printStackTrace();
+        e.printStackTrace();
 
 }
 
@@ -785,13 +785,13 @@ publicclass Mytestimplements Externalizable{
 
    publicvoid readExternal(ObjectInput  arg0)throws IOException,
 
-		  ClassNotFoundException {
+          ClassNotFoundException {
 
-	  str=(String) arg0.readObject();
+      str=(String) arg0.readObject();
 
-	  str1=(String) arg0.readObject();
+      str1=(String) arg0.readObject();
 
-	  i= arg0.readInt();
+      i= arg0.readInt();
 
    }
 
@@ -799,11 +799,11 @@ publicclass Mytestimplements Externalizable{
 
 publicvoid  writeExternal(ObjectOutput arg0)throws IOException{
 
-	  arg0.writeObject(str);
+      arg0.writeObject(str);
 
-	  arg0.writeObject(str1);
+      arg0.writeObject(str1);
 
-	  arg0.writeInt(i);
+      arg0.writeInt(i);
 
    }
 
@@ -825,21 +825,21 @@ publicclassMytest implements Serializable{
 
    privatevoid  writeObject(ObjectOutputStream outputStream)throws IOException {
 
-	  outputStream.writeObject(str);
+      outputStream.writeObject(str);
 
-	  outputStream.writeObject(str1);
+      outputStream.writeObject(str1);
 
-	  outputStream.writeInt(i);
+      outputStream.writeInt(i);
 
    }  
 
    privatevoid readObject(ObjectInputStream  inputStream)throws IOException,ClassNotFoundException {
 
-	  str=(String) inputStream.readObject();
+      str=(String) inputStream.readObject();
 
-	  str1=(String) inputStream.readObject();
+      str1=(String) inputStream.readObject();
 
-	  i= inputStream.readInt();
+      i= inputStream.readInt();
 
    }
 
@@ -887,7 +887,7 @@ publicArrayList checkValue(String str1) {
 
    if (null!=paramList) {          
 
-	   paramList.clear();
+       paramList.clear();
 
    }
 
@@ -921,7 +921,7 @@ privatestatic ArrayList<String>paramList =null;
 
 public ArrayList<String> returnList(ArrayList  mList) {
 
-	  returnmList;         
+      returnmList;         
 
 }
 
@@ -957,9 +957,9 @@ publicboolean isOddness(int value){
 
    boolean result =false;
 
-	   if ((value % 2)  ==1) {
+       if ((value % 2)  ==1) {
 
-	  result = true;
+      result = true;
 
    }
 
@@ -977,7 +977,7 @@ publicboolean isOddness(int value){
 
    if ((value & 1)  ==1) {
 
-	  result = true;
+      result = true;
 
    }
 
@@ -1025,19 +1025,19 @@ publicstaticvoid main(String[] args) {
 
    if (s1 ==null && s2 == null) {
 
-	   result  = 0;
+       result  = 0;
 
    } elseif (s1 ==null && s2 != null) {
 
-	   result  = -1;
+       result  = -1;
 
    } elseif (s1 !=null && s2 == null) {
 
-	   result  = 1;
+       result  = 1;
 
    } else {// s1 != null && s2 != null
 
-	   result  = s1.compareTo(s2);
+       result  = s1.compareTo(s2);
 
 //这里s1可能发生空指针异常，但是此语句不会执行。
 
@@ -1055,23 +1055,23 @@ publicstaticint doCompare(String s1, String s2) {
 
    if (s1 ==null && s2 == null) {
 
-	   result  = 0;
+       result  = 0;
 
    } elseif (s1 ==null) {
 
-	   assert s2 !=null;
+       assert s2 !=null;
 
-	   result  = -1;
+       result  = -1;
 
    } elseif (s2 ==null) {
 
-	   assert s1 !=null;
+       assert s1 !=null;
 
-	   result  = 1;
+       result  = 1;
 
    } else {
 
-	   result  = s1.compareTo(s2);
+       result  = s1.compareTo(s2);
 
    }
 
@@ -1169,10 +1169,10 @@ private static Boolean inited = Boolean.FALSE;
 ...
  synchronized(inited) {
    if (!inited) {
-	  init();
-	  inited = Boolean.TRUE;
-	  }
-	}
+      init();
+      inited = Boolean.TRUE;
+      }
+    }
 ...
 Since there  normally exist only two Boolean objects, this code could be synchronizing on  the same object as other, unrelated code, leading to unresponsiveness and  possible deadlock
 
@@ -1186,11 +1186,11 @@ private static Boolean inited = Boolean.FALSE;
 
   if  (!inited) {
 
-	 init();
+     init();
 
-	 inited  = Boolean.TRUE;
+     inited  = Boolean.TRUE;
 
-	 }
+     }
 
    }
 
@@ -1476,13 +1476,13 @@ The  return value from a method is dereferenced without a null check, and the  r
 
 publicvoid caller(int a) {
 
-	  String c = called(a);
+      String c = called(a);
 
-	  if (c.equals("")) { //c maybe null
+      if (c.equals("")) { //c maybe null
 
-	  } elseif (c.equals("")) {
+      } elseif (c.equals("")) {
 
-	  }
+      }
 
    }
 
@@ -1514,7 +1514,7 @@ public void foo() {
 
 foo();  //  IL_INFINITE_RECURSIVE_LOOP
 
-	  //...
+      //...
 
 }
 
@@ -1554,7 +1554,7 @@ public void onOK() {
 
    protected  class parentClass {
 
-	   public  void onOK() {
+       public  void onOK() {
 
    }
 
@@ -1566,11 +1566,11 @@ public void onOK() {
 
 
 
-	   public  void callOnOK() {
+       public  void callOnOK() {
 
-		   onOK();   //IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD, should be super.onOK
+           onOK();   //IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD, should be super.onOK
 
-	   }
+       }
 
 
 
@@ -2103,10 +2103,10 @@ A  format-string method with a variable number of arguments is called, but more 
 这个错误很简单，是使用String.format的时候出了问题，format里面的参数没有被全部用上。
 看下面一段代码：
  public void test(){
-	 String str1 = "123";
-	 String str2 = "456";
-	 String str3 = String.format("{0} {1}" , str1 ,str2);
-	 System.out.println(str3);
+     String str1 = "123";
+     String str2 = "456";
+     String str3 = String.format("{0} {1}" , str1 ,str2);
+     System.out.println(str3);
  }
 输出的结果是：{0}  {1}
 
@@ -2140,7 +2140,7 @@ A  String function is being invoked and "." is being passed to a  parameter that
 
 if(version  != null && (!version.equalsIgnoreCase("")) &&  version.split(".").length < 4){
 
-	   this.m_txfSoftVersion.setVersion(version);
+       this.m_txfSoftVersion.setVersion(version);
 
 }
 
@@ -2234,19 +2234,19 @@ public class Test
 
 {
 
-	 void clueless() throws Exception
+     void clueless() throws Exception
 
-	 {
+     {
 
-			synchronized(this)
+            synchronized(this)
 
-			{
+            {
 
-				   this.wait(); // VIOLATION
+                   this.wait(); // VIOLATION
 
-			}
+            }
 
-	 }
+     }
 
 }
 
@@ -2290,13 +2290,13 @@ For example, in the following code, it is  impossible to invoke the initalValue 
 
 private static ThreadLocal serialNum = new  ThreadLocal() {
 
-		protected synchronized Object initalValue() {
+        protected synchronized Object initalValue() {
 
-			return new Integer(nextSerialNum++);
+            return new Integer(nextSerialNum++);
 
-		}
+        }
 
-	 };
+     };
 
 解决方法
 
@@ -2334,15 +2334,15 @@ public class Point {
 
  /* public  boolean equals(Object other) {
 
-	if (other == this) return true;
+    if (other == this) return true;
 
-	if (other == null) return false;
+    if (other == null) return false;
 
-	if (getClass() != other.getClass()) return false;
+    if (getClass() != other.getClass()) return false;
 
-	Point point = (Point)other;
+    Point point = (Point)other;
 
-	return (x == point.x && y == point.y);
+    return (x == point.x && y == point.y);
 
  }  */
 
@@ -2385,29 +2385,29 @@ This  method uses a try-catch block that catches Exception objects, but Exceptio
 
 public void addInstance(String className) {
 
-	try {
+    try {
 
-	   Class clazz = Class.forName(className);
+       Class clazz = Class.forName(className);
 
-	   objectSet.add(clazz.newInstance());
+       objectSet.add(clazz.newInstance());
 
    }
 
    catch (IllegalAccessException e) {
 
-	   logger.log("Exception in addInstance", e);
+       logger.log("Exception in addInstance", e);
 
    }
 
-	catch (InstantiationException e) {
+    catch (InstantiationException e) {
 
-	   logger.log("Exception in addInstance", e);
+       logger.log("Exception in addInstance", e);
 
    }
 
-	catch (ClassNotFoundException e) {
+    catch (ClassNotFoundException e) {
 
-	   logger.log("Exception in addInstance", e);
+       logger.log("Exception in addInstance", e);
 
    }
 
@@ -2417,23 +2417,23 @@ public void addInstance(String className) {
 
 public void addInstance(String className) {
 
-	try {
+    try {
 
-	   Class clazz = Class.forName(className);
+       Class clazz = Class.forName(className);
 
-	   objectSet.add(clazz.newInstance());
+       objectSet.add(clazz.newInstance());
 
 }
 
 /* catch (RuntimeException e) {
 
-	  throw e;
+      throw e;
 
 } */
 
-	catch (Exception e) {
+    catch (Exception e) {
 
-	   logger.log("Exception in newInstance", e);
+       logger.log("Exception in newInstance", e);
 
    }
 
@@ -2467,31 +2467,31 @@ This  method explicitly invokesrun() on an object.  In general,  classes impleme
 
 案例
 
-	public static void main(final String[] args) {
+    public static void main(final String[] args) {
 
-	   System.out.println("Main thread: " +  Thread.currentThread().getId());
+       System.out.println("Main thread: " +  Thread.currentThread().getId());
 
-	   final FooThread thread = new FooThread();
+       final FooThread thread = new FooThread();
 
-	   thread.run();
+       thread.run();
 
-	   //thread.start();
+       //thread.start();
 
    }
 
-	public static class FooThread extends Thread
+    public static class FooThread extends Thread
 
    {
 
-	   @Override
+       @Override
 
-	   public void run() {
+       public void run() {
 
-		   System.out.println("I'm executing from thread " +  Thread.currentThread().getId());
+           System.out.println("I'm executing from thread " +  Thread.currentThread().getId());
 
-		   super.run();
+           super.run();
 
-	   }
+       }
 
    }
 
@@ -3067,13 +3067,13 @@ This  code generates a random signed integer and then computes the absolute valu
 
 public intgetAbsRandom() {
 
-	  Random random = new Random();
+      Random random = new Random();
 
-	  int raw = random.nextInt();
+      int raw = random.nextInt();
 
-	  returnMath.abs(raw);
+      returnMath.abs(raw);
 
-	  }
+      }
 
 解决方法
 
@@ -3102,13 +3102,13 @@ This bug does not necessarily indicate an  error, since the change to mutable ob
 案例
 
 protectedvoid notifyExchange(MessageExchangeImpl me, Object lock, String from) {
-		 if (LOG.isDebugEnabled()) {
-			LOG.debug("Notifying exchange " + me.getExchangeId() +  "(" + Integer.toHexString(me.hashCode()) + ") in " +this + " from "+ from);
-		  }
-	   &nb  sp; synchronized (lock) {
-			 lock.notify();
-		  }
-	}
+         if (LOG.isDebugEnabled()) {
+            LOG.debug("Notifying exchange " + me.getExchangeId() +  "(" + Integer.toHexString(me.hashCode()) + ") in " +this + " from "+ from);
+          }
+       &nb  sp; synchronized (lock) {
+             lock.notify();
+          }
+    }
 
 解决方法
 
@@ -3142,21 +3142,21 @@ publicclass Person {
 
    {
 
-		 …….
+         …….
 
    }
 
    public boolean isPerson(){
 
-	  Person obj = new Person();
+      Person obj = new Person();
 
-	   if(obj instanceof  Sun){
+       if(obj instanceof  Sun){
 
-		  returntrue;
+          returntrue;
 
-	  }
+      }
 
-	  returnfalse;
+      returnfalse;
 
    }
 
@@ -3190,7 +3190,7 @@ If it is important that the generated  Random numbers not be guessable, youmust 
 
 publicint getRandom(int seed){
 
-	  return new  Random(seed).nextInt();
+      return new  Random(seed).nextInt();
 
    }
 
@@ -3202,7 +3202,7 @@ findbugs建议使用SecureRandom
 
 publicint getRandom(byte[] seed){
 
-	  returnnew SecureRandom(seed).nextInt();
+      returnnew SecureRandom(seed).nextInt();
 
    }
 
@@ -3260,35 +3260,35 @@ This method contains a call to java.lang.Object.wait()  which is not in a loop. 
 
 protectedvoid waitForExchange(MessageExchangeImpl me, Object  lock,long timeout, String from)throws InterruptedException {
 
-	   // If the channel is closed while here, we must abort
+       // If the channel is closed while here, we must abort
 
-	  if (LOG.isDebugEnabled()) {
+      if (LOG.isDebugEnabled()) {
 
-		  LOG.debug("Waiting for exchange " + me.getExchangeId() +" (" +  Integer.toHexString(me.hashCode()) +") to be answered in "
+          LOG.debug("Waiting for exchange " + me.getExchangeId() +" (" +  Integer.toHexString(me.hashCode()) +") to be answered in "
 
-						   + this + " from " + from);
+                           + this + " from " + from);
 
-	   }
+       }
 
-	   Thread th = Thread.currentThread();
+       Thread th = Thread.currentThread();
 
-	   try {
+       try {
 
-		   waiters.put(th,  Boolean.TRUE);
+           waiters.put(th,  Boolean.TRUE);
 
-		   lock.wait(timeout);
+           lock.wait(timeout);
 
-	 } finally {
+     } finally {
 
-		   waiters.remove(th);
+           waiters.remove(th);
 
-	 }
+     }
 
-	   if (LOG.isDebugEnabled()) {
+       if (LOG.isDebugEnabled()) {
 
-		  LOG.debug("Notified: " + me.getExchangeId() +"(" + Integer.toHexString(me.hashCode()) +") in " + this +" from " + from);
+          LOG.debug("Notified: " + me.getExchangeId() +"(" + Integer.toHexString(me.hashCode()) +") in " + this +" from " + from);
 
-	   }
+       }
 
    }
 
@@ -3366,7 +3366,7 @@ During  the initialization of a class, the class makes an active use of a subcla
 
 public class CircularClassInitialization {
    static class InnerClassSingleton extends CircularClassInitialization {
-	   static InnerClassSingleton singleton = new InnerClassSingleton();
+       static InnerClassSingleton singleton = new InnerClassSingleton();
    }
 
    static CircularClassInitialization foo = InnerClassSingleton.singleton;
@@ -3519,17 +3519,17 @@ This  method may return a null value, but the method (or a superclass method whi
 
 void test(){
 
-			String ss = null;
+            String ss = null;
 
-			sya(ss);
+            sya(ss);
 
-	 }     
+     }     
 
-	 public void sya(String ad){
+     public void sya(String ad){
 
-			ad.getBytes();
+            ad.getBytes();
 
-	 }
+     }
 
 解决方法
 
@@ -3657,7 +3657,7 @@ abstract class A {
 
  A()  {
 
-	hashCode = getValue().hashCode();
+    hashCode = getValue().hashCode();
 
    }
 
@@ -3669,13 +3669,13 @@ class B extends A {
 
   B(Object v) {
 
-	this.value = v;
+    this.value = v;
 
    }
 
   Object getValue() {
 
-	return value;
+    return value;
 
  }
 
@@ -3827,7 +3827,7 @@ For example:
 
  for  (int i = 0; i < field.length; ++i) {
 
-	buf.append(field[i]);
+    buf.append(field[i]);
 
  }
 
@@ -3995,7 +3995,7 @@ This method contains a double assignment of  a local variable; e.g.
 
   public void foo() {
 
-	int x,y;
+    int x,y;
 
    x  = x = 17;
 
@@ -4033,7 +4033,7 @@ This method contains a self assignment of a  local variable; e.g.
 
   public void foo() {
 
-	int x = 3;
+    int x = 3;
 
    x  = x;
 
@@ -4099,9 +4099,9 @@ This method contains a useless control flow  statement, where control flow conti
 
 
 
-	if (argv.length == 0) {
+    if (argv.length == 0) {
 
-	// TODO: handle this case
+    // TODO: handle this case
 
    }
 
@@ -4143,7 +4143,7 @@ This method contains a useless control flow  statement in which control flow fol
 
 if (argv.length == 1);
 
-	   System.out.println("Hello, " + argv[0]);
+       System.out.println("Hello, " + argv[0]);
 
 无效的条件控制语句，注意if (argv.length == 1);以“;”结尾，下面的语句无论是否满足都会运行。
 
@@ -4373,11 +4373,11 @@ This method  acquires a JSR-166 (java.util.concurrent) lock, but does not releas
 
   try {
 
-	  // do something
+      // do something
 
   } finally {
 
-	  l.unlock();
+      l.unlock();
 
   }
 
@@ -4395,11 +4395,11 @@ Lock l = ...;
 
   try {
 
-	  // do something
+      // do something
 
   } finally {
 
-	  l.unlock();
+      l.unlock();
 
   }
 

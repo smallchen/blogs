@@ -17,12 +17,12 @@ showAtLocation是相对于，当前parent所在的WindowManager中的根View布�
 
 ```java
 final WindowManager.LayoutParams paramsLeft = new WindowManager.LayoutParams(
-				WindowManager.LayoutParams.WRAP_CONTENT,
-				WindowManager.LayoutParams.WRAP_CONTENT,
-				WindowManager.LayoutParams.TYPE_SEARCH_BAR,
-				WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-				PixelFormat.TRANSPARENT);
-		paramsLeft.gravity = Gravity.START|Gravity.BOTTOM;
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.TYPE_SEARCH_BAR,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                PixelFormat.TRANSPARENT);
+        paramsLeft.gravity = Gravity.START|Gravity.BOTTOM;
 mLeftToolbarPanel = (ViewGroup) LayoutInflater.from(mContext).inflate(R.layout.toolbar_left_panel, null);
 mRightToolbarPanel = (ViewGroup) LayoutInflater.from(mContext).inflate(R.layout.toolbar_right_panel, null);
 

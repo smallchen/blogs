@@ -587,11 +587,11 @@ setOutsideTouchable(true);
 
 ```java
 final WindowManager.LayoutParams paramsBottom = new WindowManager.LayoutParams(
-		WindowManager.LayoutParams.MATCH_PARENT,
-		10,
-		WindowManager.LayoutParams.TYPE_SEARCH_BAR,
-		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-		PixelFormat.TRANSPARENT
+        WindowManager.LayoutParams.MATCH_PARENT,
+        10,
+        WindowManager.LayoutParams.TYPE_SEARCH_BAR,
+        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+        PixelFormat.TRANSPARENT
 );
 paramsBottom.gravity = Gravity.START|Gravity.BOTTOM;
 mWindowManager.addView(mBottomPanel, paramsBottom);

@@ -4,7 +4,7 @@ PopupWindow源码
 
 ```java
 public class PopupWindow {
-	public PopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public PopupWindow(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         mContext = context;
         mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
     }
@@ -44,11 +44,11 @@ public class Activity extends ContextThemeWrapper
     }
 
     final void attach(.........) {
-    	///=> Activity绑定的Window是PhoneWindow。
-		mWindow = new PhoneWindow(this, window, activityConfigCallback);
-		mWindow.setWindowControllerCallback(this);
+        ///=> Activity绑定的Window是PhoneWindow。
+        mWindow = new PhoneWindow(this, window, activityConfigCallback);
+        mWindow.setWindowControllerCallback(this);
 
-		///=> Activity关注Window.Callback接口。即关注Window的dispatchTouchEvent，优先截获了Window的事件分发。
+        ///=> Activity关注Window.Callback接口。即关注Window的dispatchTouchEvent，优先截获了Window的事件分发。
         mWindow.setCallback(this);
 
         ///=> PhoneWindow中的WindowManager是由Activity传递进去。Activity设置了WindowManager
@@ -97,21 +97,21 @@ public class Activity extends ContextThemeWrapper
         mContentParentExplicitlySet = true;
     }
 
-	private void installDecor() {
-		mForceDecorInstall = false;
-		if (mDecor == null) {
-		    mDecor = generateDecor(-1);
-		    mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
-		    mDecor.setIsRootNamespace(true);
-		    if (!mInvalidatePanelMenuPosted && mInvalidatePanelMenuFeatures != 0) {
-		        mDecor.postOnAnimation(mInvalidatePanelMenuRunnable);
-		    }
-		} else {
-		    mDecor.setWindow(this);
-		}
-	}
+    private void installDecor() {
+        mForceDecorInstall = false;
+        if (mDecor == null) {
+            mDecor = generateDecor(-1);
+            mDecor.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
+            mDecor.setIsRootNamespace(true);
+            if (!mInvalidatePanelMenuPosted && mInvalidatePanelMenuFeatures != 0) {
+                mDecor.postOnAnimation(mInvalidatePanelMenuRunnable);
+            }
+        } else {
+            mDecor.setWindow(this);
+        }
+    }
 
-	protected DecorView generateDecor(int featureId) {
+    protected DecorView generateDecor(int featureId) {
         // System process doesn't have application context and in that case we need to directly use
         // the context we have. Otherwise we want the application context, so we don't cling to the
         // activity.
@@ -137,7 +137,7 @@ public class Activity extends ContextThemeWrapper
 
 ```java
 public abstract class Window {
-	 /**
+     /**
      * Set the window manager for use by this Window to, for example,
      * display panels.  This is <em>not</em> used for displaying the
      * Window itself -- that must be done by the client.
@@ -182,7 +182,7 @@ ActivityThread源码
 
 ```java
 public final class ActivityThread {
-	private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
+    private Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) {
                 ContextImpl appContext = createBaseContextForActivity(r);
 
                 Activity activity = mInstrumentation.newActivity(
@@ -194,28 +194,28 @@ public final class ActivityThread {
                         r.ident, app, r.intent, r.activityInfo, title, r.parent,
                         r.embeddedID, r.lastNonConfigurationInstances, config,
                         r.referrer, r.voiceInteractor, window, r.configCallback);
-	}
+    }
 
-	private ContextImpl createBaseContextForActivity(ActivityClientRecord r) {       
-		/// 创建的时候，把PackageInfo传递到ContextImpl，而PacakgeInfo就包含了ApplicationContext。
+    private ContextImpl createBaseContextForActivity(ActivityClientRecord r) {       
+        /// 创建的时候，把PackageInfo传递到ContextImpl，而PacakgeInfo就包含了ApplicationContext。
         ContextImpl appContext = ContextImpl.createActivityContext(
                 this, r.packageInfo, r.activityInfo, r.token, displayId, r.overrideConfig);
 
         final DisplayManagerGlobal dm = DisplayManagerGlobal.getInstance();
-        
+
         return appContext;
     }
 }
 
 public class Activity extends ContextThemeWrapper {
-	final void attach(.....) {
-		attachBaseContext(context);
-		mWindow = new PhoneWindow(this, window, activityConfigCallback);
-		mWindow.setWindowManager(
+    final void attach(.....) {
+        attachBaseContext(context);
+        mWindow = new PhoneWindow(this, window, activityConfigCallback);
+        mWindow.setWindowManager(
                 (WindowManager)context.getSystemService(Context.WINDOW_SERVICE),
                 mToken, mComponent.flattenToString(),
                 (info.flags & ActivityInfo.FLAG_HARDWARE_ACCELERATED) != 0);
-	}
+    }
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -269,7 +269,7 @@ Activity的创建流程是：
 
 ```java
 public class PhoneWindow extends Window implements MenuBuilder.Callback {
-	public PhoneWindow(Context context) {
+    public PhoneWindow(Context context) {
         super(context);
         mLayoutInflater = LayoutInflater.from(context);
     }
@@ -292,8 +292,8 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
     protected DecorView generateDecor(int featureId) {
         Context context;
         if (mUseDecorContext) {
-        	/// 如果applicationContext为null，则使用Window自身的context，也就是Activity context。
-        	/// 不为空，则创建DecorContext。
+            /// 如果applicationContext为null，则使用Window自身的context，也就是Activity context。
+            /// 不为空，则创建DecorContext。
             Context applicationContext = getContext().getApplicationContext();
             if (applicationContext == null) {
                 context = getContext();
@@ -335,10 +335,10 @@ public abstract class Window {
 
 ```java
 class ContextImpl extends Context {
-	final @NonNull ActivityThread mMainThread;
+    final @NonNull ActivityThread mMainThread;
     final @NonNull LoadedApk mPackageInfo;
 
-	@Override
+    @Override
     public Object getSystemService(String name) {
         return SystemServiceRegistry.getSystemService(this, name);
     }
@@ -388,10 +388,10 @@ class ContextImpl extends Context {
 }
 
 public final class LoadedApk {
-	private final ActivityThread mActivityThread;
+    private final ActivityThread mActivityThread;
     final String mPackageName;
     private ApplicationInfo mApplicationInfo;
-	private ClassLoader mClassLoader;
+    private ClassLoader mClassLoader;
     private Application mApplication;
 
     Application getApplication() {
@@ -400,33 +400,33 @@ public final class LoadedApk {
 }
 
 final class SystemServiceRegistry {
-	/**
-	 * Gets a system service from a given context.
-	 */
-	public static Object getSystemService(ContextImpl ctx, String name) {
-	    ServiceFetcher<?> fetcher = SYSTEM_SERVICE_FETCHERS.get(name);
-	    return fetcher != null ? fetcher.getService(ctx) : null;
-	}
+    /**
+     * Gets a system service from a given context.
+     */
+    public static Object getSystemService(ContextImpl ctx, String name) {
+        ServiceFetcher<?> fetcher = SYSTEM_SERVICE_FETCHERS.get(name);
+        return fetcher != null ? fetcher.getService(ctx) : null;
+    }
 
 
-	// 静态初始化列表。所以，Context.WINDOW_SERVICE 对应new WindowManagerImpl(ctx)。
-	static {
-	    registerService(Context.MIDI_SERVICE, MidiManager.class,
-	                new CachedServiceFetcher<MidiManager>() {
-	            @Override
-	            public MidiManager createService(ContextImpl ctx) throws ServiceNotFoundException {
-	                IBinder b = ServiceManager.getServiceOrThrow(Context.MIDI_SERVICE);
-	                return new MidiManager(IMidiManager.Stub.asInterface(b));
-	            }});
-	    ///。。。。
-		registerService(Context.WINDOW_SERVICE, WindowManager.class,
-		        new CachedServiceFetcher<WindowManager>() {
-		    @Override
-		    public WindowManager createService(ContextImpl ctx) {
-		        return new WindowManagerImpl(ctx);
-		    }});
-	}
-	private static <T> void registerService(String serviceName, Class<T> serviceClass,
+    // 静态初始化列表。所以，Context.WINDOW_SERVICE 对应new WindowManagerImpl(ctx)。
+    static {
+        registerService(Context.MIDI_SERVICE, MidiManager.class,
+                    new CachedServiceFetcher<MidiManager>() {
+                @Override
+                public MidiManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                    IBinder b = ServiceManager.getServiceOrThrow(Context.MIDI_SERVICE);
+                    return new MidiManager(IMidiManager.Stub.asInterface(b));
+                }});
+        ///。。。。
+        registerService(Context.WINDOW_SERVICE, WindowManager.class,
+                new CachedServiceFetcher<WindowManager>() {
+            @Override
+            public WindowManager createService(ContextImpl ctx) {
+                return new WindowManagerImpl(ctx);
+            }});
+    }
+    private static <T> void registerService(String serviceName, Class<T> serviceClass,
             ServiceFetcher<T> serviceFetcher) {
         SYSTEM_SERVICE_NAMES.put(serviceClass, serviceName);
         SYSTEM_SERVICE_FETCHERS.put(serviceName, serviceFetcher);
@@ -502,7 +502,7 @@ public final class WindowManagerImpl implements WindowManager {
 }
 ```
 1. WindowManager只是一个接口。
-2. 
+2.
 
 ```java
 /** Window flag: if you have set {@link #FLAG_NOT_TOUCH_MODAL}, you
@@ -617,7 +617,7 @@ WindowManagerImpl源码
 
 ```java
 public final class WindowManagerImpl implements WindowManager {
-	private final WindowManagerGlobal mGlobal = WindowManagerGlobal.getInstance();
+      private final WindowManagerGlobal mGlobal = WindowManagerGlobal.getInstance();
 
     @Override
     public void addView(@NonNull View view, @NonNull ViewGroup.LayoutParams params) {
@@ -636,12 +636,12 @@ WindowManagerGlobal源码
 public final class WindowManagerGlobal {
     private static final String TAG = "WindowManager";
 
-	public void addView(View view, ViewGroup.LayoutParams params,
-	        Display display, Window parentWindow) {
- 			
- 			/// 对于PopupWindow这种SUB_WINDOW类型，是支持一个窗口弹出多个PopupWindow的。所以需要遍历。
+      public void addView(View view, ViewGroup.LayoutParams params,
+              Display display, Window parentWindow) {
 
- 			// If this is a panel window, then find the window it is being
+                   /// 对于PopupWindow这种SUB_WINDOW类型，是支持一个窗口弹出多个PopupWindow的。所以需要遍历。
+
+               // If this is a panel window, then find the window it is being
             // attached to for future reference.
             if (wparams.type >= WindowManager.LayoutParams.FIRST_SUB_WINDOW &&
                     wparams.type <= WindowManager.LayoutParams.LAST_SUB_WINDOW) {
@@ -653,21 +653,21 @@ public final class WindowManagerGlobal {
                 }
             }
 
- 			ViewRootImpl root;
- 			root = new ViewRootImpl(view.getContext(), display);
+             ViewRootImpl root;
+             root = new ViewRootImpl(view.getContext(), display);
 
-	        // do this last because it fires off messages to start doing things
-	        try {
-	        	/// 将View添加到ViewRootImpl，并且将LayoutParams里面的flags传递给ViewRootImpl里面的mWindowAttributes。
-	            root.setView(view, wparams, panelParentView);
-	        } catch (RuntimeException e) {
-	            // BadTokenException or InvalidDisplayException, clean up.
-	            if (index >= 0) {
-	                removeViewLocked(index, true);
-	            }
-	            throw e;
-	        }
-	}
+            // do this last because it fires off messages to start doing things
+            try {
+                /// 将View添加到ViewRootImpl，并且将LayoutParams里面的flags传递给ViewRootImpl里面的mWindowAttributes。
+                root.setView(view, wparams, panelParentView);
+            } catch (RuntimeException e) {
+                // BadTokenException or InvalidDisplayException, clean up.
+                if (index >= 0) {
+                    removeViewLocked(index, true);
+                }
+                throw e;
+            }
+    }
 }
 ```
 
@@ -679,38 +679,38 @@ ViewRootImpl源码
 public final class ViewRootImpl implements ViewParent,
         View.AttachInfo.Callbacks, ThreadedRenderer.DrawCallbacks {
     private static final String TAG = "ViewRootImpl";
-	
-	View mView;
-	final View.AttachInfo mAttachInfo;
 
-	public ViewRootImpl(Context context, Display display) {
-		mContext = context;
+    View mView;
+    final View.AttachInfo mAttachInfo;
+
+    public ViewRootImpl(Context context, Display display) {
+        mContext = context;
         mWindowSession = WindowManagerGlobal.getWindowSession();
         mDisplay = display;
         mBasePackageName = context.getBasePackageName();
-		mWindow = new W(this);
-		
-		mAttachInfo = new View.AttachInfo(mWindowSession, mWindow, display, this, mHandler, this, context);
-	}
+        mWindow = new W(this);
 
-	 /**
+        mAttachInfo = new View.AttachInfo(mWindowSession, mWindow, display, this, mHandler, this, context);
+    }
+
+     /**
      * We have one child
      */
     public void setView(View view, WindowManager.LayoutParams attrs, View panelParentView) {
-    	/// 只绑定一次，且绑定一个View。
+        /// 只绑定一次，且绑定一个View。
         synchronized (this) {
             if (mView == null) {
 
-            	/// attrs即是WindowManager::addView传入的LayoutParams，这里将其当作attrs使用。
-              	mWindowAttributes.copyFrom(attrs);
+                /// attrs即是WindowManager::addView传入的LayoutParams，这里将其当作attrs使用。
+                  mWindowAttributes.copyFrom(attrs);
                 mAttachInfo.mDisplayState = mDisplay.getState();
                 mDisplayManager.registerDisplayListener(mDisplayListener, mHandler);
 
                 /// 重点：从attrs复制一份到本地保存为mWindowAttributes。然后通过getWindowFlags来获取Flags。
                 mWindowAttributes.copyFrom(attrs);
-                
+
                 attrs = mWindowAttributes;
-                
+
                 /// attrs.flags即是PopupWindow设置的一系列Flags。通过mClientWindowLayoutFlags保存。
                 // Keep track of the actual window flags supplied by the client.
                 mClientWindowLayoutFlags = attrs.flags;
@@ -728,8 +728,8 @@ public final class ViewRootImpl implements ViewParent,
                 requestLayout();
 
                 /// 事件接收模块（从InputChannel()那里接收事件）
-  				
-  				if ((mWindowAttributes.inputFeatures
+
+                  if ((mWindowAttributes.inputFeatures
                         & WindowManager.LayoutParams.INPUT_FEATURE_NO_INPUT_CHANNEL) == 0) {
                     mInputChannel = new InputChannel();
                 }
@@ -763,7 +763,7 @@ public final class ViewRootImpl implements ViewParent,
     }
 
 
-	WindowInputEventReceiver mInputEventReceiver;
+    WindowInputEventReceiver mInputEventReceiver;
     final class WindowInputEventReceiver extends InputEventReceiver {
         public WindowInputEventReceiver(InputChannel inputChannel, Looper looper) {
             super(inputChannel, looper);
@@ -814,7 +814,7 @@ public final class ViewRootImpl implements ViewParent,
                 mPendingInputEventCount);
 
         if (processImmediately) {
-            doProcessInputEvents();	// 源码在下面
+            doProcessInputEvents();    // 源码在下面
         } else {
             scheduleProcessInputEvents();
         }
@@ -845,7 +845,7 @@ public final class ViewRootImpl implements ViewParent,
             }
             mChoreographer.mFrameInfo.updateInputEventTime(eventTime, oldestEventTime);
 
-            /// 
+            ///
             deliverInputEvent(q);
         }
 
@@ -894,17 +894,17 @@ public final class ViewRootImpl implements ViewParent,
         protected int onProcess(QueuedInputEvent q) {
             if (q.mEvent instanceof KeyEvent) {
 
-            	/// processKeyEvent
+                /// processKeyEvent
                 return processKeyEvent(q);
             } else {
                 final int source = q.mEvent.getSource();
                 if ((source & InputDevice.SOURCE_CLASS_POINTER) != 0) {
 
-                	/// processPointerEvent
+                    /// processPointerEvent
                     return processPointerEvent(q);
                 } else if ((source & InputDevice.SOURCE_CLASS_TRACKBALL) != 0) {
 
-                	/// processTrackballEvent
+                    /// processTrackballEvent
                     return processTrackballEvent(q);
                 } else {
                     return processGenericMotionEvent(q);
@@ -913,25 +913,25 @@ public final class ViewRootImpl implements ViewParent,
         }
 
         private int processPointerEvent(QueuedInputEvent q) {
-		    final MotionEvent event = (MotionEvent)q.mEvent;
+            final MotionEvent event = (MotionEvent)q.mEvent;
 
-		    mAttachInfo.mUnbufferedDispatchRequested = false;
-		    mAttachInfo.mHandlingPointerEvent = true;
+            mAttachInfo.mUnbufferedDispatchRequested = false;
+            mAttachInfo.mHandlingPointerEvent = true;
 
-		    /// 事件分发
-		    boolean handled = mView.dispatchPointerEvent(event);
-		    
-		    maybeUpdatePointerIcon(event);
-		    maybeUpdateTooltip(event);
-		    mAttachInfo.mHandlingPointerEvent = false;
-		    if (mAttachInfo.mUnbufferedDispatchRequested && !mUnbufferedInputDispatch) {
-		        mUnbufferedInputDispatch = true;
-		        if (mConsumeBatchedInputScheduled) {
-		            scheduleConsumeBatchedInputImmediately();
-		        }
-		    }
-		    return handled ? FINISH_HANDLED : FORWARD;
-		}
+            /// 事件分发
+            boolean handled = mView.dispatchPointerEvent(event);
+
+            maybeUpdatePointerIcon(event);
+            maybeUpdateTooltip(event);
+            mAttachInfo.mHandlingPointerEvent = false;
+            if (mAttachInfo.mUnbufferedDispatchRequested && !mUnbufferedInputDispatch) {
+                mUnbufferedInputDispatch = true;
+                if (mConsumeBatchedInputScheduled) {
+                    scheduleConsumeBatchedInputImmediately();
+                }
+            }
+            return handled ? FINISH_HANDLED : FORWARD;
+        }
 
     }
 }
@@ -1037,8 +1037,8 @@ class DisplayContent extends WindowContainer<DisplayContent.DisplayChildWindowCo
 
 getWindow()是父类提供的。
 class WindowContainer<E extends WindowContainer> implements Comparable<WindowContainer> {
-	protected final WindowList<E> mChildren = new WindowList<E>();
-    
+    protected final WindowList<E> mChildren = new WindowList<E>();
+
     WindowState getWindow(Predicate<WindowState> callback) {
         for (int i = mChildren.size() - 1; i >= 0; --i) {
             final WindowState w = mChildren.get(i).getWindow(callback);
@@ -1067,13 +1067,3 @@ class WindowList<E> extends ArrayList<E> {
 
 1. 如果flags设置了FLAG_NOT_TOUCHABLE，返回false，表示不是当前遍历的这个Window。
 2. WindowState存储了窗口的状态。
-
-
-
-
-
-
-
-
-
-

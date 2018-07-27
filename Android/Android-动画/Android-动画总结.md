@@ -3,24 +3,24 @@
 ### 动画种类
 
 * 帧动画
-	* animation-list (AnimationDrawable)
-	* 目录`res/drawable`
+    * animation-list (AnimationDrawable)
+    * 目录`res/drawable`
 
 * 补间动画
-	* translate（TranslateAnimation）
-	* scale（ScaleAnimation）
-	* rotate（RotateAnimation）
-	* alpha（AlphaAnimation）
-	* set (AnimationSet)
-	* 有`ABSOLUTE/RELATIVE_TO_SELF/RELATIVE_TO_PARENT`
-	* 目录`res/anim`
+    * translate（TranslateAnimation）
+    * scale（ScaleAnimation）
+    * rotate（RotateAnimation）
+    * alpha（AlphaAnimation）
+    * set (AnimationSet)
+    * 有`ABSOLUTE/RELATIVE_TO_SELF/RELATIVE_TO_PARENT`
+    * 目录`res/anim`
 
 * 属性动画
-	* animator（ValueAnimator）
-	* objectAnimator（ObjectAnimator）
-	* set（AnimatorSet）
-	* 无 (PropertyValuesHolder)
-	* 目录`res/animator`
+    * animator（ValueAnimator）
+    * objectAnimator（ObjectAnimator）
+    * set（AnimatorSet）
+    * 无 (PropertyValuesHolder)
+    * 目录`res/animator`
 
 ### 动画的选择
 

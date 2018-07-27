@@ -2,12 +2,12 @@
 
 ## 目录(TOC)
 - [Android IntentFilter](#android-intentfilter)
-	- [Activity使用IntentFilter跳转](#activity使用intentfilter跳转)
-		- [声明](#声明)
-		- [启动](#启动)
-	- [Service使用IntentFilter跳转](#service使用intentfilter跳转)
-		- [声明](#声明)
-		- [启动](#启动)
+    - [Activity使用IntentFilter跳转](#activity使用intentfilter跳转)
+        - [声明](#声明)
+        - [启动](#启动)
+    - [Service使用IntentFilter跳转](#service使用intentfilter跳转)
+        - [声明](#声明)
+        - [启动](#启动)
 
 <!-- /TOC -->
 
@@ -19,8 +19,8 @@
 
 ```java
 <intent-filter>
-	<action android:name="framework.server.activity.main"/>
-	<category android:name="android.intent.category.DEFAULT"/>
+    <action android:name="framework.server.activity.main"/>
+    <category android:name="android.intent.category.DEFAULT"/>
 </intent-filter>
 ```
 
@@ -44,7 +44,7 @@ startActivity(intent);
 
 ```java
 <intent-filter>
-	<action android:name="framework.server.service.main"/>
+    <action android:name="framework.server.service.main"/>
 </intent-filter>
 ```
 

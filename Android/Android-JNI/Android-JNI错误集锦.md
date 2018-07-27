@@ -51,9 +51,9 @@
 
 ```java
 android {
-	sourceSets {
-		main.jni.srcDirs = []
-	}
+    sourceSets {
+        main.jni.srcDirs = []
+    }
 }
 ```
 

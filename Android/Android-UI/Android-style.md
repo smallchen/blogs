@@ -26,10 +26,10 @@
 
 ```java
 <com.mark.widget.TextButton
-	  android:id="@+id/btn_prev"
-	  style="@style/ToolbarTextButtonStyle"
-	  app:imageSrc="@drawable/toolbar_btn_prev"
-	  app:text="上一页">
+      android:id="@+id/btn_prev"
+      style="@style/ToolbarTextButtonStyle"
+      app:imageSrc="@drawable/toolbar_btn_prev"
+      app:text="上一页">
 </com.mark.widget.TextButton>
 ```
 
@@ -40,15 +40,15 @@
 ```java
 // values/styles.xml
 <style name="ToolbarTextButtonStyle" parent="ToolbarTextButtonStyle">
-	<item name="android:layout_width">40dp</item>
-	<item name="android:layout_height">40dp</item>
-	<item name="android:background">@drawable/toolbar_btn_bg</item>
-	<item name="imageMarginTop">7.33dp</item>
-	<item name="imageWidth">17.33dp</item>
-	<item name="imageHeight">17.33dp</item>
-	<item name="textMarginTop">3.33dp</item>
-	<item name="textSize">6.67dp</item>
-	<item name="textColor">#343434</item>
+    <item name="android:layout_width">40dp</item>
+    <item name="android:layout_height">40dp</item>
+    <item name="android:background">@drawable/toolbar_btn_bg</item>
+    <item name="imageMarginTop">7.33dp</item>
+    <item name="imageWidth">17.33dp</item>
+    <item name="imageHeight">17.33dp</item>
+    <item name="textMarginTop">3.33dp</item>
+    <item name="textSize">6.67dp</item>
+    <item name="textColor">#343434</item>
 </style>
 ```
 Â

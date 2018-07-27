@@ -9,7 +9,7 @@ Android接口定义语言
 * 基本类型不需要导入，非基本类型，即使在同一个目录下，也需要进行导入。
 * List／Map等集合元素，需要满足序列化。
 * 定向tag：in，out，inout。
-	* 基本类型默认只能是in，因为只能作为值，不能作为引用被修改。
+    * 基本类型默认只能是in，因为只能作为值，不能作为引用被修改。
 * 两种aidl类型：一种定义数据，一种定义接口。
 
 ### 理解in，out，inout
@@ -57,7 +57,7 @@ package com.jokin.demo.sdk;
 import com.jokin.demo.sdk.IAction;
 
 interface IActionListener {
-	// 基本类型，不需 import，默认是 in
+    // 基本类型，不需 import，默认是 in
     void onDone(String action);
 }
 ```
@@ -76,7 +76,7 @@ interface Isdk {
     void addActionListener(String key, IActionListener listener);
     void removeActionListener(String key);
     boolean isTrue(String key, String state);
-	oneway void quit();
+    oneway void quit();
 }
 ```
 
@@ -106,8 +106,8 @@ parcelable IAction;
 
 ```java
 public class IAction implements Parcelable {
-	// 序列化。。。
-	// 反序列化。。。
+    // 序列化。。。
+    // 反序列化。。。
 }
 ```
 
@@ -133,7 +133,7 @@ interface Isdk {
     boolean doAction(String key, in IAction action);
     void addActionListener(String key, IActionListener listener);
     void removeActionListener(String key);
-	oneway void quit();
+    oneway void quit();
 }
 ```
 
@@ -161,20 +161,20 @@ public class ActionService extends Service {
 ```java
 // 1. 创建AIDL接口Binder
 private final Isdk.Stub mBinder = new Isdk.Stub() {
-	@Override
-	public boolean doAction(String key, IAction action) throws RemoteException {
-		// Server端的处理。注意线程问题。
-	}
+    @Override
+    public boolean doAction(String key, IAction action) throws RemoteException {
+        // Server端的处理。注意线程问题。
+    }
 
-	@Override
-	public void addActionListener(String key, IActionListener listener) throws RemoteException {
-		// Server端的处理。注意线程问题。
-	}
+    @Override
+    public void addActionListener(String key, IActionListener listener) throws RemoteException {
+        // Server端的处理。注意线程问题。
+    }
 
-	@Override
-	public void removeActionListener(String key) throws RemoteException {
-		// Server端的处理。注意线程问题。
-	}
+    @Override
+    public void removeActionListener(String key) throws RemoteException {
+        // Server端的处理。注意线程问题。
+    }
 }
 ```
 
@@ -183,8 +183,8 @@ private final Isdk.Stub mBinder = new Isdk.Stub() {
 ```java
 @Override
 public IBinder onBind(Intent intent) {
-	// TODO: Return the communication channel to the service.
-	return mBinder;
+    // TODO: Return the communication channel to the service.
+    return mBinder;
 }
 ```
 
@@ -212,18 +212,18 @@ bindService(intentService, mServiceConnection, BIND_AUTO_CREATE);
 ```java
 private Isdk mIsdk;
 private ServiceConnection mServiceConnection = new ServiceConnection() {
-	@Override
-	public void onServiceDisconnected(ComponentName name) {
-		Log.d(TAG, "onServiceDisconnected() called with: name = [" + name + "]");
-		mIsdk = null;
-	}
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        Log.d(TAG, "onServiceDisconnected() called with: name = [" + name + "]");
+        mIsdk = null;
+    }
 
-	@Override
-	public void onServiceConnected(ComponentName name, IBinder service) {
-		Log.d(TAG, "onServiceConnected() called with: name = [" + name + "], service = [" + service + "]");
-		// 这里对接Server端的 onBind() 返回值。
-		mIsdk = Isdk.Stub.asInterface(service);
-	}
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        Log.d(TAG, "onServiceConnected() called with: name = [" + name + "], service = [" + service + "]");
+        // 这里对接Server端的 onBind() 返回值。
+        mIsdk = Isdk.Stub.asInterface(service);
+    }
 };
 ```
 
@@ -231,17 +231,17 @@ private ServiceConnection mServiceConnection = new ServiceConnection() {
 
 ```java
 findViewById(R.id.openAction).setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View v) {
-		if (mIsdk == null) {
-			return;
-		}
-		try {
-			mIsdk.doAction("open", new IAction(new OpenAction(Color.BLACK, 10)));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        if (mIsdk == null) {
+            return;
+        }
+        try {
+            mIsdk.doAction("open", new IAction(new OpenAction(Color.BLACK, 10)));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 });
 ```
 
@@ -271,18 +271,18 @@ findViewById(R.id.openAction).setOnClickListener(new View.OnClickListener() {
 ```java
 src/main/java/com/jokin/demo/aidl/sdk
     - IAction.java
-	- IAction.aidl
-	- Isdk.aidl
+    - IAction.aidl
+    - Isdk.aidl
 ```
 以上目录结构是支持的，前提是，在`gradle`中配置`sourceSets`。
 
 ```java
 android {
-	sourceSets {
-		main {
-			aidl.srcDirs = ['src/main/java']
-		}
-	}
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/java']
+        }
+    }
 }
 ```
 
@@ -294,11 +294,11 @@ android {
 
 ```xml
 <service
-	android:name=".ActionService"
-	android:enabled="true"
-	android:exported="true"
-	android:process="com.jokin.demo.aidl.remote"
-	>
+    android:name=".ActionService"
+    android:enabled="true"
+    android:exported="true"
+    android:process="com.jokin.demo.aidl.remote"
+    >
 ```
 
 ### 兼容性问题

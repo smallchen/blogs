@@ -28,7 +28,7 @@
 
 类型：
 * 前台Service 受系统保护，可以一直存活
-* 后台Service	不受保护，很容易被杀死
+* 后台Service    不受保护，很容易被杀死
 
 实现：
 * 一次性Service
@@ -94,7 +94,7 @@ onBind／onUnbind/onRebind 可能在不同的线程
 
 重要接口：
 * finish()
-* isFinishing()	用于在onPause时，判断是正常的onPause还是由于finish引起的onPause流程。
+* isFinishing()    用于在onPause时，判断是正常的onPause还是由于finish引起的onPause流程。
 
 #### ActivityA -> B切换过程生命周期回调
 

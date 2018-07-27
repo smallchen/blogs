@@ -49,7 +49,7 @@ Help - EditCustomVMOptions
 ```
 # custom Android Studio VM options, see http://tools.android.com/tech-docs/configuration
 -Xms2048m
--Xmx409m			# 最大虚拟内存
+-Xmx409m            # 最大虚拟内存
 -XX:PermSize=256m
 -XX:MaxPermSize=512m # 永久代空间
 ```

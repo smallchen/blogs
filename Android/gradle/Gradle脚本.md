@@ -311,7 +311,7 @@ Configuration 'compile' in project ':app' is deprecated. Use 'implementation' in
 WARNING [Project: :sdk] Support for not packaging BuildConfig is deprecated.
 
 Configuration 'compile' in project ':sdk' is deprecated. Use 'implementation' instead.
-						
+                        
 【3. sdk／genPom.gradle执行】
 /home/demo/workspace/write_display/write_display_common_library/LibRpcService_master/sdk/build/poms
 /home/demo/workspace/write_display/write_display_common_library/LibRpcService_master/sdk/../

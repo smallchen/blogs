@@ -265,31 +265,31 @@ public interface Action3<T1, T2, T3> extends Action {
 
 ```java
 Observable.create(new Observable.OnSubscribe<String>() {
-	@Override
-	public void call(Subscriber<? super String> subscriber) {
-		Log.e(TAG, "OnSubscribe() called on thread " + Thread.currentThread().getName());
-		subscriber.onNext("Hello");
-		subscriber.onNext("Hi");
-		subscriber.onNext("Aloha");
-		subscriber.onCompleted();
-	}
-}).subscribeOn(Schedulers.io())	// 被订阅者的订阅操作运行于IO线程。
+    @Override
+    public void call(Subscriber<? super String> subscriber) {
+        Log.e(TAG, "OnSubscribe() called on thread " + Thread.currentThread().getName());
+        subscriber.onNext("Hello");
+        subscriber.onNext("Hi");
+        subscriber.onNext("Aloha");
+        subscriber.onCompleted();
+    }
+}).subscribeOn(Schedulers.io())    // 被订阅者的订阅操作运行于IO线程。
   .observeOn(Schedulers.computation()) // 事件响应在computation线程。
   .subscribe(new Observer() {
-	@Override
-	public void onCompleted() {
-		Log.e(TAG, "onCompleted() called on thread " + Thread.currentThread().getName());
-	}
+    @Override
+    public void onCompleted() {
+        Log.e(TAG, "onCompleted() called on thread " + Thread.currentThread().getName());
+    }
 
-	@Override
-	public void onError(Throwable e) {
-		Log.e(TAG, "onError() called on thread " + Thread.currentThread().getName());
-	}
+    @Override
+    public void onError(Throwable e) {
+        Log.e(TAG, "onError() called on thread " + Thread.currentThread().getName());
+    }
 
-	@Override
-	public void onNext(Object o) {
-		Log.e(TAG, "onNext() called on thread " + Thread.currentThread().getName());
-	}
+    @Override
+    public void onNext(Object o) {
+        Log.e(TAG, "onNext() called on thread " + Thread.currentThread().getName());
+    }
 });
 ```
 
@@ -307,20 +307,20 @@ Observable.create(new Observable.OnSubscribe<String>() {
 
 ```java
 Observable.from(getIntegers())
-		 .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
-		 .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
-		 .subscribe(new Action1<Integer>() {
-			 @Override
-			 public void call(Integer number) {
-				 Log.e(TAG, "subscriber thread in " + Thread.currentThread());
-				 Log.d(TAG, "number:" + number);
-			 }
-		 });
+         .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程
+         .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+         .subscribe(new Action1<Integer>() {
+             @Override
+             public void call(Integer number) {
+                 Log.e(TAG, "subscriber thread in " + Thread.currentThread());
+                 Log.d(TAG, "number:" + number);
+             }
+         });
 
 private Integer[] getIntegers() {
-	Log.e(TAG, "getIntegers thread in " + Thread.currentThread());
-	return new Integer[]{1, 2, 3, 4};
-}		 
+    Log.e(TAG, "getIntegers thread in " + Thread.currentThread());
+    return new Integer[]{1, 2, 3, 4};
+}         
 ```
 
 如上，不少同学误解了`just()`和`from()`，认为`subscribeOn()`可以控制`just()/from()`里面`getIntegers()`方法的执行线程。或者，认为上面`subsribeOn()`的设置没有生效。

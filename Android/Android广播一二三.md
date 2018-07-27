@@ -2,8 +2,8 @@
 
 ```java
 private boolean checkIntentHasReceiver(Intent intent) {
-		PackageManager pm = mContext.getPackageManager();
-		List<ResolveInfo> resolveInfos = pm.queryBroadcastReceivers(intent, 0);
-		return resolveInfos != null && !resolveInfos.isEmpty();
-	}
+        PackageManager pm = mContext.getPackageManager();
+        List<ResolveInfo> resolveInfos = pm.queryBroadcastReceivers(intent, 0);
+        return resolveInfos != null && !resolveInfos.isEmpty();
+    }
 ```

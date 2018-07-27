@@ -4,41 +4,41 @@
 
 ```java
 Observable.empty()
-		.observeOn(Schedulers.single())
-		.doOnComplete(new Action() {
-			@Override
-			public void run() throws Exception {
-				// TODO in the single Thread.
-			}
-		}).subscribe();
+        .observeOn(Schedulers.single())
+        .doOnComplete(new Action() {
+            @Override
+            public void run() throws Exception {
+                // TODO in the single Thread.
+            }
+        }).subscribe();
 ```
 
 ```java
 Observable
-		.just(init()) // just is Run on current Thread.
-		.subscribeOn(Schedulers.single()) // subscribe is Run on the Single Thread.
-		.timeout(5000, TimeUnit.MILLISECONDS)
-		.subscribe(new Observer<Boolean>() {
-			@Override
-			public void onSubscribe(Disposable d) {
-				// TODO
-			}
+        .just(init()) // just is Run on current Thread.
+        .subscribeOn(Schedulers.single()) // subscribe is Run on the Single Thread.
+        .timeout(5000, TimeUnit.MILLISECONDS)
+        .subscribe(new Observer<Boolean>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                // TODO
+            }
 
-			@Override
-			public void onNext(Boolean result) {
-				// TODO
-			}
+            @Override
+            public void onNext(Boolean result) {
+                // TODO
+            }
 
-			@Override
-			public void onError(Throwable e) {
-				// TODO
-			}
+            @Override
+            public void onError(Throwable e) {
+                // TODO
+            }
 
-			@Override
-			public void onComplete() {
-				// TODO
-			}
-		});
+            @Override
+            public void onComplete() {
+                // TODO
+            }
+        });
 ```
 
 #### 几个注意点
@@ -95,13 +95,13 @@ Schedulers.from(es)
 
 ```java
 Observable.just(1,2,3)
-			.delay(1, TimeUnit.SECONDS)
-			.subscribeOn(Schedulers.newThread())
-			.map(i -> {
-			    System.out.println("map: " + Thread.currentThread().getName());
-			    return i;
-			})
-			.subscribe(i -> {});
+            .delay(1, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.newThread())
+            .map(i -> {
+                System.out.println("map: " + Thread.currentThread().getName());
+                return i;
+            })
+            .subscribe(i -> {});
 ```
 以上，`Schedulers.newThead()`是不生效的。
 

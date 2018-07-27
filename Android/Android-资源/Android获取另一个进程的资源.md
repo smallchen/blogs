@@ -1,14 +1,14 @@
-<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 ## 目录(TOC)
 - [Android获取另一个进程的资源](#android获取另一个进程的资源)
-	- [参考RemoteView的跨进程View显示逻辑](#参考remoteview的跨进程view显示逻辑)
-	- [照葫芦画瓢，实现跨进程layout显示](#照葫芦画瓢实现跨进程layout显示)
-	- [createPackageContext解析](#createpackagecontext解析)
-		- [createPackageContext的其它用法1:SharedPreferences](#createpackagecontext的其它用法1sharedpreferences)
-		- [createPackageContext的其它用法2: 换肤](#createpackagecontext的其它用法2-换肤)
-	- [利用资源名称反射得到资源的ID值](#利用资源名称反射得到资源的id值)
-	- [跨越了沙盒机制？](#跨越了沙盒机制)
+    - [参考RemoteView的跨进程View显示逻辑](#参考remoteview的跨进程view显示逻辑)
+    - [照葫芦画瓢，实现跨进程layout显示](#照葫芦画瓢实现跨进程layout显示)
+    - [createPackageContext解析](#createpackagecontext解析)
+        - [createPackageContext的其它用法1:SharedPreferences](#createpackagecontext的其它用法1sharedpreferences)
+        - [createPackageContext的其它用法2: 换肤](#createpackagecontext的其它用法2-换肤)
+    - [利用资源名称反射得到资源的ID值](#利用资源名称反射得到资源的id值)
+    - [跨越了沙盒机制？](#跨越了沙盒机制)
 
 <!-- /TOC -->
 
@@ -19,52 +19,52 @@
 ```java
 // RemoteView.java
 public View apply(Context context, ViewGroup parent) {
-	return apply(context, parent, null);
+    return apply(context, parent, null);
 }
 
 /** @hide */
 public View apply(Context context, ViewGroup parent, OnClickHandler handler) {
-	RemoteViews rvToApply = getRemoteViewsToApply(context);
+    RemoteViews rvToApply = getRemoteViewsToApply(context);
 
-	View result;
+    View result;
 
-	// 通过RemoteView中的packageName，得到packageName应用的一个Context。
-	Context c = prepareContext(context);
+    // 通过RemoteView中的packageName，得到packageName应用的一个Context。
+    Context c = prepareContext(context);
 
     // 通过另一个应用的Context来得到LayoutInflater服务
-	LayoutInflater inflater = (LayoutInflater)
-			c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    LayoutInflater inflater = (LayoutInflater)
+            c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-	// 把LayoutInflater对象中的Context重新设置为另一个应用的Context。
-	//（既然LayoutInflater由另一个应用的Context构建，应该不需要再重新设置）
-	inflater = inflater.cloneInContext(c);
-	inflater.setFilter(this);
+    // 把LayoutInflater对象中的Context重新设置为另一个应用的Context。
+    //（既然LayoutInflater由另一个应用的Context构建，应该不需要再重新设置）
+    inflater = inflater.cloneInContext(c);
+    inflater.setFilter(this);
 
     // 使用另一个应用的LayoutInflater，和另一个应用的layout_id，
-	// 创建一个View，并且挂到当前应用的View中
-	result = inflater.inflate(rvToApply.getLayoutId(), parent, false);
+    // 创建一个View，并且挂到当前应用的View中
+    result = inflater.inflate(rvToApply.getLayoutId(), parent, false);
 
-	rvToApply.performApply(result, parent, handler);
+    rvToApply.performApply(result, parent, handler);
 
-	return result;
+    return result;
 }
 
 private Context prepareContext(Context context) {
-	Context c;
-	String packageName = mPackage;
+    Context c;
+    String packageName = mPackage;
 
-	if (packageName != null) {
-		try {
-			c = context.createPackageContextAsUser(
-					packageName, Context.CONTEXT_RESTRICTED, mUser);
-		} catch (NameNotFoundException e) {
-			Log.e(LOG_TAG, "Package name " + packageName + " not found");
-			c = context;
-		}
-	} else {
-		c = context;
-	}
-	return c;
+    if (packageName != null) {
+        try {
+            c = context.createPackageContextAsUser(
+                    packageName, Context.CONTEXT_RESTRICTED, mUser);
+        } catch (NameNotFoundException e) {
+            Log.e(LOG_TAG, "Package name " + packageName + " not found");
+            c = context;
+        }
+    } else {
+        c = context;
+    }
+    return c;
 }
 ```
 
@@ -83,31 +83,31 @@ private Context prepareContext(Context context) {
 
 ```java
 private void setLayout(int layoutID, String pkgName) {
-	Log.d(TAG, "setLayout() called with: layoutID = [" + layoutID + "]");
+    Log.d(TAG, "setLayout() called with: layoutID = [" + layoutID + "]");
 
-	Context c = prepareContext(this, pkgName);
-	LayoutInflater inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	inflater = inflater.cloneInContext(c);
-	inflater.inflate(layoutID, mRootView, true);
+    Context c = prepareContext(this, pkgName);
+    LayoutInflater inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    inflater = inflater.cloneInContext(c);
+    inflater.inflate(layoutID, mRootView, true);
 }
 
 private Context prepareContext(Context context, String pkgName) {
-	Context c;
-	String packageName = pkgName;
+    Context c;
+    String packageName = pkgName;
 
-	if (packageName != null) {
-		try {
-			c = context.createPackageContext(packageName, Context.CONTEXT_IGNORE_SECURITY);
-			// c = context.createPackageContextAsUser(
-			//         packageName, Context.CONTEXT_RESTRICTED, mUser);
-		} catch (PackageManager.NameNotFoundException e) {
-			Log.e(TAG, "Package name " + packageName + " not found");
-			c = context;
-		}
-	} else {
-		c = context;
-	}
-	return c;
+    if (packageName != null) {
+        try {
+            c = context.createPackageContext(packageName, Context.CONTEXT_IGNORE_SECURITY);
+            // c = context.createPackageContextAsUser(
+            //         packageName, Context.CONTEXT_RESTRICTED, mUser);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Package name " + packageName + " not found");
+            c = context;
+        }
+    } else {
+        c = context;
+    }
+    return c;
 }
 ```
 
@@ -145,7 +145,7 @@ private Context prepareContext(Context context, String pkgName) {
  * the given package name.
  */
 public abstract Context createPackageContext(String packageName,
-		@CreatePackageOptions int flags) throws PackageManager.NameNotFoundException;
+        @CreatePackageOptions int flags) throws PackageManager.NameNotFoundException;
 ```
 
 通过应用的包名，创建一个新的Context对象。这个Context对象和应用启动时的Context对象是一样的，包含了相同的`Resources`和`classloader`。
@@ -187,9 +187,9 @@ Flags:
 
 ```java
 try {
-	Context context = createPackageContext("com.jokin.demo", Context.CONTEXT_IGNORE_SECURITY);
+    Context context = createPackageContext("com.jokin.demo", Context.CONTEXT_IGNORE_SECURITY);
 } catch (NameNotFoundException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
 SharedPreferences sharedPreferences = context.getSharedPreferences("demo.data", Context.MODE_WORLD_READABLE);
 String name = sharedPreferences.getString("name", "");

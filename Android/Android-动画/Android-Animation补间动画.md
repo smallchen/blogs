@@ -158,7 +158,7 @@ mPopupWindow.setAnimationStyle(R.style.anim_pop_scale);
 // left2right.xml
 <set xmlns:android="http://schemas.android.com/apk/res/android"
         android:interpolator="@android:interpolator/decelerate_quad">
-	<translate
+    <translate
         android:fromXDelta="-75%"
         android:toXDelta="0"
         android:duration="@android:integer/config_shortAnimTime"/>
@@ -171,7 +171,7 @@ mPopupWindow.setAnimationStyle(R.style.anim_pop_scale);
 ```xml
 // right2left.xml
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-	<translate
+    <translate
         android:fromXDelta="0%"
         android:toXDelta="-75%"
         android:duration="200"/>

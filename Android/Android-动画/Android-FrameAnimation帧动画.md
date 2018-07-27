@@ -44,10 +44,10 @@
 
 ```xml
 <ImageView  
-	android:id="@+id/imageView"  
-	android:layout_width="wrap_content"  
-	android:layout_height="wrap_content"  
-	android:background="@drawable/animation_list" />
+    android:id="@+id/imageView"  
+    android:layout_width="wrap_content"  
+    android:layout_height="wrap_content"  
+    android:background="@drawable/animation_list" />
 ```
 
 ```java
@@ -66,14 +66,14 @@ private void setXml2FrameAnim2() {
     mAnimationDrawable = (AnimationDrawable) getResources().getDrawable(  
             R.drawable.frame_anim);  
     imageView.setBackground(animationDrawable);
-	// 设置给ImageView，作为显示介质。
+    // 设置给ImageView，作为显示介质。
 }
 
 private void start() {
-	mAnimationDrawable.start();  
+    mAnimationDrawable.start();  
 }
 private void stop() {
-	mAnimationDrawable.stop();
+    mAnimationDrawable.stop();
 }
 ```
 
@@ -84,13 +84,13 @@ private void stop() {
  * 通过代码添加帧动画方法
  */  
 private void setFrameAnimation() {  
-	animationDrawable = new AnimationDrawable();  
-	// 为AnimationDrawable添加动画帧  
-	animationDrawable.addFrame(getResources().getDrawable(R.drawable.img00), 50);  
-	animationDrawable.addFrame(getResources().getDrawable(R.drawable.img01), 50);  
-	animationDrawable.addFrame(getResources().getDrawable(R.drawable.img02), 50);  
-	// 设置为循环播放  
-	animationDrawable.setOneShot(false);  
-	imageView.setBackground(animationDrawable);
+    animationDrawable = new AnimationDrawable();  
+    // 为AnimationDrawable添加动画帧  
+    animationDrawable.addFrame(getResources().getDrawable(R.drawable.img00), 50);  
+    animationDrawable.addFrame(getResources().getDrawable(R.drawable.img01), 50);  
+    animationDrawable.addFrame(getResources().getDrawable(R.drawable.img02), 50);  
+    // 设置为循环播放  
+    animationDrawable.setOneShot(false);  
+    imageView.setBackground(animationDrawable);
 }
 ```

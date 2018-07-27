@@ -27,34 +27,34 @@ private HandlerThread mHandlerThread;
 private Handler mHandler;
 
 private void onCreate() {
-	initBackgroundThread();
+    initBackgroundThread();
     mMessenger = new Messenger(mHandler);
 }
 
 private void initBackgroundThread() {
-	mHandlerThread = new HandlerThread("messenger-thread",  Process.THREAD_PRIORITY_BACKGROUND);
-	mHandlerThread.start();
-	mHandler = new MessengerHandler(mHandlerThread.getLooper());
+    mHandlerThread = new HandlerThread("messenger-thread",  Process.THREAD_PRIORITY_BACKGROUND);
+    mHandlerThread.start();
+    mHandler = new MessengerHandler(mHandlerThread.getLooper());
 }
 
 private void destroyBackgroundThread() {
-	mHandler.removeCallbacksAndMessages(null);
-	mHandlerThread.quitSafely();
+    mHandler.removeCallbacksAndMessages(null);
+    mHandlerThread.quitSafely();
 }
 
 private class MessengerHandler extends Handler {
-	public MessengerHandler(Looper looper) {
-		super(looper);
-	}
+    public MessengerHandler(Looper looper) {
+        super(looper);
+    }
 
-	@Override
-	public void handleMessage(Message msg) {
-		if (msg.what == OPEN_ACTION) {
-			// TODO
-		} else if (msg.what == CLOSE_ACTION) {
-			// TODO
-		}
-	}
+    @Override
+    public void handleMessage(Message msg) {
+        if (msg.what == OPEN_ACTION) {
+            // TODO
+        } else if (msg.what == CLOSE_ACTION) {
+            // TODO
+        }
+    }
 }
 ```
 
@@ -63,7 +63,7 @@ private class MessengerHandler extends Handler {
 ```java
 @Override
 public IBinder onBind(Intent intent) {
-	return mMessenger.getBinder();
+    return mMessenger.getBinder();
 }
 ```
 
@@ -85,15 +85,15 @@ bindService(intentService, mMessengerServiceConnection, BIND_AUTO_CREATE);
 ```java
 private Messenger mServerMessenger;
 private ServiceConnection mMessengerServiceConnection = new ServiceConnection() {
-	@Override
-	public void onServiceConnected(ComponentName name, IBinder service) {
-		mServerMessenger = new Messenger(service);
-	}
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        mServerMessenger = new Messenger(service);
+    }
 
-	@Override
-	public void onServiceDisconnected(ComponentName name) {
-		mServerMessenger = null;
-	}
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        mServerMessenger = null;
+    }
 };
 ```
 
@@ -104,21 +104,21 @@ public static final int CLOSE_ACTION = 1001;
 public static final String KEY_OF_TIP = "key.tip";
 
 findViewById(R.id.closeActionMessenger).setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View v) {
-		try {
-			Message message = Message.obtain();
-			message.what = CLOSE_ACTION;
-			Bundle bundle = new Bundle();
-			bundle.putString(KEY_OF_TIP, "Messenger要close拉！");
-			message.setData(bundle);
-			message.replyTo = mClientMessenger;
+    @Override
+    public void onClick(View v) {
+        try {
+            Message message = Message.obtain();
+            message.what = CLOSE_ACTION;
+            Bundle bundle = new Bundle();
+            bundle.putString(KEY_OF_TIP, "Messenger要close拉！");
+            message.setData(bundle);
+            message.replyTo = mClientMessenger;
 
-			mServerMessenger.send(message);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
+            mServerMessenger.send(message);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 });
 ```
 
@@ -138,19 +138,19 @@ message.replyTo = mClientMessenger;
  * 注意内存泄漏，这里不修复了，参考Server。
  */
 Messenger mClientMessenger = new Messenger(new Handler() {
-	@Override
-	public void handleMessage(final Message msg) {
-		switch (msg.what) {
-			case OPEN_RESULT:
-				Log.e(TAG, "open with result:"+msg.toString());
-				break;
-			case CLOSE_RESULT:
-				Log.e(TAG, "close with result:"+msg.toString());
-				break;
-			default:
-				break;
-		}
-	}
+    @Override
+    public void handleMessage(final Message msg) {
+        switch (msg.what) {
+            case OPEN_RESULT:
+                Log.e(TAG, "open with result:"+msg.toString());
+                break;
+            case CLOSE_RESULT:
+                Log.e(TAG, "close with result:"+msg.toString());
+                break;
+            default:
+                break;
+        }
+    }
 });
 ```
 
@@ -159,19 +159,19 @@ Messenger mClientMessenger = new Messenger(new Handler() {
 ```java
 @Override
 public void handleMessage(Message msg) {
-	if (msg.what == OPEN_ACTION) {
-	} else if (msg.what == CLOSE_ACTION) {
-		Log.e(TAG, String.format("close with tip=%s", msg.getData().getString(KEY_OF_TIP)));
+    if (msg.what == OPEN_ACTION) {
+    } else if (msg.what == CLOSE_ACTION) {
+        Log.e(TAG, String.format("close with tip=%s", msg.getData().getString(KEY_OF_TIP)));
 
-		// 应答
-		Message message = Message.obtain();
-		message.what = CLOSE_RESULT;
-		try {
-			msg.replyTo.send(message);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
+        // 应答
+        Message message = Message.obtain();
+        message.what = CLOSE_RESULT;
+        try {
+            msg.replyTo.send(message);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 }
 ```
 

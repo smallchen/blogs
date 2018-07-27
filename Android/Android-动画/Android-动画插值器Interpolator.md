@@ -109,6 +109,6 @@ public class DecelerateAccelerateInterpolator implements TimeInterpolator {
         }
         return result;
         // 返回的result值 = 随着动画进度呈先减速后加速的变化趋势
-	}
+    }
 }
 ```

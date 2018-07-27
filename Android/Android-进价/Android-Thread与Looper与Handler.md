@@ -2,13 +2,13 @@
 
 ```java
 Thread lShowToastThread = new Thread() {
-	@Override
-	public void run() {
-		Looper.prepare(); 
-		String toast = " program has crashed";
-		Toast.makeText(WelcomeApplication.this, toast, Toast.LENGTH_LONG).show();
-		Looper.loop();
-	}
+    @Override
+    public void run() {
+        Looper.prepare(); 
+        String toast = " program has crashed";
+        Toast.makeText(WelcomeApplication.this, toast, Toast.LENGTH_LONG).show();
+        Looper.loop();
+    }
 };
 lShowToastThread.start();
 ```

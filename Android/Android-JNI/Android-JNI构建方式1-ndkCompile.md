@@ -95,19 +95,19 @@ JNIEXPORT void JNICALL Java_com_example_administrator_jni_FirstJni_set
 
 ```java
 buildTypes {
-	release {
-		ndk{
-			moduleName "FirstJni"             //生成的so名字
-			abiFilters "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
-		}
-	}
+    release {
+        ndk{
+            moduleName "FirstJni"             //生成的so名字
+            abiFilters "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
+        }
+    }
 
-	debug{
-		ndk{
-			moduleName "FirstJni"             //生成的so名字
-			abiFilters  "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
-		}
-	}
+    debug{
+        ndk{
+            moduleName "FirstJni"             //生成的so名字
+            abiFilters  "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。
+        }
+    }
 }
 ```
 其中，
@@ -162,7 +162,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := FirstJni
 LOCAL_LDFLAGS := -Wl,--build-id
 LOCAL_SRC_FILES := \
-	Documents/examples/jni/app/src/main/jni/FirstJni.cpp \
+    Documents/examples/jni/app/src/main/jni/FirstJni.cpp \
 
 LOCAL_C_INCLUDES += Documents/examples/jni/app/src/main/jni
 LOCAL_C_INCLUDES += Documents/examples/jni/app/src/debug/jni

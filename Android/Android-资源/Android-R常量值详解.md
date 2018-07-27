@@ -2,15 +2,15 @@
 
 ## 目录(TOC)
 - [Android R常量值（R.xxx）详解](#android-r常量值rxxx详解)
-	- [R常量值的实现原理](#r常量值的实现原理)
-		- [Resource Id 值的改变原则：](#resource-id-值的改变原则)
-		- [其他ID的改变原则](#其他id的改变原则)
-		- [简单总结](#简单总结)
-	- [R常量值的使用原理](#r常量值的使用原理)
-	- [从源码角度理解资源和R常量](#从源码角度理解资源和r常量)
-			- [Resources（ResourcesImpl）的创建过程](#resourcesresourcesimpl的创建过程)
-			- [AssetManager的构建流程](#assetmanager的构建流程)
-			- [Resources.getLayout](#resourcesgetlayout)
+    - [R常量值的实现原理](#r常量值的实现原理)
+        - [Resource Id 值的改变原则：](#resource-id-值的改变原则)
+        - [其他ID的改变原则](#其他id的改变原则)
+        - [简单总结](#简单总结)
+    - [R常量值的使用原理](#r常量值的使用原理)
+    - [从源码角度理解资源和R常量](#从源码角度理解资源和r常量)
+            - [Resources（ResourcesImpl）的创建过程](#resourcesresourcesimpl的创建过程)
+            - [AssetManager的构建流程](#assetmanager的构建流程)
+            - [Resources.getLayout](#resourcesgetlayout)
 
 <!-- /TOC -->
 
@@ -127,11 +127,11 @@ textView.setText(R.string.app_name);
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content">
-	<TextView
-		android:id="@+id/text"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="null"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"/>
 </FrameLayout>
 ```
 
@@ -152,11 +152,11 @@ textView.setText(R.string.app_name);
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content">
-	<TextView
-		android:id="0x7f040016"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="null"/>
+    <TextView
+        android:id="0x7f040016"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"/>
 </FrameLayout>
 ```
 
@@ -205,12 +205,12 @@ textView.setText(R.string.app_name);
  * Obtains the LayoutInflater from the given context.
  */
 public static LayoutInflater from(Context context) {
-	LayoutInflater LayoutInflater =
-			(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	if (LayoutInflater == null) {
-		throw new AssertionError("LayoutInflater not found.");
-	}
-	return LayoutInflater;
+    LayoutInflater LayoutInflater =
+            (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    if (LayoutInflater == null) {
+        throw new AssertionError("LayoutInflater not found.");
+    }
+    return LayoutInflater;
 }
 ```
 
@@ -218,18 +218,18 @@ public static LayoutInflater from(Context context) {
 
 ```java
 public View inflate(@LayoutRes int resource, @Nullable ViewGroup root, boolean attachToRoot) {
-	final Resources res = getContext().getResources();
-	if (DEBUG) {
-		Log.d(TAG, "INFLATING from resource: \"" + res.getResourceName(resource) + "\" ("
-				+ Integer.toHexString(resource) + ")");
-	}
+    final Resources res = getContext().getResources();
+    if (DEBUG) {
+        Log.d(TAG, "INFLATING from resource: \"" + res.getResourceName(resource) + "\" ("
+                + Integer.toHexString(resource) + ")");
+    }
 
-	final XmlResourceParser parser = res.getLayout(resource);
-	try {
-		return inflate(parser, root, attachToRoot);
-	} finally {
-		parser.close();
-	}
+    final XmlResourceParser parser = res.getLayout(resource);
+    try {
+        return inflate(parser, root, attachToRoot);
+    } finally {
+        parser.close();
+    }
 }
 ```
 
@@ -248,38 +248,38 @@ public View inflate(@LayoutRes int resource, @Nullable ViewGroup root, boolean a
 ```java
 // ActivityThread:createBaseContextForActivity
 private ContextImpl createBaseContextForActivity(ActivityClientRecord r) {       
-	/// 创建的时候，把PackageInfo（即LoadedApk）传递到ContextImpl
-	ContextImpl appContext = ContextImpl.createActivityContext(
-			this, r.packageInfo, r.activityInfo, r.token, displayId, r.overrideConfig);
+    /// 创建的时候，把PackageInfo（即LoadedApk）传递到ContextImpl
+    ContextImpl appContext = ContextImpl.createActivityContext(
+            this, r.packageInfo, r.activityInfo, r.token, displayId, r.overrideConfig);
 
-	final DisplayManagerGlobal dm = DisplayManagerGlobal.getInstance();
+    final DisplayManagerGlobal dm = DisplayManagerGlobal.getInstance();
 
-	return appContext;
+    return appContext;
 }
 ```
 
 ```java
 // ContextImpl:createActivityContext
 static ContextImpl createActivityContext(ActivityThread mainThread,
-		LoadedApk packageInfo, ActivityInfo activityInfo, IBinder activityToken, int displayId,
-		Configuration overrideConfiguration) {
+        LoadedApk packageInfo, ActivityInfo activityInfo, IBinder activityToken, int displayId,
+        Configuration overrideConfiguration) {
 
-	final ResourcesManager resourcesManager = ResourcesManager.getInstance();
+    final ResourcesManager resourcesManager = ResourcesManager.getInstance();
 
-	// Create the base resources for which all configuration contexts for this Activity
-	// will be rebased upon.
-	context.setResources(resourcesManager.createBaseActivityResources(activityToken,
-			packageInfo.getResDir(),
-			splitDirs,
-			packageInfo.getOverlayDirs(),
-			packageInfo.getApplicationInfo().sharedLibraryFiles,
-			displayId,
-			overrideConfiguration,
-			compatInfo,
-			classLoader));
-	context.mDisplay = resourcesManager.getAdjustedDisplay(displayId,
-			context.getResources());
-	return context;
+    // Create the base resources for which all configuration contexts for this Activity
+    // will be rebased upon.
+    context.setResources(resourcesManager.createBaseActivityResources(activityToken,
+            packageInfo.getResDir(),
+            splitDirs,
+            packageInfo.getOverlayDirs(),
+            packageInfo.getApplicationInfo().sharedLibraryFiles,
+            displayId,
+            overrideConfiguration,
+            compatInfo,
+            classLoader));
+    context.mDisplay = resourcesManager.getAdjustedDisplay(displayId,
+            context.getResources());
+    return context;
 }
 ```
 
@@ -302,33 +302,33 @@ static ContextImpl createActivityContext(ActivityThread mainThread,
  * or the class loader is different.
  */
  private @NonNull Resources getOrCreateResourcesForActivityLocked(@NonNull IBinder activityToken,
-		@NonNull ClassLoader classLoader, @NonNull ResourcesImpl impl,
-		@NonNull CompatibilityInfo compatInfo) {
-	// A.
-	final ActivityResources activityResources = getOrCreateActivityResourcesStructLocked(
-			activityToken);
+        @NonNull ClassLoader classLoader, @NonNull ResourcesImpl impl,
+        @NonNull CompatibilityInfo compatInfo) {
+    // A.
+    final ActivityResources activityResources = getOrCreateActivityResourcesStructLocked(
+            activityToken);
 
-	// B.
-	final int refCount = activityResources.activityResources.size();
-	for (int i = 0; i < refCount; i++) {
-		WeakReference<Resources> weakResourceRef = activityResources.activityResources.get(i);
-		Resources resources = weakResourceRef.get();
+    // B.
+    final int refCount = activityResources.activityResources.size();
+    for (int i = 0; i < refCount; i++) {
+        WeakReference<Resources> weakResourceRef = activityResources.activityResources.get(i);
+        Resources resources = weakResourceRef.get();
 
-		if (resources != null
-				&& Objects.equals(resources.getClassLoader(), classLoader)
-				&& resources.getImpl() == impl) {
-			return resources;
-		}
-	}
+        if (resources != null
+                && Objects.equals(resources.getClassLoader(), classLoader)
+                && resources.getImpl() == impl) {
+            return resources;
+        }
+    }
 
     // C.
-	Resources resources = compatInfo.needsCompatResources() ? new CompatResources(classLoader)
-			: new Resources(classLoader);
-	resources.setImpl(impl);
+    Resources resources = compatInfo.needsCompatResources() ? new CompatResources(classLoader)
+            : new Resources(classLoader);
+    resources.setImpl(impl);
 
-	// D.
-	activityResources.activityResources.add(new WeakReference<>(resources));
-	return resources;
+    // D.
+    activityResources.activityResources.add(new WeakReference<>(resources));
+    return resources;
 }
 ```
 文档描述：Gets an existing Resources object tied to this Activity, or creates one if it doesn't exist or the class loader is different.（获取一个已经存在的，与当前Activity绑定的Resources对象；如果不存在，或classloader发生改变，则重新创建一个）
@@ -360,15 +360,15 @@ D. 把这个新的`Resources`继续丢到与当前Activity绑定的`ActivityReso
   - return getOrCreateResources();
      // 真正创建一个ResourceImpl
      - resourcesImpl = createResourcesImpl(key);
-	     // 创建一个AssetManager
+         // 创建一个AssetManager
          - assets = new AssetManager();
-		 - assets.addAssetPath(key.mResDir)
-		 - assets.addOverlayPath(idmapPath)
-		     - assets.ensureStringBlocks()
-			 // 这里，开始正式加载资源表！具体见`AssetManager详解`
-		 // 通过AssetManager创建ResourcesImpl
-		 - return new ResourcesImpl(assets)
-		     - assets.ensureStringBlocks()
+         - assets.addAssetPath(key.mResDir)
+         - assets.addOverlayPath(idmapPath)
+             - assets.ensureStringBlocks()
+             // 这里，开始正式加载资源表！具体见`AssetManager详解`
+         // 通过AssetManager创建ResourcesImpl
+         - return new ResourcesImpl(assets)
+             - assets.ensureStringBlocks()
      // 丢到一个key-value中
      - mResourceImpls.put(key, new WeakReference<>(resourcesImpl));
      // 使用ResourceImpl创建Resources并返回
@@ -397,7 +397,7 @@ Resources的创建过程，有多个缓存。首先，`ResourcesImpl`使用`Reso
 ```java
 // Resources.getLayout()
 public XmlResourceParser getLayout(@LayoutRes int id) throws NotFoundException {
-	return loadXmlResourceParser(id, "layout");
+    return loadXmlResourceParser(id, "layout");
 }
 
 // Resources.loadXmlResourceParser()
@@ -405,15 +405,15 @@ public XmlResourceParser getLayout(@LayoutRes int id) throws NotFoundException {
 XmlResourceParser loadXmlResourceParser(@AnyRes int id, @NonNull String type) throws NotFoundException {
    final TypedValue value = obtainTempTypedValue();
    try {
-	   final ResourcesImpl impl = mResourcesImpl;
-	   impl.getValue(id, value, true);
-	   if (value.type == TypedValue.TYPE_STRING) {
-		   return impl.loadXmlResourceParser(value.string.toString(), id,
-				   value.assetCookie, type);
-	   }
-	   throw new NotFoundException("Resource ID is not valid");
+       final ResourcesImpl impl = mResourcesImpl;
+       impl.getValue(id, value, true);
+       if (value.type == TypedValue.TYPE_STRING) {
+           return impl.loadXmlResourceParser(value.string.toString(), id,
+                   value.assetCookie, type);
+       }
+       throw new NotFoundException("Resource ID is not valid");
    } finally {
-	   releaseTempTypedValue(value);
+       releaseTempTypedValue(value);
    }
 }
 ```
@@ -621,7 +621,7 @@ TypedValue.mDensity = ResTable_config.density
 ```java
 // AssetManager:getResourceValue()
 if (outValue.type == TypedValue.TYPE_STRING) {
-	outValue.string = mStringBlocks[block].get(outValue.data);
+    outValue.string = mStringBlocks[block].get(outValue.data);
 }
 ```
 

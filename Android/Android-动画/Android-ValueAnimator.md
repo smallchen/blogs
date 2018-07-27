@@ -20,13 +20,13 @@ mAnimator.addUpdateListener(mAnimatorUpdater);
 ```java
 @CallSuper
 void initAnimation() {
-	if (!mInitialized) {
-		int numValues = mValues.length;
-		for (int i = 0; i < numValues; ++i) {
-			mValues[i].init();
-		}
-		mInitialized = true;
-	}
+    if (!mInitialized) {
+        int numValues = mValues.length;
+        for (int i = 0; i < numValues; ++i) {
+            mValues[i].init();
+        }
+        mInitialized = true;
+    }
 }
 ```
 
@@ -42,9 +42,9 @@ mAnimator.setDuration(AnimationTime);
 
 ```java
 public static ValueAnimator ofInt(int... values) {
-	ValueAnimator anim = new ValueAnimator();
-	anim.setIntValues(values);
-	return anim;
+    ValueAnimator anim = new ValueAnimator();
+    anim.setIntValues(values);
+    return anim;
 }
 ```
 
@@ -59,11 +59,11 @@ private ValueAnimator mAnimator;
 private AnimatorUpdater mAnimatorUpdater = new AnimatorUpdater();
 
 private void initAnimator() {
-	mAnimator = ValueAnimator.ofInt(0, 100);
-	mAnimator.setDuration(AnimationTime);
-	mAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
-	mAnimator.addListener(mAnimatorListener);
-	mAnimator.addUpdateListener(mAnimatorUpdater);
+    mAnimator = ValueAnimator.ofInt(0, 100);
+    mAnimator.setDuration(AnimationTime);
+    mAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+    mAnimator.addListener(mAnimatorListener);
+    mAnimator.addUpdateListener(mAnimatorUpdater);
 }
 
 protected class AnimatorUpdater implements ValueAnimator.AnimatorUpdateListener {

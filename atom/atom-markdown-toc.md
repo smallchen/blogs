@@ -2,8 +2,8 @@
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [atom markdown toc 插件源码修改](#atom-markdown-toc-插件源码修改)
-	- [修复非H1开头的标题转化为CodeBlock的错误](#修复非h1开头的标题转化为codeblock的错误)
-	- [修复代码块中注释成为TOC标题的错误](#修复代码块中注释成为toc标题的错误)
+    - [修复非H1开头的标题转化为CodeBlock的错误](#修复非h1开头的标题转化为codeblock的错误)
+    - [修复代码块中注释成为TOC标题的错误](#修复代码块中注释成为toc标题的错误)
 - [扩展：atom插件的修改](#扩展atom插件的修改)
 
 <!-- /TOC -->
@@ -38,30 +38,30 @@ __createList: () ->
   indicesOfDepth = Array.apply(null, new Array(depthTo - depthFrom)).map(Number.prototype.valueOf, 0);
 
   for own i, item of @list
-	row = []
-	for tab in [depthFrom..item.depth] when tab > depthFirst
-	  if depthFirst isnt -1
-		row.push "\t"
-	if @options.orderedList is 1
-	  row.push ++indicesOfDepth[item.depth-1] + ". "
-	  indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
-	else
-	  row.push "- "
-	  # jokin add
-	  if depthFirst is -1
-		depthFirst = item.depth
-	  # --
+    row = []
+    for tab in [depthFrom..item.depth] when tab > depthFirst
+      if depthFirst isnt -1
+        row.push "\t"
+    if @options.orderedList is 1
+      row.push ++indicesOfDepth[item.depth-1] + ". "
+      indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
+    else
+      row.push "- "
+      # jokin add
+      if depthFirst is -1
+        depthFirst = item.depth
+      # --
 
-	line = item.line.substr item.depth
-	line = line.trim()
-	if @options.withLinks is 1
-	  row.push @___createLink line
-	else
-	  row.push line
+    line = item.line.substr item.depth
+    line = line.trim()
+    if @options.withLinks is 1
+      row.push @___createLink line
+    else
+      row.push line
 
-	list.push row.join ""
+    list.push row.join ""
   if list.length > 0
-	return list
+    return list
   return false
 ```
 

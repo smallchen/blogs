@@ -14,8 +14,8 @@
 
 ```java
 def getVersionInfo() {
-	println new String("${VersionInfo}".getBytes(), "UTF-8")
-	println new String("${VersionInfo}".getBytes("ISO-8859-1"), "UTF-8")
+    println new String("${VersionInfo}".getBytes(), "UTF-8")
+    println new String("${VersionInfo}".getBytes("ISO-8859-1"), "UTF-8")
 }
 输出：
 "®æ­£ï¼ä¿®å¤ä¸äºBug"
@@ -26,15 +26,15 @@ def getVersionInfo() {
 
 ```java
 public byte[] getBytes(Charset var1) {
-	if(var1 == null) {
-		throw new NullPointerException();
-	} else {
-		return StringCoding.encode(var1, this.value, 0, this.value.length);
-	}
+    if(var1 == null) {
+        throw new NullPointerException();
+    } else {
+        return StringCoding.encode(var1, this.value, 0, this.value.length);
+    }
 }
 
 public byte[] getBytes() {
-	return StringCoding.encode(this.value, 0, this.value.length);
+    return StringCoding.encode(this.value, 0, this.value.length);
 }
 
 

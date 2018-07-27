@@ -51,28 +51,28 @@ Warning: This may have produced partial or corrupted output.
 ```
 
 Out of memory error (version 1.3-b2 'Douarn' (320400 bfc75939a2e32be4feddc59d656afb274397ed65 by android-jack-team@google.com)).
-	Java heap space.
-	Try increasing heap size with java option '-Xmx<size>'.
-	Warning: This may have produced partial or corrupted output.
+    Java heap space.
+    Try increasing heap size with java option '-Xmx<size>'.
+    Warning: This may have produced partial or corrupted output.
 
 
 fix solution:
 
-	1. vim ./prebuilts/sdk/tools/jack-admin ---->  JACK_VM_COMMAND=${JACK_VM_COMMAND:="java -Xmx4096m"}
+    1. vim ./prebuilts/sdk/tools/jack-admin ---->  JACK_VM_COMMAND=${JACK_VM_COMMAND:="java -Xmx4096m"}
 
-	2.  export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
-		./prebuilts/sdk/tools/jack-admin kill-server
-		./prebuilts/sdk/tools/jack-admin start-server
+    2.  export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
+        ./prebuilts/sdk/tools/jack-admin kill-server
+        ./prebuilts/sdk/tools/jack-admin start-server
 
-	1. vim `~/.bash_profile`
-	   `export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m"`
+    1. vim `~/.bash_profile`
+       `export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4096m"`
 
-	2. stop the background jack-server
-	   `prebuilts/sdk/tools/jack-admin kill-server`
-	3. start a new console.
-	4. run `export` to see if the `JACK_SERVER_VM_ARGUMENTS` exist.
-	  or `echo $JACK_SERVER_VM_ARGUMENTS`
-	5. run again.
+    2. stop the background jack-server
+       `prebuilts/sdk/tools/jack-admin kill-server`
+    3. start a new console.
+    4. run `export` to see if the `JACK_SERVER_VM_ARGUMENTS` exist.
+      or `echo $JACK_SERVER_VM_ARGUMENTS`
+    5. run again.
 
 
 ```java

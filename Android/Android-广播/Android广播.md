@@ -69,17 +69,17 @@ mContext.registerReceiver(mMessageReceiver, msgFilter);
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            	String action = intent.getAction();
-    			String type = intent.getStringExtra(IMutualControlIntent.EXTRA_DEVICE_TYPE);
-        		String path = intent.getStringExtra(IMutualControlIntent.EXTRA_MOUNT_PATH);
-        		if (path == null) {
-            		return;
-        		}
-        		if (IMutualControlIntent.ACTION_USB_DEVICE_ATTACH.equals(action)) {
-        		    // handle usb attach
-        		} else if (IMutualControlIntent.ACTION_USB_DEVICE_DETACH.equals(action)) {
-        		    // handle usb detach
-        		}
+                String action = intent.getAction();
+                String type = intent.getStringExtra(IMutualControlIntent.EXTRA_DEVICE_TYPE);
+                String path = intent.getStringExtra(IMutualControlIntent.EXTRA_MOUNT_PATH);
+                if (path == null) {
+                    return;
+                }
+                if (IMutualControlIntent.ACTION_USB_DEVICE_ATTACH.equals(action)) {
+                    // handle usb attach
+                } else if (IMutualControlIntent.ACTION_USB_DEVICE_DETACH.equals(action)) {
+                    // handle usb detach
+                }
         }
     };
 ```

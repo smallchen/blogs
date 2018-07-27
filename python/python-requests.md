@@ -17,7 +17,7 @@ requests_log.propagate = True
 
 ```python
 def __init__(self):
-	self.session = requests.Session()
+    self.session = requests.Session()
 ```
 
 3、发起`multipart/form-data;`请求
@@ -31,58 +31,58 @@ def __init__(self):
 ```python
 
 formData = {
-	"account": (None, "[object Object]"),
-	"meta": (None, "[object Object]"),
+    "account": (None, "[object Object]"),
+    "meta": (None, "[object Object]"),
 
-	"status": (None, "send"),
-	"sender_title": (None, ""),
-	"type": (None, "image"),
-	"image": (None, ""),
-	"from": (None, "pc"),
+    "status": (None, "send"),
+    "sender_title": (None, ""),
+    "type": (None, "image"),
+    "image": (None, ""),
+    "from": (None, "pc"),
 
-	"id": (None, '1529111371.312002'),
-	"create_time": (None, "2018-06-16 12:27"),
-	"timestamp": (None, '1529111381.047179'),
-	"ts": (None, '1529111381.047179'),
+    "id": (None, '1529111371.312002'),
+    "create_time": (None, "2018-06-16 12:27"),
+    "timestamp": (None, '1529111381.047179'),
+    "ts": (None, '1529111381.047179'),
 }
 
 # return the Pass path else return NONE
 def post(self, path):
-	(fileDir, longname, shortname, fileExt) = self.get_filePath_fileName_fileExt(path)
-	if longname.startswith("."):
-		# ignore .DS_Store
-		print "ignore:" + path
-		return None
+    (fileDir, longname, shortname, fileExt) = self.get_filePath_fileName_fileExt(path)
+    if longname.startswith("."):
+        # ignore .DS_Store
+        print "ignore:" + path
+        return None
 
-	# ['id'] = (NONE, "12345")
-	# name =（filename, value, contentType)
-	# value为字符串或二进制
-	self.formData['image'] = (longname, open(path,'rb'), 'image/jpeg')
+    # ['id'] = (NONE, "12345")
+    # name =（filename, value, contentType)
+    # value为字符串或二进制
+    self.formData['image'] = (longname, open(path,'rb'), 'image/jpeg')
 
-	timeString = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
-	# 保留6位小数的时间戳，默认str会截剩2位
-	id = str("{0:10f}").format(time.time())
-	time.sleep(0.020)
-	timestamp = str("{0:10f}").format(time.time())
-	self.formData['id'] = (None, str(id))
-	self.formData['create_time'] = (None, timeString)
-	self.formData['timestamp'] = (None, timestamp)
-	self.formData['ts'] = (None, timestamp)
+    timeString = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
+    # 保留6位小数的时间戳，默认str会截剩2位
+    id = str("{0:10f}").format(time.time())
+    time.sleep(0.020)
+    timestamp = str("{0:10f}").format(time.time())
+    self.formData['id'] = (None, str(id))
+    self.formData['create_time'] = (None, timeString)
+    self.formData['timestamp'] = (None, timestamp)
+    self.formData['ts'] = (None, timestamp)
 
-	# 使用流方式，都是字符串！
-	files = self.formData
-	print self.formData
+    # 使用流方式，都是字符串！
+    files = self.formData
+    print self.formData
 
-	self.post_headers['authorization'] = self.account['token']
-	response = self.session.post(url=URL_SEND_MESSAGE,
-							  files=files,
-							  headers=self.post_headers)
-	print response.text
-	result = response.json()
-	print result
-	if result['code'] == 0:
-		return path
-	return None;
+    self.post_headers['authorization'] = self.account['token']
+    response = self.session.post(url=URL_SEND_MESSAGE,
+                              files=files,
+                              headers=self.post_headers)
+    print response.text
+    result = response.json()
+    print result
+    if result['code'] == 0:
+        return path
+    return None;
 ```
 
 以上，模拟了以下数据，并且会自动设置`headers`中的`Content-Type`为`multipart/form-data;`，和设置`boundary`，且会计算其长度设置到`Content-Length`。

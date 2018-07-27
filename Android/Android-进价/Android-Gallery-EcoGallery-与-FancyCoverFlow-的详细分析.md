@@ -21,7 +21,7 @@ Another option you have is to use the 3rd party created EcoGallery which Joseph 
 比如，AbsSpinner里面的RecycleBin：
 
 ```java
-	class RecycleBin {
+    class RecycleBin {
         private final SparseArray<View> mScrapHeap = new SparseArray<View>();
 
         public void put(int position, View v) {
@@ -161,17 +161,17 @@ Gallery控件通过重写ViewGroup的`getChildDrawingOrder`来使得绘制从两
 而通常我们需要的是下面的绘制顺序：1 2 5 4 3
 
 ```java
-	@Override
-	protected int getChildDrawingOrder(int childCount, int i) {
-		int selectedIndex = mSelectedPosition - mFirstPosition;
-		if (i < selectedIndex) {
-			return I;
-		} else if (i >= selectedIndex) {
-			return childCount - 1 - i + selectedIndex;
-		} else {
-			return I;
-		}
-	}
+    @Override
+    protected int getChildDrawingOrder(int childCount, int i) {
+        int selectedIndex = mSelectedPosition - mFirstPosition;
+        if (i < selectedIndex) {
+            return I;
+        } else if (i >= selectedIndex) {
+            return childCount - 1 - i + selectedIndex;
+        } else {
+            return I;
+        }
+    }
 ```
 
 ## EcoGallery替代Gallery
@@ -188,7 +188,7 @@ EcoGallery的诞生就是因为Gallery被过时，但仍旧需要一个替代Gal
 EcoGallery并不神秘，它其实是Gallery源码的一个拷贝。作者将Gallery源码从Android原生Widget中抽离出来，并对上述View重用的缺陷进行了改进，实现了另一个RecycleBin。关于如何抽离Android原生控件，可以参考附录。
 
 ```java
-	class RecycleBin {
+    class RecycleBin {
         private SparseArray<View> mScrapHeap = new SparseArray<View>();
 
         public void put(int position, View v) {

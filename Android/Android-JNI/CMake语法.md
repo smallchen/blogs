@@ -287,7 +287,7 @@ android {
             }
         }
     }
-	  //配置 CMakeLists.txt 路径
+      //配置 CMakeLists.txt 路径
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"

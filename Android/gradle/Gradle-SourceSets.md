@@ -12,8 +12,8 @@ android {
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
             jniLibs.srcDirs = ['libs']
-    	}
-	}
+        }
+    }
 }
 ```
 
@@ -36,13 +36,13 @@ sourceSets {
 
 ```java
 sourceSets {
-	main {
-	  if (isDebug.toBoolean()) {
-		  manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-	  } else {
-		  manifest.srcFile 'src/main/release/AndroidManifest.xml'
-	  }
-	}
+    main {
+      if (isDebug.toBoolean()) {
+          manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+      } else {
+          manifest.srcFile 'src/main/release/AndroidManifest.xml'
+      }
+    }
 }
 ```
 
@@ -61,14 +61,14 @@ sourceSets {
 
 ```java
 sourceSets {
-	main {
-		java {
-			exclude '/test/**'  // 不想包含文件的路径
-		}
-		resources {
-			exclude '/resource/**' // 不想包含的资源文件路径
-		}
-		.....
-	}
+    main {
+        java {
+            exclude '/test/**'  // 不想包含文件的路径
+        }
+        resources {
+            exclude '/resource/**' // 不想包含的资源文件路径
+        }
+        .....
+    }
 }
 ```
