@@ -9,4 +9,7 @@ AssetManager
 皮肤框架
 <https://www.jianshu.com/p/5eac94143bd6>
 
+资源
+<https://www.jianshu.com/p/3fc3a6040dac>
+
 google搜索`private native final void init(boolean isSystem);`
