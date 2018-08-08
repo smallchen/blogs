@@ -262,4 +262,4 @@ private void handleDestroyActivity(IBinder token, boolean finishing,
 1. 触发Activity:onDestroy()。
 2. clean up清理，清理与当前Activity绑定的子窗口，如果有，清理并打印错误。但不会造成崩溃。
 
-`ActivityClientRecord r = performDestroyActivity()`的`Activity:onDestroy()`分发流程，可以见另一篇《Activity onDestroy流程详解》，有从Activity到接收到BACK按键，到onDestroy回调的流程分析。
+`ActivityClientRecord r = performDestroyActivity()`的`Activity:onDestroy()`分发流程，可以见另一篇《Activity onDestroy流程详解》，有从Activity，到接收到BACK按键，到onDestroy回调的流程分析。

@@ -1053,4 +1053,15 @@ DOWN事件，最先返回true的是ViewA。
 
 8. ACTION_DOWN在目标外，然后划过目标释放，目标不会收到任何事件。ACTION_DOWN在目标内，然后划出目标释放，目标会收到父发送过来的ACTION_MOVE/UP等事件。
 
-9. **事件都是先从父dispatcher然后到子dispatcher，如果不拦截，先到子的onTouch／onTouchEvent，后到父的onTouch／onTouchEvent。**所以，在子View上点击，子View是有优先响应权的。
+9. **事件都是先从父dispatcher然后到子dispatcher，如果不拦截，先到子的onTouch／onTouchEvent，后到父的onTouch／onTouchEvent。** 所以，在子View上点击，子View是有优先响应权的。
+
+
+## 错误
+
+其实，View的分发还有一种，就是`Split_Touch_Event`。表示每个子View单独响应`TouchEvent`。
+
+效果就是，多指可以移动多个子View。每个子View有独立的事件分发。每个子View都可以接收`Down`事件。
+
+默认是开启了`SPLIT_TOUCH_EVENT`这个Flag的。
+
+比如：当touch第一个子View时，返回down，touch第二个子View时，也返回down，则两个子View都是独立的一套分发。

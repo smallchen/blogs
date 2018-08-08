@@ -1,3 +1,14 @@
+<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+## 目录(TOC)
+- [抽离Android原生控件的方法](#抽离android原生控件的方法)
+    - [Android源码](#android源码)
+    - [Android原生控件的源码](#android原生控件的源码)
+    - [为什么需要抽离原生控件](#为什么需要抽离原生控件)
+    - [抽离原生Gallery控件](#抽离原生gallery控件)
+
+<!-- /TOC -->
+
 # 抽离Android原生控件的方法
 
 ## Android源码
@@ -67,14 +78,14 @@ mGroupFlags |= FLAG_SUPPORT_STATIC_TRANSFORMATIONS;
      * ViewGroup源码
      */
     protected static final int FLAG_USE_CHILD_DRAWING_ORDER = 0x400;
-   
+
      /**
      * When set, this ViewGroup supports static transformations on children; this causes
      * {@link #getChildStaticTransformation(View, android.view.animation.Transformation)} to be
      * invoked when a child is drawn.
      * ViewGroup源码
      */
-    protected static final int FLAG_SUPPORT_STATIC_TRANSFORMATIONS = 0x800; 
+    protected static final int FLAG_SUPPORT_STATIC_TRANSFORMATIONS = 0x800;
 ```
 
 
@@ -84,7 +95,7 @@ mGroupFlags在这里可能相当于Windows下的窗口样式，可以改变控�
 ```java
     @Override
     protected int getChildDrawingOrder(int childCount, int i)
-    
+
     @Override
     protected boolean getChildStaticTransformation(View child, Transformation t)
 ```
@@ -156,3 +167,13 @@ mGroupFlags是ViewGroup里面的属性，新的SDK中，通过继承是可以直
 
 附录：
 @hide详解 <http://blog.csdn.net/linghu_java/article/details/8283042>
+
+**4 R改为com.android.internal.R**
+
+android内部资源，访问为`com.android.internal.R`。
+
+**5 注解使用support.annotations**
+
+注解：
+`implementation 'com.android.support:support-annotations:28.0.0-alpha3'
+`
