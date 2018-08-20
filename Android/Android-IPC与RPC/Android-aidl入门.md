@@ -11,8 +11,10 @@ Android接口定义语言
 * 定向tag：in，out，inout。
     * 基本类型默认只能是in，因为只能作为值，不能作为引用被修改。
 * 两种aidl类型：一种定义数据，一种定义接口。
+* aidl**不支持**常量定义！只有方法和结构体！
 
 ### 理解in，out，inout
+
 *  in 表示数据只能由客户端流向服务端
 * out 表示数据只能由服务端流向客户端
 * inout 则表示数据可在服务端与客户端之间双向流通
@@ -22,6 +24,8 @@ in 表现为服务端将会接收到一个那个对象的完整数据，但是�
 out 表现为服务端将会接收到那个对象的的空对象，但是在服务端对接收到的空对象有任何修改之后客户端将会同步变动。（简而言之，服务端只能写，不能读）
 
 inout 表现为，服务端将会接收到客户端传来对象的完整信息，并且客户端将会同步服务端对该对象的任何变动。（简而言之，服务端可读可写）
+
+如果是基本类型，只能是in，所以默认是in。如果是inout类型，则必须显式说明是`in`还是`out`。
 
 由于java中的基本类型，本身只能作为值，不可以作为引用，所以本身不支持被修改。所以，即使在aidl中，也不能被服务端修改。所以，基本类型，只能是in，不能作为任何out。
 
@@ -59,10 +63,10 @@ import com.jokin.demo.sdk.IAction;
 interface IActionListener {
     // 基本类型，不需 import，默认是 in
     void onDone(String action);
+
+    String key();
 }
 ```
-
-接口也可以作为另一个接口的参数。参数中的接口，如果是匿名接口，匿名接口的返回值，也会被原封不动的传递过去！！非常实用。
 
 ```java
 // Isdk.aidl
@@ -79,6 +83,65 @@ interface Isdk {
     oneway void quit();
 }
 ```
+
+如上，`IActionListener`接口，也可以作为`aidl`方法的参数。
+
+接口作为参数，真正传递时，肯定是一个接口的实现类（比如匿名实现类）。
+
+```java
+DefaultActionListener mlistener = new IActionListener() {
+    void onDone(String action) {
+    }
+    String key() {
+        return String.valueOf(hashcode());
+    }
+};
+```
+
+如上，`IActionListener`接口，里面有一个返回字符串的`key()`方法。
+
+匿名实现类，`key()`返回的是当前对象的`hashcode`，服务端将能够顺利得到这个`hashcode`，而不是服务端的对象的`hashcode`。
+这是因为aidl方法调用时，会将返回值进行传递。
+
+通过一个接口定义，可以传输这个接口的所有子类！比传递固定数据结构方便。
+
+> 客户端对象，和服务端对象。虽然是同一个类，但却是不同的实例，所以两者的hashcode不一样。
+
+说到这里，顺便说一下，传递接口，和传递数据结构是不一样的。
+
+```java
+Book implements Parcelable {
+    String key() {
+        return hashcode();
+    }
+}
+```
+
+如上，将结构体Book传递，在服务端调用`key()`时，得到的值和客户端调用`key()`是不一样的。因为结构体Book在客户端和服务端，是两个不同的实例。上面的代码就相当于调用两个不同实例的`hashcode()`方法，所以自然是不等的。
+
+在传递结构体时，需要注意结构体的方法。要确定方法是实时运算，还是返回一个固定的值。
+
+上面的代码改成下面这样就可以将`hashcode`传递到服务端。
+
+```java
+Book implements Parcelable {
+    Book() {
+        mKey = hashcode();
+    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mKey);
+    }
+    public CRemoteView(Parcel parcel) {
+        mKey = parcel.readString();
+    }
+    String key() {
+        return mKey;
+    }
+}
+```
+
+在序列化时，将`mKey`序列化。反序列化时，将`mKey`读取出来，获取key()时直接返回`mKey`，这样就可以保证操作的是一个数据实体。
 
 ### 实例，第一个aidl应用
 
@@ -205,7 +268,7 @@ intentService.setComponent(new ComponentName(PACKAGE_NAME, ACTION_SERVICE));
 bindService(intentService, mServiceConnection, BIND_AUTO_CREATE);
 ```
 
-3.绑定服务时，服务连接有一个`ServiceConnection`回调。通过这个回调，我们拿到服务端返回的Binder对象。这个Binder对象，其实就是上面Server端返回的`Isdk.Stub`对象。
+3.绑定服务时，服务连接有一个`ServiceConnection`回调。通过这个回调，我们拿到服务端返回的Binder对象。这个Binder对象，其实就是上面Server端返回的`Isdk.Stub`对象。`ServiceConnection`相关回调，是在**主线程**中回调！
 
 通过`Isdk.Stub.asInterface()`静态方法，可以将一个`Isdk.Stub`Binder对象转化为`Isdk`接口简化调用。
 

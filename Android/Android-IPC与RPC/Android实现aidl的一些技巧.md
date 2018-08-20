@@ -34,6 +34,26 @@ ADIL的接口都需要捕获`android.os.RemoteException`，通常是指ADIL连�
 
 ##### AIDL服务断开
 
+先看`onServiceDisconnected`的文档：
+
+```java
+public void onServiceDisconnected(ComponentName name)
+
+Description copied from interface: ServiceConnection Called when a connection to the Service has been lost. This typically happens when the process hosting the service has crashed or been killed. This does not remove the ServiceConnection itself -- this binding to the service will remain active, and you will receive a call to onServiceConnected when the Service is next running.
+```
+`onServiceDisconnected`是在Service断开时回调（进程crash或者被kill）。注意，这个回调不会移除`binder`（bindService()仍旧活着），当下一次服务启动时，由于`binder`还活着，所以会触发`onServiceConnected`。
+
+这个文档很重要，也解释了下面的现象。
+
+**AIDL断开的回调**
+
+* `unbind()`是`bind`的逆操作，主要是清理bind相关对象，并不会回调`onServiceDisconnected`.
+
+* 当Service进程死亡，经过Binder死亡回调，则会进入Client端进程来执行`binderDied()`，经过层层调用， 最终回调用户定义的`onServiceDisconnected`方法。（主线程回调）
+
+* 当或者`stopService`过程被service彻底destroy的过程，也会回调`onServiceDisconnected`方法。
+
+
 AIDL服务断开，主要有以下情况：
 
 * 客户端主动`unbindService`关闭。
