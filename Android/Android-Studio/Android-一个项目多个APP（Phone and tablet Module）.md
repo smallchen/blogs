@@ -1,4 +1,4 @@
-## Android Phone and tablet Module 与 Android Library 区别
+## Android 一个项目多个APP（Android Phone and tablet Module）
 
 ### Phone and tablet Module
 
