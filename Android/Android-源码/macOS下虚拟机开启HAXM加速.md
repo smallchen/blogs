@@ -1,4 +1,4 @@
-## macOS High Sierra下虚拟机开启HAMX加速（不是吐槽，arm的虚拟机真心慢！）
+## macOS High Sierra下虚拟机开启HAXM加速（不是吐槽，arm的虚拟机真心慢！基本不能用！）
 
 macOS High Sierra,Intel HAXM is required to run this AVD...
 

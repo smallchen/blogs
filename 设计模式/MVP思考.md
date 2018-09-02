@@ -1,3 +1,12 @@
+<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+## 目录(TOC)
+- [MVP思考](#mvp思考)
+- [MVVM](#mvvm)
+- [MVP设计思想](#mvp设计思想)
+
+<!-- /TOC -->
+
 ## MVP思考
 
 但MVP也存在一些弊端：
@@ -18,3 +27,74 @@ Model: 实体模型。
 ViewModel: 负责完成View与Model间的交互，负责业务逻辑。
 
 MVVM的目标和思想与MVP类似，利用数据绑定(Data Binding)、依赖属性(Dependency Property)、命令(Command)、路由事件(Routed Event)等新特性，打造了一个更加灵活高效的架构。
+
+## MVP设计思想
+
+常见的Listener回调：
+
+```java
+class Presenter {
+    interface IListener {
+        void onDone();
+    }
+
+    IListener mListener;
+    void setListener(IListener listener) {
+        mListener = listener;
+    }
+
+    void notifyDone() {
+        mListener.onDone();
+    }
+}
+
+class View {
+    Presenter mPresenter = new Presenter();
+    {
+        mPresenter.setListener(new IListener() {
+            void onDone() {
+                Log.i(TAG, "Presenter Done!");
+            }
+        })
+    }
+}
+
+或
+
+class View implements IListener {
+    Presenter mPresenter = new Presenter();
+    {
+        mPresenter.setListener(this);
+    }
+    void onDone() {
+        Log.i(TAG, "Presenter Done!");        
+    }
+}
+```
+
+Listener回调是外部注册一个通知到黑盒子里。
+
+改为Presenter
+
+```java
+class Presenter {
+    Listener mListener;
+    public Module(IListener listener) {
+        mListener = listener
+    }
+
+    void notifyDone() {
+        mListener.onDone();
+    }
+}
+
+class View implements IListener {
+    Presenter mPresenter = new Presenter(this);
+
+    void onDone() {
+        Log.i(TAG, "Presenter Done!");        
+    }
+}
+```
+
+Presenter和Listener其实一样，没什么区别。
