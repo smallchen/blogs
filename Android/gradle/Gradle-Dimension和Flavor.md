@@ -44,20 +44,22 @@ YourAndroidProject/
   app/
     src/
       main/
-       <part of all builds>
+            <part of all builds>
       client1/
-       <included in client1Dev/client1Staging/client1Production>
+            <included in client1Dev/client1Staging/client1Production>
       client2/
-       <included in client2Dev/client2Staging/client2Production>
+            <included in client2Dev/client2Staging/client2Production>
       dev/
-       <included in client1Dev/client2Dev>
+            <included in client1Dev/client2Dev>
       staging/
-       <included in client1Staging/client2Staging>
+            <included in client1Staging/client2Staging>
       production/
-       <included in client1Production/client2Production>
+            <included in client1Production/client2Production>
       client1Production/
-       <included only in client1Production>
+            <included only in client1Production>
 ```
+
+如上，对于目录结构来说，都是在`app/src/`下并列目录，但对于源码编译来说，是组合关系。比如：main是被所有flavor包含的；对于Flavor`client2Dev`而言，就是`client2`和`dev`的目录组合，并包含main所形成的项目。
 
 如果某几个`Flavor`或路径，包含同样的代码，而另外几个`Flavor`或路径又包含别的代码。除了可以新增一个`纬度(flavorDimensions)`，也可以通过配置，指定某几个`Flavor`的源代码目录为同一个，以此实现包含共同代码：
 
@@ -87,18 +89,18 @@ sourceSets {
 
 ### 理解
 
-`flavorDimensions N1, N2 ...`用来定义纬度:
+`flavorDimensions N1, N2 ...`用来定义纬度（表格中的列）:
 
 `N1 N2 N3 ...`
 
-`productFlavors A1 dimension N1`用来定义各纬度的值：
+`productFlavors A1 dimension N1`用来定义各纬度的值（各列可能的值）：
 
 `N1: A1 A2 ...`
 `N2: B1 B2 ...`
 `N3: C1 C2 ...`
 `Nn: DEBUG RELEASE`
 
-加上默认的`DEBUG`和`RELEASE`产生的构建组合矩阵为：
+加上默认的`DEBUG`和`RELEASE`产生的构建组合矩阵为（形成的最大的表格）：
 
 `N1 * N2 * N3 * ...`
 

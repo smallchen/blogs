@@ -8,6 +8,11 @@ buildscript {
 
     }
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }// 阿里云maven镜像
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
         google()
         jcenter()
         maven {
@@ -35,6 +40,7 @@ allprojects {
 }
 ```
 
-如上，`buildscript.repositories`里的repositories，是用于描述插件所在的仓库；而下面`allprojects.repositories`里的repositories是描述项目依赖所在的仓库。不一样！！！
+如上，上面的`buildscript.repositories`里的repositories，是用于描述插件所在的仓库；
+而下面`allprojects.repositories`里的repositories是描述项目依赖所在的仓库。不一样！！！
 
 解决依赖缺失时，要分清是插件缺失，还是依赖库缺失。

@@ -1,5 +1,9 @@
 ## Android anr traces 日志记录
 
+参考<https://blog.csdn.net/yelangjueqi/article/details/52622080>
+非常有用
+
+
 当Android设备出现ANR，可以在以下目录找到`traces.txt`日志记录。
 
 `/data/anr/traces.txt`

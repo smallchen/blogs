@@ -1,24 +1,25 @@
-[mat1-overview]:mat1-overview.png
-[mat2-leak-suspect]:mat2-leak-suspect.png
-[mat3-leak-problem]:mat3-leak-problem.png
-[mat4-leak-detail]:mat4-leak-detail.png
-[mat5-income]:mat5-income.png
-[mat6-baidu]:mat6-baidu.png
-[mat7-histogram]:mat7-histogram.png
-[mat8-dominator]:mat8-dominator.png
-[mat9-merge-path]:mat9-merge-path.png
-[mat10-path2gc]:mat10-path2gc.png
-[mat11-path2gc2]:mat11-path2gc2.png
-[mat12-outgoing]:mat12-outgoing.png
-[mat13-outgoing2]:mat13-outgoing2.png
-[mat14-all]:mat14-all.png
-[mat15-objects]:mat15-objects.png
-[mat16]:mat16.png
-[mat17]:mat17.png
-[mat18]:mat18.png
-[mat19]:mat19.png
+[mat1-overview]:imgs/mat1-overview.png
+[mat2-leak-suspect]:imgs/mat2-leak-suspect.png
+[mat3-leak-problem]:imgs/mat3-leak-problem.png
+[mat4-leak-detail]:imgs/mat4-leak-detail.png
+[mat5-income]:imgs/mat5-income.png
+[mat6-baidu]:imgs/mat6-baidu.png
+[mat7-histogram]:imgs/mat7-histogram.png
+[mat8-dominator]:imgs/mat8-dominator.png
+[mat9-merge-path]:imgs/mat9-merge-path.png
+[mat10-path2gc]:imgs/mat10-path2gc.png
+[mat11-path2gc2]:imgs/mat11-path2gc2.png
+[mat12-outgoing]:imgs/mat12-outgoing.png
+[mat13-outgoing2]:imgs/mat13-outgoing2.png
+[mat14-all]:imgs/mat14-all.png
+[mat15-objects]:imgs/mat15-objects.png
+[mat16]:imgs/mat16.png
+[mat17]:imgs/mat17.png
+[mat18]:imgs/mat18.png
+[mat19]:imgs/mat19.png
 
 本文是使用Eclipse Memory Analyzer Tool (MAT)进行内存泄漏分析的笔记。遇到大大小小的内存泄漏，都可以通过MAT分析出来。
+这一篇写得不够好，参考另一篇《内存泄漏检测实战》
 
 ## 安装
 MAT官网 <https://www.eclipse.org/mat/>
@@ -203,7 +204,7 @@ mUiThread = Thread.currentThread();  // 主线程
 5.3 exclude soft reference 即不显示软引用
 5.4 exclude phantom reference 即不显示幽灵引用
 
-由于weak／soft／phantom引用都可以被GC回收，所以三者都可以不显示。通常使用exclude weak/soft reference。（weak是引用可回收时立即被回收变为null，soft是引用可回收但会等到内存不足时才回收，phantom是用来跟踪引用释放用的，本身不会产生强引用）
+由于weak／soft／phantom引用都可以被GC回收，所以三者都可以不显示。通常使用`exclude weak/soft reference`。（weak是引用可回收时立即被回收变为null，soft是引用可回收但会等到内存不足时才回收，phantom是用来跟踪引用释放用的，本身不会产生强引用）因为有时候，选择exclude all反而没有内容可显示。
 
 ![QQ20171127-113640@2x.png][mat14-all]
 

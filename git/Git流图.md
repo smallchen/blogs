@@ -106,7 +106,7 @@ yangmeng_24 hours ago_2018-01-04 15:04:22 +0800_
 ```
 
 ## Graph
-gitlab和github的graph
+github和github的graph
 
 1. 简单的图
 ![QQ20171205-101232@2x.png](http://upload-images.jianshu.io/upload_images/2166887-b0bce05ab347948b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

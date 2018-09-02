@@ -9,7 +9,7 @@
 public void closeMarkIfMulti() {
 =======
 private void closeMarkIfMulti() {
->>>>>>> gitlab/master
+>>>>>>> github/master
     CommonUtil.disposeDisposable(mCloseMultiMarkDisposable);
     mCloseMultiMarkDisposable = Observable.empty()
             .observeOn(AndroidSchedulers.mainThread())
@@ -28,7 +28,7 @@ private void closeMarkIfMulti() {
                         mMultiMark.realClose();
                         mMultiMark = null;
                         Log.d(TAG, "--多页批注已经关闭--");
->>>>>>> gitlab/master
+>>>>>>> github/master
                     }
                 }
             }).subscribe();
@@ -45,16 +45,16 @@ private void closeMarkIfMulti() {
 
 ```java
 =======
->>>>>>> gitlab/master
+>>>>>>> github/master
 ```
-表示gitlab/master这个分支的修改。
+表示github/master这个分支的修改。
 
 ```java
 <<<<<<< HEAD
 // 最新的修改
 =======
-// gitlab/master分支的修改
->>>>>>> gitlab/master
+// github/master分支的修改
+>>>>>>> github/master
 ```
 
 HEAD是最新的，如果本地走在前面，则本地是HEAD；如果远程走在前面，则远程是HEAD。
@@ -103,7 +103,7 @@ HEAD是最新的，如果本地走在前面，则本地是HEAD；如果远程走
             Log.e(TAG, " notifyType: " + notifyType);
             //when input source change, close mark!!!
             closeMarkIfMulti();
->>>>>>> gitlab/master
+>>>>>>> github/master
     }
 
 ／／ 下一块冲突
@@ -119,7 +119,7 @@ public void onInvisible() {
 HEAD中冲突，包含着下一个冲突的一部分。修改后应该为：
 
 ```java
-///// 保留HEAD，删除gitlab/master.
+///// 保留HEAD，删除github/master.
         @Override
         public void onReceiveNotify(String notifyType, @Nullable SystemInput systemInput, int priority) {
             NLog.e(TAG, " notifyType: " + notifyType);

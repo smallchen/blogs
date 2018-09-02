@@ -238,10 +238,11 @@ endef
 source ./build/envsetup.sh
 lunch
 (选择1)
+# 也可以直接 lunch arm64-userdebug
 make -j8
 ```
 
-输出的列表，选择1。`eng`表示是运行在模拟器中的版本。`user`表示发行版。`userdebug`表示内测版。
+输出的列表，选择1（Mac下建议构建x86版本）。`eng`表示是运行在模拟器中的版本。`user`表示发行版。`userdebug`表示内测版。
 | 构建类型 | 用途     |
 | :------------- | :------------- |
 | user       | 有限的访问权限，主要用于发布正式产品，没有 root 跟调试权限       |
@@ -268,3 +269,8 @@ emulator
 模拟器很慢。
 
 <https://blog.csdn.net/dl6655/article/details/78869501/>
+
+#### 修改
+
+修改了API，需要执行
+make update-api

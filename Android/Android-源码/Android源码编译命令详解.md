@@ -1,3 +1,16 @@
+<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+## 目录(TOC)
+- [Android源码编译命令详解](#android源码编译命令详解)
+    - [m、mm、mmm](#mmmmmm)
+        - [m例子](#m例子)
+        - [mm例子](#mm例子)
+        - [mmm例子](#mmm例子)
+    - [mma、mmma](#mmammma)
+    - [条件](#条件)
+
+<!-- /TOC -->
+
 ## Android源码编译命令详解
 
 ### m、mm、mmm
@@ -49,3 +62,15 @@ mmm development/tools/idegen/
 ### mma、mmma
 
 和上面的差不多，只是强调，指定目录下新增或删除了文件，而进行的重新编译。
+
+### 条件
+
+```java
+No rule to make target `out/target/product/generic_arm64/obj/SHARED_LIBRARIES/libbinder_intermediates/export_includes', needed by `out/target/product/generic_arm64/obj/SHARED_LIBRARIES/libinputflinger_intermediates/import_includes'
+```
+
+如上错误。要构建的模块，所依赖的模块不存在。
+
+所以通常，在对模块进行构建前，需要对系统进行一次全面的编译。主要是因为模块之间会有依赖问题。如果不进行构建，很容易出现引入的so或者lib不存在而导致模块编译失败。
+
+当然，有一小部分是例外的。比如构建AndroidStudio的项目模块。

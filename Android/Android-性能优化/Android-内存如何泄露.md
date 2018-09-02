@@ -1,8 +1,8 @@
-[memory-leak-1]: memory-leak-1.png
-[memory-leak-2]: memory-leak-2.png
-[memory-leak-3]: memory-leak-3.png
-[memory-leak-4]: memory-leak-4.png
-[memory-leak-5]: memory-leak-5.png
+[memory-leak-1]: imgs/memory-leak-1.png
+[memory-leak-2]: imgs/memory-leak-2.png
+[memory-leak-3]: imgs/memory-leak-3.png
+[memory-leak-4]: imgs/memory-leak-4.png
+[memory-leak-5]: imgs/memory-leak-5.png
 
 ## Android内存如何泄露
 

@@ -43,7 +43,7 @@
 
 缩放：
 
-    缩放使用 Google 的 ScaleGestureDetector。由于它取的系统的 minSpan 在 MAXHUB 存在问题，故而 copy
+    缩放使用 Google 的 ScaleGestureDetector。由于它取的系统的 minSpan 在 jokin 存在问题，故而 copy
     了一份出来，仍命名为 ScaleGestureDetector。copy 出来后，由于某些不知名的原因，quick-scale 的计算也
     出了问题，便 disable 了 quick-scale 手势。
 
